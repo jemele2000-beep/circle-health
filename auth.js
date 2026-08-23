@@ -1,6 +1,7 @@
 /* ==========================================
    CIRCLE HEALTH
-   SUPABASE AUTHENTICATION
+   AUTHENTICATION
+   Supabase Auth
    ========================================== */
 
 const SUPABASE_URL =
@@ -9,10 +10,6 @@ const SUPABASE_URL =
 const SUPABASE_PUBLISHABLE_KEY =
     "sb_publishable__HrEEcznU83KyZYmovtOow_qINbm_fq";
 
-
-/* ==========================================
-   INITIALIZE SUPABASE
-   ========================================== */
 
 const supabaseClient =
     window.supabase.createClient(
@@ -25,11 +22,11 @@ const supabaseClient =
    LANGUAGE
    ========================================== */
 
-let authLanguage =
+let language =
     localStorage.getItem("circleLanguage") || "en";
 
 
-const authTranslations = {
+const translations = {
 
     en: {
 
@@ -42,47 +39,53 @@ const authTranslations = {
         createAccount:
             "Create Account",
 
-        firstName:
-            "First Name",
-
         email:
             "Email",
 
         password:
             "Password",
 
-        signInButton:
-            "Sign In",
+        firstName:
+            "First Name",
 
-        createButton:
-            "Create Account",
+        signingIn:
+            "Signing in...",
 
-        back:
-            "← Back to Circle",
-
-        language:
-            "العربية",
+        creating:
+            "Creating account...",
 
         loginSuccess:
-            "Signed in successfully.",
+            "Login successful. Welcome back!",
 
         signupSuccess:
-            "Account created successfully.",
+            "Account created successfully!",
 
         checkEmail:
             "Please check your email to confirm your account.",
 
         invalidLogin:
-            "Email or password is incorrect.",
+            "Invalid email or password.",
 
         emailExists:
-            "This email may already be registered.",
+            "An account with this email may already exist.",
+
+        passwordShort:
+            "Password must be at least 6 characters.",
 
         required:
-            "Please complete all fields.",
+            "Please fill in all fields.",
 
-        genericError:
-            "Something went wrong. Please try again."
+        networkError:
+            "Something went wrong. Please try again.",
+
+        back:
+            "← Back to Circle",
+
+        arabic:
+            "العربية",
+
+        english:
+            "English"
 
     },
 
@@ -90,7 +93,7 @@ const authTranslations = {
     ar: {
 
         subtitle:
-            "افهم أنماط حياتك.",
+            "افهم أنماط حياتك الصحية.",
 
         signIn:
             "تسجيل الدخول",
@@ -98,32 +101,26 @@ const authTranslations = {
         createAccount:
             "إنشاء حساب",
 
-        firstName:
-            "الاسم الأول",
-
         email:
             "البريد الإلكتروني",
 
         password:
             "كلمة المرور",
 
-        signInButton:
-            "تسجيل الدخول",
+        firstName:
+            "الاسم الأول",
 
-        createButton:
-            "إنشاء حساب",
+        signingIn:
+            "جارٍ تسجيل الدخول...",
 
-        back:
-            "→ العودة إلى Circle",
-
-        language:
-            "English",
+        creating:
+            "جارٍ إنشاء الحساب...",
 
         loginSuccess:
-            "تم تسجيل الدخول بنجاح.",
+            "تم تسجيل الدخول بنجاح. مرحبًا بعودتك!",
 
         signupSuccess:
-            "تم إنشاء الحساب بنجاح.",
+            "تم إنشاء الحساب بنجاح!",
 
         checkEmail:
             "يرجى التحقق من بريدك الإلكتروني لتأكيد الحساب.",
@@ -132,123 +129,59 @@ const authTranslations = {
             "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
 
         emailExists:
-            "قد يكون هذا البريد الإلكتروني مسجلاً بالفعل.",
+            "قد يكون هناك حساب موجود بهذا البريد الإلكتروني.",
+
+        passwordShort:
+            "يجب أن تكون كلمة المرور 6 أحرف على الأقل.",
 
         required:
-            "يرجى إكمال جميع الحقول.",
+            "يرجى ملء جميع الحقول.",
 
-        genericError:
-            "حدث خطأ. يرجى المحاولة مرة أخرى."
+        networkError:
+            "حدث خطأ. يرجى المحاولة مرة أخرى.",
+
+        back:
+            "→ العودة إلى Circle",
+
+        arabic:
+            "العربية",
+
+        english:
+            "English"
 
     }
 
 };
 
 
-/* ==========================================
-   APPLY LANGUAGE
-   ========================================== */
+function t(key) {
 
-function applyAuthLanguage() {
-
-    const t =
-        authTranslations[authLanguage];
-
-
-    document.documentElement.lang =
-        authLanguage;
-
-    document.documentElement.dir =
-        authLanguage === "ar"
-            ? "rtl"
-            : "ltr";
-
-
-    document.getElementById(
-        "authSubtitle"
-    ).textContent = t.subtitle;
-
-
-    document.getElementById(
-        "loginTab"
-    ).textContent = t.signIn;
-
-
-    document.getElementById(
-        "signupTab"
-    ).textContent = t.createAccount;
-
-
-    document.getElementById(
-        "loginEmailLabel"
-    ).textContent = t.email;
-
-
-    document.getElementById(
-        "loginPasswordLabel"
-    ).textContent = t.password;
-
-
-    document.getElementById(
-        "nameLabel"
-    ).textContent = t.firstName;
-
-
-    document.getElementById(
-        "signupEmailLabel"
-    ).textContent = t.email;
-
-
-    document.getElementById(
-        "signupPasswordLabel"
-    ).textContent = t.password;
-
-
-    document.getElementById(
-        "loginSubmit"
-    ).textContent = t.signInButton;
-
-
-    document.getElementById(
-        "signupSubmit"
-    ).textContent = t.createButton;
-
-
-    document.getElementById(
-        "backHome"
-    ).textContent = t.back;
-
-
-    document.getElementById(
-        "authLanguage"
-    ).textContent = t.language;
+    return translations[language][key];
 
 }
 
 
 /* ==========================================
-   LANGUAGE BUTTON
+   ELEMENTS
    ========================================== */
 
-document
-    .getElementById("authLanguage")
-    .addEventListener("click", function () {
+const loginTab =
+    document.getElementById("loginTab");
 
-        authLanguage =
-            authLanguage === "en"
-                ? "ar"
-                : "en";
+const signupTab =
+    document.getElementById("signupTab");
 
+const loginForm =
+    document.getElementById("loginForm");
 
-        localStorage.setItem(
-            "circleLanguage",
-            authLanguage
-        );
+const signupForm =
+    document.getElementById("signupForm");
 
+const authMessage =
+    document.getElementById("authMessage");
 
-        applyAuthLanguage();
-
-    });
+const authLanguage =
+    document.getElementById("authLanguage");
 
 
 /* ==========================================
@@ -257,25 +190,14 @@ document
 
 function showMessage(
     message,
-    type = "error"
+    type
 ) {
 
-    const box =
-        document.getElementById(
-            "authMessage"
-        );
+    authMessage.textContent =
+        message;
 
-
-    box.textContent = message;
-
-    box.className =
+    authMessage.className =
         "auth-message " + type;
-
-
-    box.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest"
-    });
 
 }
 
@@ -286,182 +208,294 @@ function showMessage(
 
 function clearMessage() {
 
-    const box =
-        document.getElementById(
-            "authMessage"
-        );
+    authMessage.textContent = "";
 
-    box.textContent = "";
-
-    box.className =
+    authMessage.className =
         "auth-message";
 
 }
 
 
 /* ==========================================
-   SWITCH TO LOGIN
+   LOGIN TAB
    ========================================== */
 
-document
-    .getElementById("loginTab")
-    .addEventListener("click", function () {
+loginTab.addEventListener(
+    "click",
+    function() {
 
-        document
-            .getElementById("loginTab")
-            .classList.add("active");
+        loginTab.classList.add("active");
 
-        document
-            .getElementById("signupTab")
-            .classList.remove("active");
+        signupTab.classList.remove("active");
 
+        loginForm.classList.add("active");
 
-        document
-            .getElementById("loginForm")
-            .classList.add("active");
-
-        document
-            .getElementById("signupForm")
-            .classList.remove("active");
-
+        signupForm.classList.remove("active");
 
         clearMessage();
 
-    });
+    }
+);
 
 
 /* ==========================================
-   SWITCH TO SIGN UP
+   SIGNUP TAB
    ========================================== */
 
-document
-    .getElementById("signupTab")
-    .addEventListener("click", function () {
+signupTab.addEventListener(
+    "click",
+    function() {
 
-        document
-            .getElementById("signupTab")
-            .classList.add("active");
+        signupTab.classList.add("active");
 
-        document
-            .getElementById("loginTab")
-            .classList.remove("active");
+        loginTab.classList.remove("active");
 
+        signupForm.classList.add("active");
 
-        document
-            .getElementById("signupForm")
-            .classList.add("active");
-
-        document
-            .getElementById("loginForm")
-            .classList.remove("active");
-
+        loginForm.classList.remove("active");
 
         clearMessage();
 
-    });
+    }
+);
+
+
+/* ==========================================
+   LOGIN
+   ========================================== */
+
+loginForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+        clearMessage();
+
+
+        const email =
+            document
+                .getElementById("loginEmail")
+                .value
+                .trim();
+
+
+        const password =
+            document
+                .getElementById("loginPassword")
+                .value;
+
+
+        if (
+            !email ||
+            !password
+        ) {
+
+            showMessage(
+                t("required"),
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        const button =
+            document.getElementById(
+                "loginSubmit"
+            );
+
+
+        button.disabled = true;
+
+        button.textContent =
+            t("signingIn");
+
+
+        try {
+
+            const {
+                data,
+                error
+            } =
+                await supabaseClient.auth
+                    .signInWithPassword({
+
+                        email:
+                            email,
+
+                        password:
+                            password
+
+                    });
+
+
+            if (error) {
+
+                console.error(
+                    "Login error:",
+                    error
+                );
+
+
+                showMessage(
+                    getAuthErrorMessage(error),
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if (
+                data &&
+                data.user
+            ) {
+
+                showMessage(
+                    t("loginSuccess"),
+                    "success"
+                );
+
+
+                setTimeout(
+                    function() {
+
+                        window.location.href =
+                            "home.html";
+
+                    },
+                    700
+                );
+
+            }
+
+
+        }
+
+        catch (error) {
+
+            console.error(error);
+
+            showMessage(
+                t("networkError"),
+                "error"
+            );
+
+        }
+
+        finally {
+
+            button.disabled =
+                false;
+
+            button.textContent =
+                t("signIn");
+
+        }
+
+    }
+);
 
 
 /* ==========================================
    SIGN UP
    ========================================== */
 
-document
-    .getElementById("signupForm")
-    .addEventListener(
-        "submit",
-        async function (event) {
+signupForm.addEventListener(
+    "submit",
+    async function(event) {
 
-            event.preventDefault();
+        event.preventDefault();
 
-            clearMessage();
+        clearMessage();
 
 
-            const name =
-                document
-                    .getElementById("signupName")
-                    .value
-                    .trim();
+        const name =
+            document
+                .getElementById("signupName")
+                .value
+                .trim();
 
 
-            const email =
-                document
-                    .getElementById("signupEmail")
-                    .value
-                    .trim();
+        const email =
+            document
+                .getElementById("signupEmail")
+                .value
+                .trim();
 
 
-            const password =
-                document
-                    .getElementById("signupPassword")
-                    .value;
+        const password =
+            document
+                .getElementById("signupPassword")
+                .value;
 
 
-            const t =
-                authTranslations[authLanguage];
+        if (
+            !name ||
+            !email ||
+            !password
+        ) {
+
+            showMessage(
+                t("required"),
+                "error"
+            );
+
+            return;
+
+        }
 
 
-            if (
-                !name ||
-                !email ||
-                !password
-            ) {
+        if (
+            password.length < 6
+        ) {
 
-                showMessage(
-                    t.required,
-                    "error"
-                );
+            showMessage(
+                t("passwordShort"),
+                "error"
+            );
 
-                return;
-            }
+            return;
 
-
-            if (password.length < 6) {
-
-                showMessage(
-                    authLanguage === "ar"
-                        ? "كلمة المرور يجب أن تحتوي على 6 أحرف على الأقل."
-                        : "Password must be at least 6 characters.",
-                    "error"
-                );
-
-                return;
-            }
+        }
 
 
-            const button =
-                document.getElementById(
-                    "signupSubmit"
-                );
+        const button =
+            document.getElementById(
+                "signupSubmit"
+            );
 
 
-            button.disabled = true;
+        button.disabled = true;
 
-            button.textContent =
-                authLanguage === "ar"
-                    ? "جارٍ إنشاء الحساب..."
-                    : "Creating account...";
+        button.textContent =
+            t("creating");
 
 
-            try {
+        try {
 
-                const {
-                    data,
-                    error
-                } =
-                    await supabaseClient.auth.signUp({
+            const {
+                data,
+                error
+            } =
+                await supabaseClient.auth
+                    .signUp({
 
-                        email: email,
+                        email:
+                            email,
 
-                        password: password,
+                        password:
+                            password,
 
                         options: {
 
                             data: {
 
-                                first_name: name,
-
-                                language:
-                                    authLanguage
+                                first_name:
+                                    name
 
                             }
 
@@ -470,218 +504,266 @@ document
                     });
 
 
-                if (error) {
+            if (error) {
 
-                    console.error(
-                        "Signup error:",
-                        error
-                    );
-
-                    showMessage(
-                        error.message ||
-                        t.genericError,
-                        "error"
-                    );
-
-                    return;
-                }
-
-
-                /*
-                 * Supabase may require email confirmation.
-                 * If confirmation is disabled, a session
-                 * should be returned immediately.
-                 */
-
-
-                if (data.session) {
-
-                    showMessage(
-                        t.signupSuccess,
-                        "success"
-                    );
-
-
-                    /*
-                     * The profile trigger should create
-                     * the user's profile automatically.
-                     */
-
-
-                    setTimeout(
-                        function () {
-
-                            window.location.href =
-                                "home.html";
-
-                        },
-                        1200
-                    );
-
-
-                } else {
-
-                    showMessage(
-                        t.checkEmail,
-                        "success"
-                    );
-
-                }
-
-
-            } catch (error) {
-
-                console.error(error);
-
-                showMessage(
-                    t.genericError,
-                    "error"
+                console.error(
+                    "Signup error:",
+                    error
                 );
 
-            } finally {
-
-                button.disabled = false;
-
-                button.textContent =
-                    t.createButton;
-
-            }
-
-        }
-    );
-
-
-/* ==========================================
-   SIGN IN
-   ========================================== */
-
-document
-    .getElementById("loginForm")
-    .addEventListener(
-        "submit",
-        async function (event) {
-
-            event.preventDefault();
-
-            clearMessage();
-
-
-            const email =
-                document
-                    .getElementById("loginEmail")
-                    .value
-                    .trim();
-
-
-            const password =
-                document
-                    .getElementById("loginPassword")
-                    .value;
-
-
-            const t =
-                authTranslations[authLanguage];
-
-
-            if (!email || !password) {
 
                 showMessage(
-                    t.required,
+                    getAuthErrorMessage(error),
                     "error"
                 );
 
                 return;
+
             }
 
 
-            const button =
-                document.getElementById(
-                    "loginSubmit"
-                );
+            /*
+             * If email confirmation is disabled,
+             * Supabase will return a session.
+             */
 
-
-            button.disabled = true;
-
-            button.textContent =
-                authLanguage === "ar"
-                    ? "جارٍ تسجيل الدخول..."
-                    : "Signing in...";
-
-
-            try {
-
-                const {
-                    data,
-                    error
-                } =
-                    await supabaseClient.auth
-                        .signInWithPassword({
-
-                            email: email,
-
-                            password: password
-
-                        });
-
-
-                if (error) {
-
-                    console.error(
-                        "Login error:",
-                        error
-                    );
-
-
-                    showMessage(
-                        t.invalidLogin,
-                        "error"
-                    );
-
-                    return;
-                }
-
-
-                if (data.session) {
-
-                    showMessage(
-                        t.loginSuccess,
-                        "success"
-                    );
-
-
-                    setTimeout(
-                        function () {
-
-                            window.location.href =
-                                "home.html";
-
-                        },
-                        800
-                    );
-
-                }
-
-
-            } catch (error) {
-
-                console.error(error);
+            if (
+                data.session
+            ) {
 
                 showMessage(
-                    t.genericError,
-                    "error"
+                    t("signupSuccess"),
+                    "success"
                 );
 
-            } finally {
 
-                button.disabled = false;
+                setTimeout(
+                    function() {
 
-                button.textContent =
-                    t.signInButton;
+                        window.location.href =
+                            "home.html";
+
+                    },
+                    900
+                );
 
             }
 
+            else {
+
+                /*
+                 * Email confirmation enabled.
+                 */
+
+                showMessage(
+                    t("checkEmail"),
+                    "success"
+                );
+
+            }
+
+
         }
+
+        catch (error) {
+
+            console.error(error);
+
+            showMessage(
+                t("networkError"),
+                "error"
+            );
+
+        }
+
+        finally {
+
+            button.disabled =
+                false;
+
+            button.textContent =
+                t("createAccount");
+
+        }
+
+    }
+);
+
+
+/* ==========================================
+   AUTH ERROR TRANSLATION
+   ========================================== */
+
+function getAuthErrorMessage(error) {
+
+    const message =
+        (
+            error.message ||
+            ""
+        ).toLowerCase();
+
+
+    if (
+        message.includes(
+            "invalid login credentials"
+        )
+    ) {
+
+        return t("invalidLogin");
+
+    }
+
+
+    if (
+        message.includes(
+            "already registered"
+        ) ||
+        message.includes(
+            "already exists"
+        )
+    ) {
+
+        return t("emailExists");
+
+    }
+
+
+    if (
+        message.includes(
+            "password"
+        ) &&
+        message.includes(
+            "6"
+        )
+    ) {
+
+        return t("passwordShort");
+
+    }
+
+
+    return (
+        error.message ||
+        t("networkError")
     );
+
+}
+
+
+/* ==========================================
+   LANGUAGE
+   ========================================== */
+
+function applyLanguage() {
+
+    document.documentElement.lang =
+        language;
+
+
+    document.documentElement.dir =
+        language === "ar"
+            ? "rtl"
+            : "ltr";
+
+
+    document.getElementById(
+        "authSubtitle"
+    ).textContent =
+        t("subtitle");
+
+
+    document.getElementById(
+        "loginTab"
+    ).textContent =
+        t("signIn");
+
+
+    document.getElementById(
+        "signupTab"
+    ).textContent =
+        t("createAccount");
+
+
+    document.getElementById(
+        "loginEmailLabel"
+    ).textContent =
+        t("email");
+
+
+    document.getElementById(
+        "loginPasswordLabel"
+    ).textContent =
+        t("password");
+
+
+    document.getElementById(
+        "nameLabel"
+    ).textContent =
+        t("firstName");
+
+
+    document.getElementById(
+        "signupEmailLabel"
+    ).textContent =
+        t("email");
+
+
+    document.getElementById(
+        "signupPasswordLabel"
+    ).textContent =
+        t("password");
+
+
+    document.getElementById(
+        "loginSubmit"
+    ).textContent =
+        t("signIn");
+
+
+    document.getElementById(
+        "signupSubmit"
+    ).textContent =
+        t("createAccount");
+
+
+    document.getElementById(
+        "backHome"
+    ).textContent =
+        t("back");
+
+
+    authLanguage.textContent =
+        language === "ar"
+            ? t("english")
+            : t("arabic");
+
+}
+
+
+/* ==========================================
+   LANGUAGE BUTTON
+   ========================================== */
+
+authLanguage.addEventListener(
+    "click",
+    function() {
+
+        language =
+            language === "en"
+                ? "ar"
+                : "en";
+
+
+        localStorage.setItem(
+            "circleLanguage",
+            language
+        );
+
+
+        applyLanguage();
+
+    }
+);
 
 
 /* ==========================================
@@ -702,15 +784,8 @@ async function checkExistingSession() {
         data.session
     ) {
 
-        /*
-         * User is already logged in.
-         * We will later redirect to the real
-         * Circle Home page.
-         */
-
-        console.log(
-            "Existing Circle session found."
-        );
+        window.location.href =
+            "home.html";
 
     }
 
@@ -721,13 +796,6 @@ async function checkExistingSession() {
    INITIALIZE
    ========================================== */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+applyLanguage();
 
-        applyAuthLanguage();
-
-        checkExistingSession();
-
-    }
-);
+checkExistingSession();
