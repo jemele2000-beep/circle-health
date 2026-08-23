@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#2f8f83"
+    >
+
+    <title>Circle — Daily Check-in</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5faf8;
+
+            color: #183330;
+
+            min-height: 100vh;
+        }
+
+        button,
+        input,
+        textarea {
+            font-family: inherit;
+        }
+
+        /* =========================
+           TOP BAR
+        ========================= */
+
+        .topbar {
+            background: white;
+
+            padding: 16px 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            border-bottom:
+                1px solid #e3ece9;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 10;
+        }
+
+        .logo {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            font-size: 21px;
+
+            font-weight: 800;
+
+            color: #2f8f83;
+        }
+
+        .logo-mark {
+            width: 34px;
+
+            height: 34px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #e4f4f0;
+
+            font-size: 22px;
+        }
+
+        .language-btn {
+            border: none;
+
+            background: #eef6f4;
+
+            color: #2f8f83;
+
+            padding: 8px 13px;
+
+            border-radius: 9px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .container {
+            width: 100%;
+
+            max-width: 650px;
+
+            margin: auto;
+
+            padding:
+                28px 18px 60px;
+        }
+
+        .back {
+            border: none;
+
+            background: transparent;
+
+            color: #2f8f83;
+
+            padding: 0;
+
+            margin-bottom: 20px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+
+            font-weight: 700;
+        }
+
+        .page-header {
+            margin-bottom: 25px;
+        }
+
+        .page-header small {
+            color: #71807d;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+        }
+
+        .page-header h1 {
+            margin:
+                7px 0 8px;
+
+            font-size: 29px;
+
+            line-height: 1.2;
+        }
+
+        .page-header p {
+            margin: 0;
+
+            color: #71807d;
+
+            line-height: 1.6;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           FORM CARDS
+        ========================= */
+
+        .form-card {
+            background: white;
+
+            border:
+                1px solid #e3ece9;
+
+            border-radius: 22px;
+
+            padding: 22px;
+
+            margin-bottom: 16px;
+        }
+
+        .form-card h2 {
+            margin:
+                0 0 6px;
+
+            font-size: 18px;
+
+            line-height: 1.4;
+        }
+
+        .form-card > p {
+            margin:
+                0 0 18px;
+
+            color: #7a8985;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+        /* =========================
+           NUMBER INPUT
+        ========================= */
+
+        .number-input {
+            width: 100%;
+
+            padding: 15px;
+
+            border:
+                1px solid #dce7e4;
+
+            border-radius: 12px;
+
+            font-size: 20px;
+
+            outline: none;
+
+            background: #fbfdfc;
+        }
+
+        .number-input:focus {
+            border-color: #2f8f83;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(47, 143, 131, 0.10);
+        }
+
+        .unit {
+            margin-top: 7px;
+
+            color: #899692;
+
+            font-size: 12px;
+        }
+
+        /* =========================
+           RANGE
+        ========================= */
+
+        .range-value {
+            text-align: center;
+
+            font-size: 36px;
+
+            font-weight: 800;
+
+            color: #2f8f83;
+
+            margin:
+                5px 0 15px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+
+            accent-color: #2f8f83;
+
+            cursor: pointer;
+        }
+
+        .range-labels {
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #8a9693;
+
+            font-size: 12px;
+
+            margin-top: 8px;
+        }
+
+        /* =========================
+           CHECKBOXES
+        ========================= */
+
+        .checkbox-group {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 9px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 12px;
+
+            background: #f8fbfa;
+
+            border:
+                1px solid #e5eeeb;
+
+            border-radius: 11px;
+
+            font-size: 14px;
+
+            cursor: pointer;
+
+            line-height: 1.4;
+
+            transition:
+                border-color 0.15s,
+                background 0.15s;
+        }
+
+        .checkbox-group label:hover {
+            border-color: #2f8f83;
+
+            background: #f3faf8;
+        }
+
+        .checkbox-group input {
+            width: 18px;
+
+            height: 18px;
+
+            accent-color: #2f8f83;
+
+            flex-shrink: 0;
+        }
+
+        /* =========================
+           TEXTAREA
+        ========================= */
+
+        textarea {
+            width: 100%;
+
+            min-height: 115px;
+
+            resize: vertical;
+
+            padding: 14px;
+
+            border:
+                1px solid #dce7e4;
+
+            border-radius: 12px;
+
+            font-size: 15px;
+
+            outline: none;
+
+            background: #fbfdfc;
+        }
+
+        textarea:focus {
+            border-color: #2f8f83;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(47, 143, 131, 0.10);
+        }
+
+        /* =========================
+           SAVE
+        ========================= */
+
+        .save-btn {
+            width: 100%;
+
+            border: none;
+
+            background: #2f8f83;
+
+            color: white;
+
+            padding: 16px;
+
+            border-radius: 13px;
+
+            font-size: 17px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            margin-top: 4px;
+
+            transition:
+                opacity 0.2s;
+        }
+
+        .save-btn:hover {
+            opacity: 0.92;
+        }
+
+        .save-btn:disabled {
+            opacity: 0.6;
+
+            cursor: wait;
+        }
+
+        /* =========================
+           MESSAGE
+        ========================= */
+
+        .message {
+            display: none;
+
+            padding: 13px;
+
+            border-radius: 11px;
+
+            margin-top: 15px;
+
+            font-size: 14px;
+
+            text-align: center;
+
+            line-height: 1.5;
+        }
+
+        .message.success {
+            display: block;
+
+            background: #e9f7ef;
+
+            color: #267346;
+        }
+
+        .message.error {
+            display: block;
+
+            background: #fff0f0;
+
+            color: #b13c3c;
+        }
+
+        /* =========================
+           PRIVACY NOTE
+        ========================= */
+
+        .privacy-note {
+            margin-top: 18px;
+
+            text-align: center;
+
+            color: #899692;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 500px) {
+
+            .container {
+                padding:
+                    23px 15px 50px;
+            }
+
+            .form-card {
+                padding: 19px;
+            }
+
+            .page-header h1 {
+                font-size: 26px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     TOP BAR
+========================= -->
+
+<header class="topbar">
+
+    <div class="logo">
+
+        <div class="logo-mark">
+            ◯
+        </div>
+
+        Circle
+
+    </div>
+
+
+    <button
+        class="language-btn"
+        id="languageBtn"
+    >
+        العربية
+    </button>
+
+</header>
+
+
+
+<main class="container">
+
+
+    <!-- BACK -->
+
+    <button
+        class="back"
+        id="backBtn"
+    >
+        ← Back to Home
+    </button>
+
+
+
+    <!-- HEADER -->
+
+    <section class="page-header">
+
+        <small id="dateLabel">
+            DAILY CHECK-IN
+        </small>
+
+        <h1 id="pageTitle">
+            How are you feeling today?
+        </h1>
+
+        <p id="pageDescription">
+            Take less than two minutes to record
+            a few simple signals about your day.
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         SLEEP HOURS
+    ========================= -->
+
+    <section class="form-card">
+
+        <h2 id="sleepTitle">
+            How long did you sleep?
+        </h2>
+
+        <p id="sleepDescription">
+            Enter the actual hours you slept.
+        </p>
+
+
+        <input
+            type="number"
+            id="sleepInput"
+            class="number-input"
+            min="0"
+            max="24"
+            step="0.1"
+            placeholder="7.5"
+        >
+
+
+        <div
+            class="unit"
+            id="sleepUnit"
+        >
+            Hours
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SLEEP QUALITY
+    ========================= -->
+
+    <section class="form-card">
+
+        <h2 id="sleepQualityTitle">
+            How was your sleep?
+        </h2>
+
+        <p id="sleepQualityDescription">
+            Rate the quality of your sleep from 1 to 10.
+        </p>
+
+
+        <div
+            class="range-value"
+            id="sleepQualityValue"
+        >
+            5
+        </div>
+
+
+        <input
+            type="range"
+            id="sleepQualityInput"
+            min="1"
+            max="10"
+            value="5"
+            step="1"
+        >
+
+
+        <div class="range-labels">
+
+            <span id="sleepQualityLow">
+                Very poor
+            </span>
+
+            <span id="sleepQualityHigh">
+                Excellent
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SLEEP PROBLEMS
+    ========================= -->
+
+    <section class="form-card">
+
+        <h2 id="sleepProblemsTitle">
+            Did you have any sleep problems?
+        </h2>
+
+        <p id="sleepProblemsDescription">
+            Select everything that applies.
+        </p>
+
+
+        <div class="checkbox-group">
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepProblem"
+                    value="difficulty_falling_asleep"
+                >
+
+                Difficulty falling asleep
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepProblem"
+                    value="frequent_waking"
+                >
+
+                Waking up frequently
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepProblem"
+                    value="early_waking"
+                >
+
+                Waking up too early
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepProblem"
+                    value="light_sleep"
+                >
+
+                Light / non-restorative sleep
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepProblem"
+                    value="phone"
+                >
+
+                Phone or screen use
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepProblem"
+                    value="noise"
+                >
+
+                Noise
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepProblem"
+                    value="heat"
+                >
+
+                Room temperature / heat
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepProblem"
+                    value="caffeine"
+                >
+
+                Caffeine
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepProblem"
+                    value="pain"
+                >
+
+                Pain or physical discomfort
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepProblem"
+                    value="none"
+                >
+
+                No sleep problem
+
+            </label>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         POSSIBLE SLEEP REASONS
+    ========================= -->
+
+    <section class="form-card">
+
+        <h2 id="sleepReasonsTitle">
+            What may have affected your sleep?
+        </h2>
+
+        <p id="sleepReasonsDescription">
+            Select the factors that may have contributed.
+        </p>
+
+
+        <div class="checkbox-group">
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepReason"
+                    value="work"
+                >
+
+                Work or study pressure
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepReason"
+                    value="family"
+                >
+
+                Family pressure
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepReason"
+                    value="stress"
+                >
+
+                Stress or anxiety
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepReason"
+                    value="overthinking"
+                >
+
+                Overthinking
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepReason"
+                    value="financial"
+                >
+
+                Financial concerns
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepReason"
+                    value="screens"
+                >
+
+                Phone / screen use
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepReason"
+                    value="schedule"
+                >
+
+                Irregular sleep schedule
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepReason"
+                    value="environment"
+                >
+
+                Sleep environment
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepReason"
+                    value="health"
+                >
+
+                Health problem or pain
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepReason"
+                    value="unknown"
+                >
+
+                I don't know
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepReason"
+                    value="other"
+                >
+
+                Other
+
+            </label>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         WATER
+    ========================= -->
+
+    <section class="form-card">
+
+        <h2 id="waterTitle">
+            How much water did you drink?
+        </h2>
+
+        <p id="waterDescription">
+            Enter your approximate water intake.
+        </p>
+
+
+        <input
+            type="number"
+            id="waterInput"
+            class="number-input"
+            min="0"
+            max="10000"
+            step="50"
+            placeholder="1800"
+        >
+
+
+        <div
+            class="unit"
+            id="waterUnit"
+        >
+            Milliliters (ml)
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ENERGY
+    ========================= -->
+
+    <section class="form-card">
+
+        <h2 id="energyTitle">
+            How energetic do you feel?
+        </h2>
+
+        <p id="energyDescription">
+            1 means very low energy. 10 means
+            extremely energetic.
+        </p>
+
+
+        <div
+            class="range-value"
+            id="energyValue"
+        >
+            5
+        </div>
+
+
+        <input
+            type="range"
+            id="energyInput"
+            min="1"
+            max="10"
+            value="5"
+            step="1"
+        >
+
+
+        <div class="range-labels">
+
+            <span id="energyLow">
+                Very low
+            </span>
+
+            <span id="energyHigh">
+                Very high
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         STRESS
+    ========================= -->
+
+    <section class="form-card">
+
+        <h2 id="stressTitle">
+            How stressed do you feel?
+        </h2>
+
+        <p id="stressDescription">
+            1 means very relaxed. 10 means
+            extremely stressed.
+        </p>
+
+
+        <div
+            class="range-value"
+            id="stressValue"
+        >
+            5
+        </div>
+
+
+        <input
+            type="range"
+            id="stressInput"
+            min="1"
+            max="10"
+            value="5"
+            step="1"
+        >
+
+
+        <div class="range-labels">
+
+            <span id="stressLow">
+                Very low
+            </span>
+
+            <span id="stressHigh">
+                Very high
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         DAILY NOTE
+    ========================= -->
+
+    <section class="form-card">
+
+        <h2 id="noteTitle">
+            Anything else?
+        </h2>
+
+        <p id="noteDescription">
+            Optional. Write anything that may help
+            you understand your day.
+        </p>
+
+
+        <textarea
+            id="noteInput"
+            maxlength="1000"
+            placeholder="How was your day?"
+        ></textarea>
+
+    </section>
+
+
+
+    <!-- =========================
+         SAVE
+    ========================= -->
+
+    <button
+        class="save-btn"
+        id="saveBtn"
+    >
+        Save Today's Check-in
+    </button>
+
+
+
+    <!-- MESSAGE -->
+
+    <div
+        class="message"
+        id="message"
+    ></div>
+
+
+
+    <!-- PRIVACY -->
+
+    <div
+        class="privacy-note"
+        id="privacyNote"
+    >
+        Your data is private and connected to
+        your Circle account.
+    </div>
+
+
+</main>
+
+
+
+<!-- SUPABASE -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+</script>
+
+
+<!-- CHECK-IN LOGIC -->
+
+<script src="checkin.js"></script>
+
+
+</body>
+
+</html>
