@@ -19,6 +19,14 @@ const supabaseClient =
 
 
 /* ==========================================
+   CIRCLE URL
+   ========================================== */
+
+const CIRCLE_HOME_URL =
+    "https://jemele2000-beep.github.io/circle-health/home.html";
+
+
+/* ==========================================
    LANGUAGE
    ========================================== */
 
@@ -154,6 +162,10 @@ const translations = {
 };
 
 
+/* ==========================================
+   TRANSLATION FUNCTION
+   ========================================== */
+
 function t(key) {
 
     return translations[language][key];
@@ -188,10 +200,7 @@ const authLanguage =
    SHOW MESSAGE
    ========================================== */
 
-function showMessage(
-    message,
-    type
-) {
+function showMessage(message, type) {
 
     authMessage.textContent =
         message;
@@ -208,7 +217,8 @@ function showMessage(
 
 function clearMessage() {
 
-    authMessage.textContent = "";
+    authMessage.textContent =
+        "";
 
     authMessage.className =
         "auth-message";
@@ -222,7 +232,7 @@ function clearMessage() {
 
 loginTab.addEventListener(
     "click",
-    function() {
+    function () {
 
         loginTab.classList.add("active");
 
@@ -244,7 +254,7 @@ loginTab.addEventListener(
 
 signupTab.addEventListener(
     "click",
-    function() {
+    function () {
 
         signupTab.classList.add("active");
 
@@ -266,7 +276,7 @@ signupTab.addEventListener(
 
 loginForm.addEventListener(
     "submit",
-    async function(event) {
+    async function (event) {
 
         event.preventDefault();
 
@@ -307,7 +317,8 @@ loginForm.addEventListener(
             );
 
 
-        button.disabled = true;
+        button.disabled =
+            true;
 
         button.textContent =
             t("signingIn");
@@ -361,10 +372,10 @@ loginForm.addEventListener(
 
 
                 setTimeout(
-                    function() {
+                    function () {
 
                         window.location.href =
-                            "home.html";
+                            CIRCLE_HOME_URL;
 
                     },
                     700
@@ -377,7 +388,11 @@ loginForm.addEventListener(
 
         catch (error) {
 
-            console.error(error);
+            console.error(
+                "Login exception:",
+                error
+            );
+
 
             showMessage(
                 t("networkError"),
@@ -406,7 +421,7 @@ loginForm.addEventListener(
 
 signupForm.addEventListener(
     "submit",
-    async function(event) {
+    async function (event) {
 
         event.preventDefault();
 
@@ -469,7 +484,8 @@ signupForm.addEventListener(
             );
 
 
-        button.disabled = true;
+        button.disabled =
+            true;
 
         button.textContent =
             t("creating");
@@ -491,6 +507,17 @@ signupForm.addEventListener(
                             password,
 
                         options: {
+
+                            /*
+                             * IMPORTANT:
+                             * After email confirmation,
+                             * Supabase will return the user
+                             * to the Circle Home page.
+                             */
+
+                            emailRedirectTo:
+                                CIRCLE_HOME_URL,
+
 
                             data: {
 
@@ -523,11 +550,11 @@ signupForm.addEventListener(
 
 
             /*
-             * If email confirmation is disabled,
-             * Supabase will return a session.
+             * Email confirmation disabled
              */
 
             if (
+                data &&
                 data.session
             ) {
 
@@ -538,10 +565,10 @@ signupForm.addEventListener(
 
 
                 setTimeout(
-                    function() {
+                    function () {
 
                         window.location.href =
-                            "home.html";
+                            CIRCLE_HOME_URL;
 
                     },
                     900
@@ -549,11 +576,12 @@ signupForm.addEventListener(
 
             }
 
-            else {
 
-                /*
-                 * Email confirmation enabled.
-                 */
+            /*
+             * Email confirmation enabled
+             */
+
+            else {
 
                 showMessage(
                     t("checkEmail"),
@@ -567,7 +595,11 @@ signupForm.addEventListener(
 
         catch (error) {
 
-            console.error(error);
+            console.error(
+                "Signup exception:",
+                error
+            );
+
 
             showMessage(
                 t("networkError"),
@@ -610,6 +642,17 @@ function getAuthErrorMessage(error) {
     ) {
 
         return t("invalidLogin");
+
+    }
+
+
+    if (
+        message.includes(
+            "email not confirmed"
+        )
+    ) {
+
+        return t("checkEmail");
 
     }
 
@@ -746,7 +789,7 @@ function applyLanguage() {
 
 authLanguage.addEventListener(
     "click",
-    function() {
+    function () {
 
         language =
             language === "en"
@@ -772,20 +815,50 @@ authLanguage.addEventListener(
 
 async function checkExistingSession() {
 
-    const {
-        data
-    } =
-        await supabaseClient.auth
-            .getSession();
+    try {
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient.auth
+                .getSession();
 
 
-    if (
-        data &&
-        data.session
-    ) {
+        if (error) {
 
-        window.location.href =
-            "home.html";
+            console.error(
+                "Session error:",
+                error
+            );
+
+            return;
+
+        }
+
+
+        if (
+            data &&
+            data.session
+        ) {
+
+            /*
+             * User is already logged in.
+             */
+
+            window.location.href =
+                CIRCLE_HOME_URL;
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Session exception:",
+            error
+        );
 
     }
 
