@@ -4,58 +4,85 @@
    ========================================== */
 
 const translations = {
+
     en: {
+
         languageButton: "العربية",
+
         login: "Sign In",
 
         badge: "Your daily wellness companion",
 
         heroTitle: "Discover the patterns",
-        heroTitleSpan: "behind how you feel.",
+
+        heroTitleSpan:
+            "behind how you feel.",
 
         heroDescription:
             "Track sleep, hydration, energy and stress in less than two minutes a day. Circle helps you understand your personal patterns and build better habits.",
 
-        start: "Start Your Journey",
-        learn: "Learn More",
+        start:
+            "Start Your Journey",
+
+        learn:
+            "Learn More",
 
         heroNote:
             "No diagnosis. No complicated tracking. Just your data.",
 
-        todayCircle: "Today's Circle",
+        todayCircle:
+            "Today's Circle",
 
-        sleep: "Sleep",
-        hydration: "Hydration",
-        energy: "Energy",
-        stress: "Stress",
+        sleep:
+            "Sleep",
 
-        insightTitle: "Circle Insight",
+        hydration:
+            "Hydration",
+
+        energy:
+            "Energy",
+
+        stress:
+            "Stress",
+
+        insightTitle:
+            "Circle Insight",
 
         insightText:
             "Your energy has been higher on days when you sleep more than 7 hours.",
 
-        howEyebrow: "HOW IT WORKS",
+        howEyebrow:
+            "HOW IT WORKS",
 
-        howTitle: "Simple data. Meaningful insights.",
+        howTitle:
+            "Simple data. Meaningful insights.",
 
         howDescription:
             "Circle turns a few daily inputs into a clearer picture of your personal habits.",
 
-        step1Title: "Check in",
+        step1Title:
+            "Check in",
+
         step1Text:
             "Record your sleep, water, energy and stress.",
 
-        step2Title: "Build your pattern",
+        step2Title:
+            "Build your pattern",
+
         step2Text:
             "Circle analyzes your data over time.",
 
-        step3Title: "Understand yourself",
+        step3Title:
+            "Understand yourself",
+
         step3Text:
             "Receive personalized insights and practical suggestions.",
 
-        trackEyebrow: "WHAT YOU TRACK",
+        trackEyebrow:
+            "WHAT YOU TRACK",
 
-        trackTitle: "Four simple signals.",
+        trackTitle:
+            "Four simple signals.",
 
         sleepText:
             "Understand how your sleep changes over time.",
@@ -69,9 +96,11 @@ const translations = {
         stressText:
             "Notice how stress changes alongside your habits.",
 
-        aiEyebrow: "AI INSIGHTS",
+        aiEyebrow:
+            "AI INSIGHTS",
 
-        aiTitle: "Your data tells a story.",
+        aiTitle:
+            "Your data tells a story.",
 
         aiDescription:
             "Circle uses AI to help identify patterns in the information you record and turn them into simple, personalized insights.",
@@ -91,69 +120,103 @@ const translations = {
         ctaText:
             "A few seconds of tracking can reveal patterns you may have never noticed.",
 
-        getStarted: "Get Started",
+        getStarted:
+            "Get Started",
 
-        medicalTitle: "Medical Disclaimer",
+        medicalTitle:
+            "Medical Disclaimer",
 
         medicalText:
             "Circle is a wellness and habit-tracking application. It is not a medical device and does not provide medical diagnosis or treatment. Information provided by Circle should not replace advice from a qualified healthcare professional.",
 
         copyright:
             "© 2026 Circle. All rights reserved."
+
     },
 
+
     ar: {
-        languageButton: "English",
-        login: "تسجيل الدخول",
 
-        badge: "رفيقك اليومي لتحسين نمط حياتك",
+        languageButton:
+            "English",
 
-        heroTitle: "اكتشف الأنماط",
-        heroTitleSpan: "وراء شعورك.",
+        login:
+            "تسجيل الدخول",
+
+        badge:
+            "رفيقك اليومي لتحسين نمط حياتك",
+
+        heroTitle:
+            "اكتشف الأنماط",
+
+        heroTitleSpan:
+            "وراء شعورك.",
 
         heroDescription:
             "سجّل نومك، وشربك للماء، ومستوى طاقتك وتوترك في أقل من دقيقتين يوميًا. يساعدك Circle على فهم أنماطك الشخصية وبناء عادات أفضل.",
 
-        start: "ابدأ رحلتك",
-        learn: "اكتشف المزيد",
+        start:
+            "ابدأ رحلتك",
+
+        learn:
+            "اكتشف المزيد",
 
         heroNote:
             "لا يقدم تشخيصًا طبيًا. لا تتبع معقد. فقط بياناتك.",
 
-        todayCircle: "حلقتك اليوم",
+        todayCircle:
+            "حلقتك اليوم",
 
-        sleep: "النوم",
-        hydration: "الترطيب",
-        energy: "الطاقة",
-        stress: "التوتر",
+        sleep:
+            "النوم",
 
-        insightTitle: "تحليل Circle",
+        hydration:
+            "الترطيب",
+
+        energy:
+            "الطاقة",
+
+        stress:
+            "التوتر",
+
+        insightTitle:
+            "تحليل Circle",
 
         insightText:
             "كان مستوى طاقتك أعلى في الأيام التي نمت فيها أكثر من 7 ساعات.",
 
-        howEyebrow: "كيف يعمل",
+        howEyebrow:
+            "كيف يعمل",
 
-        howTitle: "بيانات بسيطة. رؤى مفيدة.",
+        howTitle:
+            "بيانات بسيطة. رؤى مفيدة.",
 
         howDescription:
             "يحوّل Circle بعض البيانات اليومية البسيطة إلى صورة أوضح عن عاداتك الشخصية.",
 
-        step1Title: "سجّل بياناتك",
+        step1Title:
+            "سجّل بياناتك",
+
         step1Text:
             "سجّل نومك، والماء، والطاقة، ومستوى التوتر.",
 
-        step2Title: "اكتشف نمطك",
+        step2Title:
+            "اكتشف نمطك",
+
         step2Text:
             "يقوم Circle بتحليل بياناتك مع مرور الوقت.",
 
-        step3Title: "افهم نفسك",
+        step3Title:
+            "افهم نفسك",
+
         step3Text:
             "احصل على رؤى مخصصة واقتراحات عملية.",
 
-        trackEyebrow: "ما الذي تتابعه",
+        trackEyebrow:
+            "ما الذي تتابعه",
 
-        trackTitle: "أربعة مؤشرات بسيطة.",
+        trackTitle:
+            "أربعة مؤشرات بسيطة.",
 
         sleepText:
             "افهم كيف يتغير نومك مع مرور الوقت.",
@@ -167,9 +230,11 @@ const translations = {
         stressText:
             "لاحظ كيف يتغير التوتر بالتزامن مع عاداتك.",
 
-        aiEyebrow: "تحليلات الذكاء الاصطناعي",
+        aiEyebrow:
+            "تحليلات الذكاء الاصطناعي",
 
-        aiTitle: "بياناتك تحكي قصة.",
+        aiTitle:
+            "بياناتك تحكي قصة.",
 
         aiDescription:
             "يستخدم Circle الذكاء الاصطناعي للمساعدة في اكتشاف الأنماط في البيانات التي تسجلها وتحويلها إلى رؤى بسيطة ومخصصة.",
@@ -189,16 +254,20 @@ const translations = {
         ctaText:
             "بضع ثوانٍ من التسجيل يوميًا قد تكشف أنماطًا لم تكن تلاحظها من قبل.",
 
-        getStarted: "ابدأ الآن",
+        getStarted:
+            "ابدأ الآن",
 
-        medicalTitle: "إخلاء المسؤولية الطبية",
+        medicalTitle:
+            "إخلاء المسؤولية الطبية",
 
         medicalText:
             "Circle هو تطبيق لتتبع العادات ونمط الحياة. لا يُعد جهازًا طبيًا ولا يقدم تشخيصًا أو علاجًا طبيًا. المعلومات التي يقدمها Circle لا ينبغي أن تحل محل استشارة الطبيب أو المختص الصحي.",
 
         copyright:
             "© 2026 Circle. جميع الحقوق محفوظة."
+
     }
+
 };
 
 
@@ -223,225 +292,404 @@ function setLanguage(language) {
         language
     );
 
-    const t = translations[language];
+    const t =
+        translations[language];
 
-    const html = document.documentElement;
+    const html =
+        document.documentElement;
 
-    /* Direction */
 
     if (language === "ar") {
 
-        html.setAttribute("lang", "ar");
-        html.setAttribute("dir", "rtl");
+        html.setAttribute(
+            "lang",
+            "ar"
+        );
+
+        html.setAttribute(
+            "dir",
+            "rtl"
+        );
 
     } else {
 
-        html.setAttribute("lang", "en");
-        html.setAttribute("dir", "ltr");
+        html.setAttribute(
+            "lang",
+            "en"
+        );
+
+        html.setAttribute(
+            "dir",
+            "ltr"
+        );
 
     }
 
 
     /* Navigation */
 
-    document.getElementById("languageToggle").textContent =
+    document.getElementById(
+        "languageToggle"
+    ).textContent =
         t.languageButton;
 
-    document.getElementById("loginBtn").textContent =
+
+    document.getElementById(
+        "loginBtn"
+    ).textContent =
         t.login;
 
 
     /* Hero */
 
-    document.querySelector(".badge").textContent =
+    document.querySelector(
+        ".badge"
+    ).textContent =
         t.badge;
 
-    const heroTitle = document.querySelector(".hero h1");
 
-    heroTitle.childNodes[0].textContent =
+    const heroTitle =
+        document.querySelector(
+            ".hero h1"
+        );
+
+
+    heroTitle.childNodes[0]
+        .textContent =
         t.heroTitle + " ";
 
-    heroTitle.querySelector("span").textContent =
+
+    heroTitle.querySelector(
+        "span"
+    ).textContent =
         t.heroTitleSpan;
 
-    document.querySelector(".hero-content > p").textContent =
+
+    document.querySelector(
+        ".hero-content > p"
+    ).textContent =
         t.heroDescription;
 
-    document.getElementById("startBtn").textContent =
+
+    document.getElementById(
+        "startBtn"
+    ).textContent =
         t.start;
 
-    document.getElementById("learnBtn").textContent =
+
+    document.getElementById(
+        "learnBtn"
+    ).textContent =
         t.learn;
 
-    document.querySelector(".hero-note").textContent =
+
+    document.querySelector(
+        ".hero-note"
+    ).textContent =
         t.heroNote;
 
 
     /* Hero Card */
 
-    document.querySelector(".card-header span:first-child").textContent =
+    document.querySelector(
+        ".card-header span:first-child"
+    ).textContent =
         t.todayCircle;
 
+
     const metrics =
-        document.querySelectorAll(".metric");
+        document.querySelectorAll(
+            ".metric"
+        );
+
 
     if (metrics.length >= 4) {
 
-        metrics[0].querySelector("div span:last-child").textContent =
+        metrics[0]
+            .querySelector(
+                "div span:last-child"
+            ).textContent =
             t.sleep;
 
-        metrics[1].querySelector("div span:last-child").textContent =
+
+        metrics[1]
+            .querySelector(
+                "div span:last-child"
+            ).textContent =
             t.hydration;
 
-        metrics[2].querySelector("div span:last-child").textContent =
+
+        metrics[2]
+            .querySelector(
+                "div span:last-child"
+            ).textContent =
             t.energy;
 
-        metrics[3].querySelector("div span:last-child").textContent =
+
+        metrics[3]
+            .querySelector(
+                "div span:last-child"
+            ).textContent =
             t.stress;
+
     }
 
 
-    document.querySelector(".insight small").textContent =
+    document.querySelector(
+        ".insight small"
+    ).textContent =
         t.insightTitle;
 
-    document.querySelector(".insight p").textContent =
+
+    document.querySelector(
+        ".insight p"
+    ).textContent =
         t.insightText;
 
 
     /* How it works */
 
     const sections =
-        document.querySelectorAll(".section");
+        document.querySelectorAll(
+            ".section"
+        );
 
-    const howSection = sections[0];
 
-    howSection.querySelector(".eyebrow").textContent =
+    const howSection =
+        sections[0];
+
+
+    howSection.querySelector(
+        ".eyebrow"
+    ).textContent =
         t.howEyebrow;
 
-    howSection.querySelector("h2").textContent =
+
+    howSection.querySelector(
+        "h2"
+    ).textContent =
         t.howTitle;
 
-    howSection.querySelector(".section-title p").textContent =
+
+    howSection.querySelector(
+        ".section-title p"
+    ).textContent =
         t.howDescription;
 
 
     const steps =
-        howSection.querySelectorAll(".step");
+        howSection.querySelectorAll(
+            ".step"
+        );
 
-    steps[0].querySelector("h3").textContent =
+
+    steps[0]
+        .querySelector("h3")
+        .textContent =
         t.step1Title;
 
-    steps[0].querySelector("p").textContent =
+
+    steps[0]
+        .querySelector("p")
+        .textContent =
         t.step1Text;
 
-    steps[1].querySelector("h3").textContent =
+
+    steps[1]
+        .querySelector("h3")
+        .textContent =
         t.step2Title;
 
-    steps[1].querySelector("p").textContent =
+
+    steps[1]
+        .querySelector("p")
+        .textContent =
         t.step2Text;
 
-    steps[2].querySelector("h3").textContent =
+
+    steps[2]
+        .querySelector("h3")
+        .textContent =
         t.step3Title;
 
-    steps[2].querySelector("p").textContent =
+
+    steps[2]
+        .querySelector("p")
+        .textContent =
         t.step3Text;
 
 
     /* Tracking */
 
     const trackSection =
-        document.querySelector(".track-section");
+        document.querySelector(
+            ".track-section"
+        );
 
-    trackSection.querySelector(".eyebrow").textContent =
+
+    trackSection.querySelector(
+        ".eyebrow"
+    ).textContent =
         t.trackEyebrow;
 
-    trackSection.querySelector("h2").textContent =
+
+    trackSection.querySelector(
+        "h2"
+    ).textContent =
         t.trackTitle;
 
 
     const trackCards =
-        trackSection.querySelectorAll(".track-card");
+        trackSection.querySelectorAll(
+            ".track-card"
+        );
 
-    trackCards[0].querySelector("h3").textContent =
+
+    trackCards[0]
+        .querySelector("h3")
+        .textContent =
         t.sleep;
 
-    trackCards[0].querySelector("p").textContent =
+
+    trackCards[0]
+        .querySelector("p")
+        .textContent =
         t.sleepText;
 
-    trackCards[1].querySelector("h3").textContent =
+
+    trackCards[1]
+        .querySelector("h3")
+        .textContent =
         t.hydration;
 
-    trackCards[1].querySelector("p").textContent =
+
+    trackCards[1]
+        .querySelector("p")
+        .textContent =
         t.hydrationText;
 
-    trackCards[2].querySelector("h3").textContent =
+
+    trackCards[2]
+        .querySelector("h3")
+        .textContent =
         t.energy;
 
-    trackCards[2].querySelector("p").textContent =
+
+    trackCards[2]
+        .querySelector("p")
+        .textContent =
         t.energyText;
 
-    trackCards[3].querySelector("h3").textContent =
+
+    trackCards[3]
+        .querySelector("h3")
+        .textContent =
         t.stress;
 
-    trackCards[3].querySelector("p").textContent =
+
+    trackCards[3]
+        .querySelector("p")
+        .textContent =
         t.stressText;
 
 
     /* AI */
 
     const aiSection =
-        document.querySelector(".ai-section");
+        document.querySelector(
+            ".ai-section"
+        );
 
-    aiSection.querySelector(".eyebrow").textContent =
+
+    aiSection.querySelector(
+        ".eyebrow"
+    ).textContent =
         t.aiEyebrow;
 
-    aiSection.querySelector("h2").textContent =
+
+    aiSection.querySelector(
+        "h2"
+    ).textContent =
         t.aiTitle;
 
-    aiSection.querySelector(".ai-card > p").textContent =
+
+    aiSection.querySelector(
+        ".ai-card > p"
+    ).textContent =
         t.aiDescription;
 
-    aiSection.querySelector(".ai-example small").textContent =
+
+    aiSection.querySelector(
+        ".ai-example small"
+    ).textContent =
         t.example;
 
-    aiSection.querySelector(".ai-example p").textContent =
+
+    aiSection.querySelector(
+        ".ai-example p"
+    ).textContent =
         t.aiExample;
 
-    aiSection.querySelector(".disclaimer").textContent =
+
+    aiSection.querySelector(
+        ".disclaimer"
+    ).textContent =
         t.aiDisclaimer;
 
 
     /* CTA */
 
     const cta =
-        document.querySelector(".cta");
+        document.querySelector(
+            ".cta"
+        );
 
-    cta.querySelector("h2").textContent =
+
+    cta.querySelector(
+        "h2"
+    ).textContent =
         t.ctaTitle;
 
-    cta.querySelector("p").textContent =
+
+    cta.querySelector(
+        "p"
+    ).textContent =
         t.ctaText;
 
-    document.getElementById("ctaBtn").textContent =
+
+    document.getElementById(
+        "ctaBtn"
+    ).textContent =
         t.getStarted;
 
 
     /* Medical Disclaimer */
 
     const disclaimerSection =
-        document.querySelector(".disclaimer-section");
+        document.querySelector(
+            ".disclaimer-section"
+        );
 
-    disclaimerSection.querySelector("h3").textContent =
+
+    disclaimerSection.querySelector(
+        "h3"
+    ).textContent =
         t.medicalTitle;
 
-    disclaimerSection.querySelector("p").textContent =
+
+    disclaimerSection.querySelector(
+        "p"
+    ).textContent =
         t.medicalText;
 
 
     /* Footer */
 
-    document.querySelector("footer p").textContent =
+    document.querySelector(
+        "footer p"
+    ).textContent =
         t.copyright;
+
 }
 
 
@@ -450,19 +698,27 @@ function setLanguage(language) {
    ========================================== */
 
 document
-    .getElementById("languageToggle")
-    .addEventListener("click", function () {
+    .getElementById(
+        "languageToggle"
+    )
+    .addEventListener(
+        "click",
+        function () {
 
-        if (currentLanguage === "en") {
+            if (
+                currentLanguage === "en"
+            ) {
 
-            setLanguage("ar");
+                setLanguage("ar");
 
-        } else {
+            } else {
 
-            setLanguage("en");
+                setLanguage("en");
+
+            }
 
         }
-    });
+    );
 
 
 /* ==========================================
@@ -470,16 +726,24 @@ document
    ========================================== */
 
 document
-    .getElementById("learnBtn")
-    .addEventListener("click", function () {
+    .getElementById(
+        "learnBtn"
+    )
+    .addEventListener(
+        "click",
+        function () {
 
-        document
-            .getElementById("howItWorks")
-            .scrollIntoView({
-                behavior: "smooth"
-            });
+            document
+                .getElementById(
+                    "howItWorks"
+                )
+                .scrollIntoView({
+                    behavior:
+                        "smooth"
+                });
 
-    });
+        }
+    );
 
 
 /* ==========================================
@@ -488,22 +752,30 @@ document
 
 function startCircle() {
 
-    alert(
-        currentLanguage === "ar"
-            ? "سيتم فتح صفحة إنشاء الحساب قريبًا."
-            : "The sign up page will be available soon."
-    );
+    window.location.href =
+        "auth.html";
+
 }
 
 
 document
-    .getElementById("startBtn")
-    .addEventListener("click", startCircle);
+    .getElementById(
+        "startBtn"
+    )
+    .addEventListener(
+        "click",
+        startCircle
+    );
 
 
 document
-    .getElementById("ctaBtn")
-    .addEventListener("click", startCircle);
+    .getElementById(
+        "ctaBtn"
+    )
+    .addEventListener(
+        "click",
+        startCircle
+    );
 
 
 /* ==========================================
@@ -511,16 +783,18 @@ document
    ========================================== */
 
 document
-    .getElementById("loginBtn")
-    .addEventListener("click", function () {
+    .getElementById(
+        "loginBtn"
+    )
+    .addEventListener(
+        "click",
+        function () {
 
-        alert(
-            currentLanguage === "ar"
-                ? "سيتم فتح تسجيل الدخول قريبًا."
-                : "The sign in page will be available soon."
-        );
+            window.location.href =
+                "auth.html";
 
-    });
+        }
+    );
 
 
 /* ==========================================
@@ -531,7 +805,9 @@ document.addEventListener(
     "DOMContentLoaded",
     function () {
 
-        setLanguage(currentLanguage);
+        setLanguage(
+            currentLanguage
+        );
 
     }
 );
