@@ -44,10 +44,6 @@
             font-family: inherit;
         }
 
-        /* =========================
-           TOP BAR
-        ========================= */
-
         .topbar {
             background: white;
 
@@ -117,10 +113,6 @@
             cursor: pointer;
         }
 
-        /* =========================
-           MAIN
-        ========================= */
-
         .container {
             width: 100%;
 
@@ -183,10 +175,6 @@
             font-size: 14px;
         }
 
-        /* =========================
-           FORM CARDS
-        ========================= */
-
         .form-card {
             background: white;
 
@@ -219,10 +207,6 @@
 
             line-height: 1.5;
         }
-
-        /* =========================
-           NUMBER INPUT
-        ========================= */
 
         .number-input {
             width: 100%;
@@ -257,10 +241,6 @@
             font-size: 12px;
         }
 
-        /* =========================
-           RANGE
-        ========================= */
-
         .range-value {
             text-align: center;
 
@@ -293,65 +273,6 @@
 
             margin-top: 8px;
         }
-
-        /* =========================
-           RADIO BUTTONS
-        ========================= */
-
-        .radio-group {
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 9px;
-        }
-
-        .radio-group label {
-            display: flex;
-
-            align-items: center;
-
-            gap: 10px;
-
-            padding: 12px;
-
-            background: #f8fbfa;
-
-            border:
-                1px solid #e5eeeb;
-
-            border-radius: 11px;
-
-            font-size: 14px;
-
-            cursor: pointer;
-
-            line-height: 1.4;
-
-            transition:
-                border-color 0.15s,
-                background 0.15s;
-        }
-
-        .radio-group label:hover {
-            border-color: #2f8f83;
-
-            background: #f3faf8;
-        }
-
-        .radio-group input {
-            width: 18px;
-
-            height: 18px;
-
-            accent-color: #2f8f83;
-
-            flex-shrink: 0;
-        }
-
-        /* =========================
-           CHECKBOXES
-        ========================= */
 
         .checkbox-group {
             display: flex;
@@ -404,9 +325,66 @@
             flex-shrink: 0;
         }
 
+        .checkbox-group label span {
+            flex: 1;
+        }
+
         /* =========================
-           TEXTAREA
+           MOOD OPTIONS
         ========================= */
+
+        .mood-group {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+        .mood-option {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 13px;
+
+            background: #f8fbfa;
+
+            border:
+                1px solid #e5eeeb;
+
+            border-radius: 11px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+
+            transition:
+                border-color 0.15s,
+                background 0.15s;
+        }
+
+        .mood-option:hover {
+            border-color: #2f8f83;
+
+            background: #f3faf8;
+        }
+
+        .mood-option input {
+            width: 18px;
+
+            height: 18px;
+
+            accent-color: #2f8f83;
+
+            flex-shrink: 0;
+        }
+
+        .mood-option span {
+            flex: 1;
+        }
 
         textarea {
             width: 100%;
@@ -436,10 +414,6 @@
                 0 0 0 3px
                 rgba(47, 143, 131, 0.10);
         }
-
-        /* =========================
-           SAVE
-        ========================= */
 
         .save-btn {
             width: 100%;
@@ -476,10 +450,6 @@
             cursor: wait;
         }
 
-        /* =========================
-           MESSAGE
-        ========================= */
-
         .message {
             display: none;
 
@@ -512,10 +482,6 @@
             color: #b13c3c;
         }
 
-        /* =========================
-           PRIVACY NOTE
-        ========================= */
-
         .privacy-note {
             margin-top: 18px;
 
@@ -527,10 +493,6 @@
 
             line-height: 1.6;
         }
-
-        /* =========================
-           MOBILE
-        ========================= */
 
         @media (max-width: 500px) {
 
@@ -556,10 +518,6 @@
 
 <body>
 
-
-<!-- =========================
-     TOP BAR
-========================= -->
 
 <header class="topbar">
 
@@ -588,8 +546,6 @@
 <main class="container">
 
 
-    <!-- BACK -->
-
     <button
         class="back"
         id="backBtn"
@@ -598,8 +554,6 @@
     </button>
 
 
-
-    <!-- HEADER -->
 
     <section class="page-header">
 
@@ -631,13 +585,14 @@
         </h2>
 
         <p id="moodDescription">
-            Choose the option that best describes how you feel.
+            Choose the option that best describes how you feel today.
         </p>
 
 
-        <div class="radio-group">
+        <div class="mood-group">
 
-            <label>
+
+            <label class="mood-option">
 
                 <input
                     type="radio"
@@ -652,7 +607,8 @@
             </label>
 
 
-            <label>
+
+            <label class="mood-option">
 
                 <input
                     type="radio"
@@ -667,7 +623,8 @@
             </label>
 
 
-            <label>
+
+            <label class="mood-option">
 
                 <input
                     type="radio"
@@ -682,7 +639,8 @@
             </label>
 
 
-            <label>
+
+            <label class="mood-option">
 
                 <input
                     type="radio"
@@ -695,6 +653,7 @@
                 </span>
 
             </label>
+
 
         </div>
 
@@ -814,7 +773,9 @@
                     value="difficulty_falling_asleep"
                 >
 
-                Difficulty falling asleep
+                <span>
+                    Difficulty falling asleep
+                </span>
 
             </label>
 
@@ -828,7 +789,9 @@
                     value="frequent_waking"
                 >
 
-                Waking up frequently
+                <span>
+                    Waking up during the night
+                </span>
 
             </label>
 
@@ -842,7 +805,9 @@
                     value="early_waking"
                 >
 
-                Waking up too early
+                <span>
+                    Waking up too early
+                </span>
 
             </label>
 
@@ -856,7 +821,9 @@
                     value="light_sleep"
                 >
 
-                Light / non-restorative sleep
+                <span>
+                    Light / non-restorative sleep
+                </span>
 
             </label>
 
@@ -867,66 +834,12 @@
                 <input
                     type="checkbox"
                     name="sleepProblem"
-                    value="phone"
+                    value="daytime_sleepiness"
                 >
 
-                Phone or screen use
-
-            </label>
-
-
-
-            <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepProblem"
-                    value="noise"
-                >
-
-                Noise
-
-            </label>
-
-
-
-            <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepProblem"
-                    value="heat"
-                >
-
-                Room temperature / heat
-
-            </label>
-
-
-
-            <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepProblem"
-                    value="caffeine"
-                >
-
-                Caffeine
-
-            </label>
-
-
-
-            <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepProblem"
-                    value="pain"
-                >
-
-                Pain or physical discomfort
+                <span>
+                    Feeling sleepy during the day
+                </span>
 
             </label>
 
@@ -940,7 +853,9 @@
                     value="none"
                 >
 
-                No sleep problem
+                <span>
+                    No sleep problems
+                </span>
 
             </label>
 
@@ -977,7 +892,9 @@
                     value="work"
                 >
 
-                Work or study pressure
+                <span>
+                    Work or study pressure
+                </span>
 
             </label>
 
@@ -991,7 +908,9 @@
                     value="family"
                 >
 
-                Family pressure
+                <span>
+                    Family responsibilities
+                </span>
 
             </label>
 
@@ -1005,7 +924,9 @@
                     value="stress"
                 >
 
-                Stress or anxiety
+                <span>
+                    Stress or anxiety
+                </span>
 
             </label>
 
@@ -1019,7 +940,9 @@
                     value="overthinking"
                 >
 
-                Overthinking
+                <span>
+                    Overthinking
+                </span>
 
             </label>
 
@@ -1033,7 +956,9 @@
                     value="financial"
                 >
 
-                Financial concerns
+                <span>
+                    Financial concerns
+                </span>
 
             </label>
 
@@ -1047,7 +972,25 @@
                     value="screens"
                 >
 
-                Phone / screen use
+                <span>
+                    Phone or screen use
+                </span>
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepReason"
+                    value="caffeine"
+                >
+
+                <span>
+                    Caffeine
+                </span>
 
             </label>
 
@@ -1061,7 +1004,25 @@
                     value="schedule"
                 >
 
-                Irregular sleep schedule
+                <span>
+                    Irregular sleep schedule
+                </span>
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepReason"
+                    value="noise"
+                >
+
+                <span>
+                    Noise
+                </span>
 
             </label>
 
@@ -1075,7 +1036,25 @@
                     value="environment"
                 >
 
-                Sleep environment
+                <span>
+                    Room temperature / heat
+                </span>
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepReason"
+                    value="pain"
+                >
+
+                <span>
+                    Pain or physical discomfort
+                </span>
 
             </label>
 
@@ -1089,21 +1068,9 @@
                     value="health"
                 >
 
-                Health problem or pain
-
-            </label>
-
-
-
-            <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepReason"
-                    value="unknown"
-                >
-
-                I don't know
+                <span>
+                    Health problem
+                </span>
 
             </label>
 
@@ -1117,7 +1084,25 @@
                     value="other"
                 >
 
-                Other
+                <span>
+                    Something else
+                </span>
+
+            </label>
+
+
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="sleepReason"
+                    value="unknown"
+                >
+
+                <span>
+                    I don't know
+                </span>
 
             </label>
 
@@ -1291,10 +1276,6 @@
 
 
 
-    <!-- =========================
-         SAVE
-    ========================= -->
-
     <button
         class="save-btn"
         id="saveBtn"
@@ -1304,16 +1285,12 @@
 
 
 
-    <!-- MESSAGE -->
-
     <div
         class="message"
         id="message"
     ></div>
 
 
-
-    <!-- PRIVACY -->
 
     <div
         class="privacy-note"
@@ -1328,14 +1305,10 @@
 
 
 
-<!-- SUPABASE -->
-
 <script
     src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
 </script>
 
-
-<!-- CHECK-IN LOGIC -->
 
 <script src="checkin.js"></script>
 
