@@ -295,6 +295,61 @@
         }
 
         /* =========================
+           RADIO BUTTONS
+        ========================= */
+
+        .radio-group {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 9px;
+        }
+
+        .radio-group label {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 12px;
+
+            background: #f8fbfa;
+
+            border:
+                1px solid #e5eeeb;
+
+            border-radius: 11px;
+
+            font-size: 14px;
+
+            cursor: pointer;
+
+            line-height: 1.4;
+
+            transition:
+                border-color 0.15s,
+                background 0.15s;
+        }
+
+        .radio-group label:hover {
+            border-color: #2f8f83;
+
+            background: #f3faf8;
+        }
+
+        .radio-group input {
+            width: 18px;
+
+            height: 18px;
+
+            accent-color: #2f8f83;
+
+            flex-shrink: 0;
+        }
+
+        /* =========================
            CHECKBOXES
         ========================= */
 
@@ -560,6 +615,88 @@
             Take less than two minutes to record
             a few simple signals about your day.
         </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         MOOD
+    ========================= -->
+
+    <section class="form-card">
+
+        <h2 id="moodTitle">
+            How would you describe your mood today?
+        </h2>
+
+        <p id="moodDescription">
+            Choose the option that best describes how you feel.
+        </p>
+
+
+        <div class="radio-group">
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="mood"
+                    value="very_good"
+                >
+
+                <span id="moodVeryGood">
+                    Very good
+                </span>
+
+            </label>
+
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="mood"
+                    value="good"
+                >
+
+                <span id="moodGood">
+                    Good
+                </span>
+
+            </label>
+
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="mood"
+                    value="okay"
+                >
+
+                <span id="moodOkay">
+                    Okay
+                </span>
+
+            </label>
+
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="mood"
+                    value="low"
+                >
+
+                <span id="moodLow">
+                    Low
+                </span>
+
+            </label>
+
+        </div>
 
     </section>
 
