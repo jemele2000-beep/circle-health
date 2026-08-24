@@ -15,7 +15,7 @@
         content="#2f8f83"
     >
 
-    <title>Circle Health</title>
+    <title>Circle — Home</title>
 
     <style>
 
@@ -34,13 +34,17 @@
             background: #f5faf8;
 
             color: #183330;
+
+            min-height: 100vh;
         }
 
         button {
             font-family: inherit;
         }
 
-        /* TOP BAR */
+        /* =========================
+           TOP BAR
+        ========================= */
 
         .topbar {
             background: white;
@@ -49,9 +53,9 @@
 
             display: flex;
 
-            justify-content: space-between;
-
             align-items: center;
+
+            justify-content: space-between;
 
             border-bottom:
                 1px solid #e3ece9;
@@ -91,6 +95,8 @@
             justify-content: center;
 
             background: #e4f4f0;
+
+            font-size: 21px;
         }
 
         .top-actions {
@@ -98,17 +104,17 @@
 
             align-items: center;
 
-            gap: 8px;
+            gap: 9px;
         }
 
-        .small-btn {
+        .language-btn {
             border: none;
 
             background: #eef6f4;
 
             color: #2f8f83;
 
-            padding: 8px 11px;
+            padding: 8px 13px;
 
             border-radius: 9px;
 
@@ -117,102 +123,370 @@
             cursor: pointer;
         }
 
-        /* MAIN */
+        .logout-btn {
+            border: none;
+
+            background: transparent;
+
+            color: #71807d;
+
+            padding: 8px;
+
+            cursor: pointer;
+
+            font-weight: 600;
+        }
+
+        /* =========================
+           CONTAINER
+        ========================= */
 
         .container {
             width: 100%;
 
-            max-width: 850px;
+            max-width: 900px;
 
             margin: auto;
 
             padding:
-                25px 18px 60px;
+                28px 18px 60px;
         }
 
-        /* WELCOME */
+        /* =========================
+           WELCOME
+        ========================= */
 
         .welcome {
             margin-bottom: 22px;
         }
 
         .welcome small {
-            color: #7d8b88;
+            color: #71807d;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+        }
+
+        .welcome h1 {
+            margin:
+                7px 0 8px;
+
+            font-size: 30px;
+
+            line-height: 1.2;
+        }
+
+        .welcome p {
+            margin: 0;
+
+            color: #71807d;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+        /* =========================
+           CHECK-IN BUTTON
+        ========================= */
+
+        .checkin-btn {
+            width: 100%;
+
+            border: none;
+
+            background: #2f8f83;
+
+            color: white;
+
+            padding: 16px;
+
+            border-radius: 15px;
+
+            font-size: 17px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            margin-bottom: 22px;
+        }
+
+        .checkin-btn:hover {
+            opacity: 0.92;
+        }
+
+        /* =========================
+           SECTION TITLE
+        ========================= */
+
+        .section-title {
+            margin:
+                25px 0 13px;
+
+            font-size: 20px;
+
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            margin:
+                -5px 0 15px;
+
+            color: #7a8985;
+
+            font-size: 13px;
+        }
+
+        /* =========================
+           SNAPSHOT
+        ========================= */
+
+        .snapshot-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 12px;
+        }
+
+        .metric-card {
+            background: white;
+
+            border:
+                1px solid #e3ece9;
+
+            border-radius: 18px;
+
+            padding: 17px;
+
+            min-height: 145px;
+        }
+
+        .metric-icon {
+            font-size: 23px;
+
+            margin-bottom: 10px;
+        }
+
+        .metric-name {
+            color: #71807d;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            margin-bottom: 6px;
+        }
+
+        .metric-value {
+            font-size: 25px;
+
+            font-weight: 800;
+
+            color: #183330;
+        }
+
+        .metric-status {
+            margin-top: 7px;
+
+            color: #2f8f83;
 
             font-size: 12px;
 
             font-weight: 700;
         }
 
-        .welcome h1 {
-            margin:
-                6px 0 7px;
+        /* =========================
+           NO DATA
+        ========================= */
 
-            font-size: 29px;
+        .empty-card {
+            background: white;
+
+            border:
+                1px solid #e3ece9;
+
+            border-radius: 20px;
+
+            padding: 30px 20px;
+
+            text-align: center;
         }
 
-        .welcome p {
-            margin: 0;
+        .empty-icon {
+            font-size: 40px;
 
-            color: #74827f;
-
-            line-height: 1.6;
-
-            font-size: 14px;
+            margin-bottom: 10px;
         }
 
-        /* CHECK IN */
-
-        .checkin-card {
-            background: #2f8f83;
-
-            color: white;
-
-            padding: 24px;
-
-            border-radius: 22px;
-
-            margin-bottom: 18px;
-        }
-
-        .checkin-card h2 {
+        .empty-card h3 {
             margin:
                 0 0 7px;
 
-            font-size: 21px;
+            font-size: 18px;
         }
 
-        .checkin-card p {
-            margin:
-                0 0 18px;
+        .empty-card p {
+            margin: 0;
 
-            opacity: .9;
+            color: #71807d;
 
-            line-height: 1.5;
+            font-size: 13px;
 
-            font-size: 14px;
+            line-height: 1.6;
         }
 
-        .primary-btn {
-            border: none;
+        /* =========================
+           TODAY ANALYSIS
+        ========================= */
 
+        .analysis-card {
             background: white;
 
-            color: #2f8f83;
+            border:
+                1px solid #e3ece9;
 
-            padding:
-                13px 18px;
+            border-radius: 20px;
 
-            border-radius: 11px;
+            padding: 21px;
+
+            margin-top: 14px;
+        }
+
+        .analysis-title {
+            font-size: 17px;
 
             font-weight: 800;
 
-            cursor: pointer;
-
-            font-size: 14px;
+            margin-bottom: 12px;
         }
 
-        /* GRID */
+        .analysis-item {
+            padding:
+                11px 0;
+
+            border-bottom:
+                1px solid #edf2f0;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+        .analysis-item:last-child {
+            border-bottom: none;
+        }
+
+        .analysis-label {
+            color: #71807d;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            margin-bottom: 3px;
+        }
+
+        /* =========================
+           PROBLEMS
+        ========================= */
+
+        .tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+        .tag {
+            background: #eef6f4;
+
+            color: #2f6f67;
+
+            padding:
+                7px 10px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+        .tag.empty {
+            background: #f5f7f6;
+
+            color: #7a8985;
+        }
+
+        /* =========================
+           HISTORY
+        ========================= */
+
+        .history-card {
+            background: white;
+
+            border:
+                1px solid #e3ece9;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+        }
+
+        .history-row {
+            display: grid;
+
+            grid-template-columns:
+                1.1fr
+                repeat(4, 1fr);
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding:
+                14px 17px;
+
+            border-bottom:
+                1px solid #edf2f0;
+
+            font-size: 13px;
+        }
+
+        .history-row:last-child {
+            border-bottom: none;
+        }
+
+        .history-header {
+            background: #f8fbfa;
+
+            color: #71807d;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+        }
+
+        .history-date {
+            font-weight: 700;
+        }
+
+        .history-value {
+            text-align: center;
+        }
+
+        /* =========================
+           STATS
+        ========================= */
 
         .stats-grid {
             display: grid;
@@ -221,8 +495,6 @@
                 repeat(2, 1fr);
 
             gap: 12px;
-
-            margin-bottom: 18px;
         }
 
         .stat-card {
@@ -236,227 +508,177 @@
             padding: 18px;
         }
 
-        .stat-card .icon {
-            font-size: 22px;
+        .stat-number {
+            font-size: 27px;
 
-            margin-bottom: 10px;
+            font-weight: 800;
+
+            color: #2f8f83;
         }
 
-        .stat-card .label {
-            color: #7a8985;
+        .stat-label {
+            color: #71807d;
 
             font-size: 12px;
 
-            margin-bottom: 5px;
+            margin-top: 4px;
         }
 
-        .stat-card .value {
-            font-size: 24px;
+        /* =========================
+           INSIGHT PREVIEW
+        ========================= */
 
-            font-weight: 800;
-        }
-
-        .stat-card .unit {
-            color: #899692;
-
-            font-size: 11px;
-        }
-
-        /* SECTION */
-
-        .section {
-            background: white;
+        .insight-card {
+            background: #e4f4f0;
 
             border:
-                1px solid #e3ece9;
+                1px solid #cde9e3;
 
             border-radius: 20px;
 
-            padding: 20px;
+            padding: 21px;
 
-            margin-bottom: 18px;
+            margin-top: 14px;
         }
 
-        .section-header {
-            display: flex;
+        .insight-badge {
+            color: #2f8f83;
 
-            justify-content: space-between;
+            font-size: 11px;
 
-            align-items: center;
+            font-weight: 800;
 
-            margin-bottom: 18px;
+            letter-spacing: 0.5px;
+
+            margin-bottom: 8px;
         }
 
-        .section-header h2 {
-            margin: 0;
+        .insight-card h3 {
+            margin:
+                0 0 7px;
 
             font-size: 18px;
         }
 
-        .section-header span {
-            color: #899692;
-
-            font-size: 12px;
-        }
-
-        /* SLEEP STATUS */
-
-        .sleep-status {
-            display: flex;
-
-            align-items: center;
-
-            gap: 14px;
-        }
-
-        .sleep-circle {
-            width: 70px;
-
-            height: 70px;
-
-            border-radius: 50%;
-
-            background: #e4f4f0;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            color: #2f8f83;
-
-            font-size: 20px;
-
-            font-weight: 800;
-
-            flex-shrink: 0;
-        }
-
-        .sleep-status h3 {
-            margin:
-                0 0 5px;
-
-            font-size: 16px;
-        }
-
-        .sleep-status p {
+        .insight-card p {
             margin: 0;
 
-            color: #7b8986;
+            color: #52706b;
 
             font-size: 13px;
-
-            line-height: 1.5;
-        }
-
-        /* PROGRESS */
-
-        .progress-row {
-            margin-bottom: 16px;
-        }
-
-        .progress-top {
-            display: flex;
-
-            justify-content: space-between;
-
-            margin-bottom: 7px;
-
-            font-size: 13px;
-        }
-
-        .progress-top span:last-child {
-            font-weight: 800;
-
-            color: #2f8f83;
-        }
-
-        .progress {
-            width: 100%;
-
-            height: 9px;
-
-            background: #edf3f1;
-
-            border-radius: 20px;
-
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: 100%;
-
-            background: #2f8f83;
-
-            border-radius: 20px;
-
-            width: 0%;
-        }
-
-        /* EMPTY */
-
-        .empty {
-            text-align: center;
-
-            color: #7d8b88;
-
-            padding: 15px;
-
-            font-size: 14px;
 
             line-height: 1.6;
         }
 
-        /* LOGOUT */
+        /* =========================
+           LOADING
+        ========================= */
 
-        .logout {
-            width: 100%;
+        .loading {
+            text-align: center;
 
-            border:
-                1px solid #e0e9e6;
+            padding: 35px;
 
-            background: white;
+            color: #71807d;
 
-            color: #788681;
+            font-size: 14px;
+        }
+
+        /* =========================
+           MESSAGE
+        ========================= */
+
+        .message {
+            display: none;
 
             padding: 13px;
 
             border-radius: 11px;
 
-            cursor: pointer;
+            margin-bottom: 15px;
 
-            font-weight: 700;
+            font-size: 14px;
+
+            text-align: center;
         }
 
-        /* FOOTER */
+        .message.error {
+            display: block;
 
-        .disclaimer {
+            background: #fff0f0;
+
+            color: #b13c3c;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .privacy {
             text-align: center;
 
-            color: #929d9a;
+            color: #899692;
 
             font-size: 11px;
 
             line-height: 1.6;
 
-            margin-top: 18px;
+            margin-top: 35px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .snapshot-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .history-row {
+                grid-template-columns:
+                    1.2fr
+                    repeat(4, 1fr);
+
+                font-size: 12px;
+
+                gap: 5px;
+            }
+
         }
 
         @media (max-width: 500px) {
 
             .container {
                 padding:
-                    22px 15px 45px;
-            }
-
-            .stats-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
+                    23px 15px 50px;
             }
 
             .welcome h1 {
                 font-size: 26px;
+            }
+
+            .metric-card {
+                min-height: 130px;
+
+                padding: 15px;
+            }
+
+            .metric-value {
+                font-size: 22px;
+            }
+
+            .history-row {
+                padding:
+                    12px 10px;
+
+                font-size: 11px;
+            }
+
+            .history-header {
+                font-size: 9px;
             }
 
         }
@@ -485,10 +707,17 @@
     <div class="top-actions">
 
         <button
-            class="small-btn"
+            class="language-btn"
             id="languageBtn"
         >
             العربية
+        </button>
+
+        <button
+            class="logout-btn"
+            id="logoutBtn"
+        >
+            Sign out
         </button>
 
     </div>
@@ -500,12 +729,21 @@
 <main class="container">
 
 
+    <!-- MESSAGE -->
+
+    <div
+        class="message"
+        id="message"
+    ></div>
+
+
+
     <!-- WELCOME -->
 
     <section class="welcome">
 
-        <small id="todayLabel">
-            TODAY
+        <small id="welcomeSmall">
+            YOUR DAILY WELLNESS
         </small>
 
         <h1 id="welcomeTitle">
@@ -513,334 +751,303 @@
         </h1>
 
         <p id="welcomeDescription">
-            Let's understand your daily health patterns,
-            one day at a time.
+            See what your data is telling you today.
         </p>
 
     </section>
 
 
 
-    <!-- CHECK IN -->
+    <!-- CHECK-IN -->
 
-    <section class="checkin-card">
+    <button
+        class="checkin-btn"
+        id="checkinBtn"
+    >
+        + Complete Today's Check-in
+    </button>
 
-        <h2 id="checkinTitle">
-            How are you feeling today?
-        </h2>
 
-        <p id="checkinDescription">
-            Complete your daily check-in in less than
-            two minutes.
-        </p>
 
-        <button
-            class="primary-btn"
-            id="checkinBtn"
+    <!-- TODAY -->
+
+    <h2
+        class="section-title"
+        id="snapshotTitle"
+    >
+        Today's Snapshot
+    </h2>
+
+    <p
+        class="section-subtitle"
+        id="snapshotSubtitle"
+    >
+        Your latest wellness signals.
+    </p>
+
+
+
+    <div
+        id="snapshotContainer"
+    >
+
+        <div class="loading">
+            Loading your data...
+        </div>
+
+    </div>
+
+
+
+    <!-- ANALYSIS -->
+
+    <h2
+        class="section-title"
+        id="analysisSectionTitle"
+    >
+        Today's Understanding
+    </h2>
+
+
+
+    <div
+        class="analysis-card"
+        id="analysisCard"
+    >
+
+        <div
+            class="analysis-title"
+            id="analysisTitle"
         >
-            Start Today's Check-in
-        </button>
-
-    </section>
-
-
-
-    <!-- STATS -->
-
-    <section class="stats-grid">
-
-
-        <div class="stat-card">
-
-            <div class="icon">
-                😴
-            </div>
-
-            <div
-                class="label"
-                id="sleepLabel"
-            >
-                Sleep
-            </div>
-
-            <div
-                class="value"
-                id="sleepValue"
-            >
-                —
-            </div>
-
-            <div
-                class="unit"
-                id="sleepUnit"
-            >
-                hours
-            </div>
-
+            What your data suggests
         </div>
 
-
-
-        <div class="stat-card">
-
-            <div class="icon">
-                💧
-            </div>
-
-            <div
-                class="label"
-                id="waterLabel"
-            >
-                Water
-            </div>
-
-            <div
-                class="value"
-                id="waterValue"
-            >
-                —
-            </div>
-
-            <div
-                class="unit"
-            >
-                ml
-            </div>
-
+        <div
+            id="analysisContent"
+        >
         </div>
 
+    </div>
 
 
-        <div class="stat-card">
 
-            <div class="icon">
-                ⚡
+    <!-- SLEEP DETAILS -->
+
+    <h2
+        class="section-title"
+        id="sleepDetailsTitle"
+    >
+        Sleep Details
+    </h2>
+
+
+
+    <div
+        class="analysis-card"
+        id="sleepDetailsCard"
+    >
+
+        <div
+            class="analysis-item"
+        >
+
+            <div
+                class="analysis-label"
+                id="sleepProblemsLabel"
+            >
+                Sleep problems
             </div>
 
             <div
-                class="label"
-                id="energyLabel"
+                class="tags"
+                id="sleepProblemsTags"
             >
-                Energy
             </div>
-
-            <div
-                class="value"
-                id="energyValue"
-            >
-                —
-            </div>
-
-            <div class="unit">
-                / 10
-            </div>
-
-        </div>
-
-
-
-        <div class="stat-card">
-
-            <div class="icon">
-                🧠
-            </div>
-
-            <div
-                class="label"
-                id="stressLabel"
-            >
-                Stress
-            </div>
-
-            <div
-                class="value"
-                id="stressValue"
-            >
-                —
-            </div>
-
-            <div class="unit">
-                / 10
-            </div>
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- SLEEP STATUS -->
-
-    <section class="section">
-
-        <div class="section-header">
-
-            <h2 id="sleepStatusTitle">
-                Sleep today
-            </h2>
-
-            <span id="sleepStatusDate">
-                —
-            </span>
 
         </div>
 
 
         <div
-            class="sleep-status"
-            id="sleepStatus"
+            class="analysis-item"
         >
 
             <div
-                class="sleep-circle"
-                id="sleepCircle"
+                class="analysis-label"
+                id="sleepReasonsLabel"
             >
-                —
+                Possible reasons
             </div>
 
-
-            <div>
-
-                <h3 id="sleepStatusText">
-                    No data yet
-                </h3>
-
-                <p id="sleepStatusDescription">
-                    Complete your check-in to see
-                    your sleep assessment.
-                </p>
-
+            <div
+                class="tags"
+                id="sleepReasonsTags"
+            >
             </div>
 
         </div>
 
-    </section>
+    </div>
 
 
 
-    <!-- TODAY'S SIGNALS -->
+    <!-- HISTORY -->
 
-    <section class="section">
-
-        <div class="section-header">
-
-            <h2 id="signalsTitle">
-                Today's signals
-            </h2>
-
-            <span id="signalsSubtitle">
-                1–10
-            </span>
-
-        </div>
-
-
-        <div class="progress-row">
-
-            <div class="progress-top">
-
-                <span id="energyProgressLabel">
-                    Energy
-                </span>
-
-                <span id="energyProgressValue">
-                    —
-                </span>
-
-            </div>
-
-
-            <div class="progress">
-
-                <div
-                    class="progress-bar"
-                    id="energyProgress"
-                ></div>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="progress-row">
-
-            <div class="progress-top">
-
-                <span id="stressProgressLabel">
-                    Stress
-                </span>
-
-                <span id="stressProgressValue">
-                    —
-                </span>
-
-            </div>
-
-
-            <div class="progress">
-
-                <div
-                    class="progress-bar"
-                    id="stressProgress"
-                ></div>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="progress-row">
-
-            <div class="progress-top">
-
-                <span id="sleepQualityProgressLabel">
-                    Sleep quality
-                </span>
-
-                <span
-                    id="sleepQualityProgressValue"
-                >
-                    —
-                </span>
-
-            </div>
-
-
-            <div class="progress">
-
-                <div
-                    class="progress-bar"
-                    id="sleepQualityProgress"
-                ></div>
-
-            </div>
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- LOGOUT -->
-
-    <button
-        class="logout"
-        id="logoutBtn"
+    <h2
+        class="section-title"
+        id="historyTitle"
     >
-        Sign out
-    </button>
+        Recent History
+    </h2>
+
+    <p
+        class="section-subtitle"
+        id="historySubtitle"
+    >
+        Your last 7 check-ins.
+    </p>
+
 
 
     <div
-        class="disclaimer"
-        id="disclaimer"
+        class="history-card"
+        id="historyCard"
     >
-        Circle is a wellness tracking tool and
-        does not provide medical diagnosis.
+
+        <div
+            class="history-row history-header"
+        >
+
+            <div id="historyDate">
+                Date
+            </div>
+
+            <div>
+                😴
+            </div>
+
+            <div>
+                💧
+            </div>
+
+            <div>
+                ⚡
+            </div>
+
+            <div>
+                🧠
+            </div>
+
+        </div>
+
+
+        <div
+            id="historyRows"
+        >
+
+            <div class="loading">
+                Loading...
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- STATS -->
+
+    <h2
+        class="section-title"
+        id="statsTitle"
+    >
+        Your Progress
+    </h2>
+
+
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <div
+                class="stat-number"
+                id="totalDays"
+            >
+                0
+            </div>
+
+            <div
+                class="stat-label"
+                id="totalDaysLabel"
+            >
+                Total check-in days
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div
+                class="stat-number"
+                id="streakDays"
+            >
+                0
+            </div>
+
+            <div
+                class="stat-label"
+                id="streakDaysLabel"
+            >
+                Current streak
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- INSIGHT -->
+
+    <div
+        class="insight-card"
+        id="insightCard"
+    >
+
+        <div
+            class="insight-badge"
+            id="insightBadge"
+        >
+            CIRCLE INSIGHT
+        </div>
+
+        <h3
+            id="insightTitle"
+        >
+            Your patterns are building.
+        </h3>
+
+        <p
+            id="insightText"
+        >
+            Keep checking in daily. Circle will need
+            enough data before it can identify
+            meaningful personal patterns.
+        </p>
+
+    </div>
+
+
+
+    <!-- PRIVACY -->
+
+    <div
+        class="privacy"
+        id="privacyText"
+    >
+        Your data is private and connected to your
+        Circle account.
     </div>
 
 
