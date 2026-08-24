@@ -3,8 +3,10 @@
    DAILY CHECK-IN
    ========================================== */
 
+
 const SUPABASE_URL =
     "https://nkgyoixxwweghklemtut.supabase.co";
+
 
 const SUPABASE_PUBLISHABLE_KEY =
     "sb_publishable__HrEEcznU83KyZYmovtOow_qINbm_fq";
@@ -19,13 +21,17 @@ const supabaseClient =
 
 /* ==========================================
    LANGUAGE
-   ========================================== */
+========================================== */
 
 let language =
     localStorage.getItem("circleLanguage") || "en";
 
 
 const translations = {
+
+    /* ======================================
+       ENGLISH
+    ====================================== */
 
     en: {
 
@@ -40,6 +46,30 @@ const translations = {
 
         description:
             "Take less than two minutes to record a few simple signals about your day.",
+
+
+        /* MOOD */
+
+        moodTitle:
+            "How would you describe your mood today?",
+
+        moodDescription:
+            "Choose the option that best describes how you feel.",
+
+        veryGood:
+            "Very good",
+
+        good:
+            "Good",
+
+        okay:
+            "Okay",
+
+        low:
+            "Low",
+
+
+        /* SLEEP */
 
         sleep:
             "How long did you sleep?",
@@ -61,6 +91,9 @@ const translations = {
 
         excellent:
             "Excellent",
+
+
+        /* SLEEP PROBLEMS */
 
         sleepProblems:
             "Did you have any sleep problems?",
@@ -97,6 +130,9 @@ const translations = {
 
         noSleepProblem:
             "No sleep problem",
+
+
+        /* SLEEP REASONS */
 
         sleepReasons:
             "What may have affected your sleep?",
@@ -137,6 +173,9 @@ const translations = {
         other:
             "Other",
 
+
+        /* WATER */
+
         water:
             "How much water did you drink?",
 
@@ -145,6 +184,9 @@ const translations = {
 
         milliliters:
             "Milliliters (ml)",
+
+
+        /* ENERGY */
 
         energy:
             "How energetic do you feel?",
@@ -158,11 +200,17 @@ const translations = {
         veryHigh:
             "Very high",
 
+
+        /* STRESS */
+
         stressTitle:
             "How stressed do you feel?",
 
         stressDescription:
             "1 means very relaxed. 10 means extremely stressed.",
+
+
+        /* NOTE */
 
         note:
             "Anything else?",
@@ -172,6 +220,9 @@ const translations = {
 
         notePlaceholder:
             "How was your day?",
+
+
+        /* SAVE */
 
         save:
             "Save Today's Check-in",
@@ -184,6 +235,9 @@ const translations = {
 
         updated:
             "Today's check-in was updated successfully.",
+
+
+        /* ERRORS */
 
         loginRequired:
             "Please sign in again.",
@@ -200,11 +254,18 @@ const translations = {
         saveError:
             "We couldn't save your check-in. Please try again.",
 
+
+        /* PRIVACY */
+
         privateData:
             "Your data is private and connected to your Circle account."
 
     },
 
+
+    /* ======================================
+       ARABIC
+    ====================================== */
 
     ar: {
 
@@ -219,6 +280,30 @@ const translations = {
 
         description:
             "يستغرق التسجيل أقل من دقيقتين لتسجيل بعض المؤشرات البسيطة عن يومك.",
+
+
+        /* MOOD */
+
+        moodTitle:
+            "كيف تصف مزاجك اليوم؟",
+
+        moodDescription:
+            "اختر الخيار الذي يصف شعورك بشكل أفضل.",
+
+        veryGood:
+            "جيد جدًا",
+
+        good:
+            "جيد",
+
+        okay:
+            "متوسط",
+
+        low:
+            "منخفض",
+
+
+        /* SLEEP */
 
         sleep:
             "كم ساعة نمت؟",
@@ -240,6 +325,9 @@ const translations = {
 
         excellent:
             "ممتاز",
+
+
+        /* SLEEP PROBLEMS */
 
         sleepProblems:
             "هل واجهت أي مشاكل في النوم؟",
@@ -276,6 +364,9 @@ const translations = {
 
         noSleepProblem:
             "لا توجد مشكلة في النوم",
+
+
+        /* SLEEP REASONS */
 
         sleepReasons:
             "ما الذي قد يكون أثّر على نومك؟",
@@ -316,6 +407,9 @@ const translations = {
         other:
             "سبب آخر",
 
+
+        /* WATER */
+
         water:
             "كم كمية الماء التي شربتها؟",
 
@@ -324,6 +418,9 @@ const translations = {
 
         milliliters:
             "ملليلتر",
+
+
+        /* ENERGY */
 
         energy:
             "ما مستوى طاقتك؟",
@@ -337,11 +434,17 @@ const translations = {
         veryHigh:
             "مرتفع جدًا",
 
+
+        /* STRESS */
+
         stressTitle:
             "ما مستوى التوتر لديك؟",
 
         stressDescription:
             "1 تعني هدوءًا شديدًا و10 تعني توترًا شديدًا.",
+
+
+        /* NOTE */
 
         note:
             "هل هناك شيء آخر؟",
@@ -351,6 +454,9 @@ const translations = {
 
         notePlaceholder:
             "كيف كان يومك؟",
+
+
+        /* SAVE */
 
         save:
             "حفظ تسجيل اليوم",
@@ -363,6 +469,9 @@ const translations = {
 
         updated:
             "تم تحديث تسجيل اليوم بنجاح.",
+
+
+        /* ERRORS */
 
         loginRequired:
             "يرجى تسجيل الدخول مرة أخرى.",
@@ -379,6 +488,9 @@ const translations = {
         saveError:
             "تعذر حفظ التسجيل. حاول مرة أخرى.",
 
+
+        /* PRIVACY */
+
         privateData:
             "بياناتك خاصة ومرتبطة بحسابك في Circle."
 
@@ -389,7 +501,7 @@ const translations = {
 
 /* ==========================================
    GET TEXT
-   ========================================== */
+========================================== */
 
 function t(key) {
 
@@ -400,12 +512,13 @@ function t(key) {
 
 /* ==========================================
    APPLY LANGUAGE
-   ========================================== */
+========================================== */
 
 function applyLanguage() {
 
     document.documentElement.lang =
         language;
+
 
     document.documentElement.dir =
         language === "ar"
@@ -415,21 +528,65 @@ function applyLanguage() {
 
     const ids = {
 
-        backBtn: "back",
-        dateLabel: "daily",
-        pageTitle: "title",
-        pageDescription: "description",
+        backBtn:
+            "back",
 
-        sleepTitle: "sleep",
-        sleepDescription: "sleepDescription",
-        sleepUnit: "hours",
+        dateLabel:
+            "daily",
 
-        sleepQualityTitle: "sleepQuality",
+        pageTitle:
+            "title",
+
+        pageDescription:
+            "description",
+
+
+        /* MOOD */
+
+        moodTitle:
+            "moodTitle",
+
+        moodDescription:
+            "moodDescription",
+
+        moodVeryGood:
+            "veryGood",
+
+        moodGood:
+            "good",
+
+        moodOkay:
+            "okay",
+
+        moodLow:
+            "low",
+
+
+        /* SLEEP */
+
+        sleepTitle:
+            "sleep",
+
+        sleepDescription:
+            "sleepDescription",
+
+        sleepUnit:
+            "hours",
+
+        sleepQualityTitle:
+            "sleepQuality",
+
         sleepQualityDescription:
             "sleepQualityDescription",
 
-        sleepQualityLow: "veryPoor",
-        sleepQualityHigh: "excellent",
+        sleepQualityLow:
+            "veryPoor",
+
+        sleepQualityHigh:
+            "excellent",
+
+
+        /* SLEEP PROBLEMS */
 
         sleepProblemsTitle:
             "sleepProblems",
@@ -437,11 +594,17 @@ function applyLanguage() {
         sleepProblemsDescription:
             "sleepProblemsDescription",
 
+
+        /* SLEEP REASONS */
+
         sleepReasonsTitle:
             "sleepReasons",
 
         sleepReasonsDescription:
             "sleepReasonsDescription",
+
+
+        /* WATER */
 
         waterTitle:
             "water",
@@ -451,6 +614,9 @@ function applyLanguage() {
 
         waterUnit:
             "milliliters",
+
+
+        /* ENERGY */
 
         energyTitle:
             "energy",
@@ -464,6 +630,9 @@ function applyLanguage() {
         energyHigh:
             "veryHigh",
 
+
+        /* STRESS */
+
         stressTitle:
             "stressTitle",
 
@@ -476,14 +645,23 @@ function applyLanguage() {
         stressHigh:
             "veryHigh",
 
+
+        /* NOTE */
+
         noteTitle:
             "note",
 
         noteDescription:
             "noteDescription",
 
+
+        /* SAVE */
+
         saveBtn:
             "save",
+
+
+        /* PRIVACY */
 
         privacyNote:
             "privateData"
@@ -496,6 +674,7 @@ function applyLanguage() {
 
             const element =
                 document.getElementById(id);
+
 
             if (element) {
 
@@ -529,7 +708,7 @@ function applyLanguage() {
 
 /* ==========================================
    TRANSLATE CHECKBOX LABELS
-   ========================================== */
+========================================== */
 
 function updateCheckboxLabels() {
 
@@ -570,11 +749,14 @@ function updateCheckboxLabels() {
 
     const reasonMap = {
 
-        work: "work",
+        work:
+            "work",
 
-        family: "family",
+        family:
+            "family",
 
-        stress: "stress",
+        stress:
+            "stress",
 
         overthinking:
             "overthinking",
@@ -613,13 +795,29 @@ function updateCheckboxLabels() {
                 const label =
                     input.parentElement;
 
+
                 const key =
                     problemMap[input.value];
 
+
                 if (key) {
 
-                    label.lastChild.textContent =
-                        " " + t(key);
+                    const textNode =
+                        Array
+                            .from(label.childNodes)
+                            .find(
+                                node =>
+                                    node.nodeType ===
+                                    Node.TEXT_NODE
+                            );
+
+
+                    if (textNode) {
+
+                        textNode.textContent =
+                            " " + t(key);
+
+                    }
 
                 }
 
@@ -637,13 +835,29 @@ function updateCheckboxLabels() {
                 const label =
                     input.parentElement;
 
+
                 const key =
                     reasonMap[input.value];
 
+
                 if (key) {
 
-                    label.lastChild.textContent =
-                        " " + t(key);
+                    const textNode =
+                        Array
+                            .from(label.childNodes)
+                            .find(
+                                node =>
+                                    node.nodeType ===
+                                    Node.TEXT_NODE
+                            );
+
+
+                    if (textNode) {
+
+                        textNode.textContent =
+                            " " + t(key);
+
+                    }
 
                 }
 
@@ -655,12 +869,13 @@ function updateCheckboxLabels() {
 
 /* ==========================================
    RANGE VALUES
-   ========================================== */
+========================================== */
 
 const sleepQualityInput =
     document.getElementById(
         "sleepQualityInput"
     );
+
 
 const sleepQualityValue =
     document.getElementById(
@@ -684,6 +899,7 @@ const energyInput =
         "energyInput"
     );
 
+
 const energyValue =
     document.getElementById(
         "energyValue"
@@ -706,6 +922,7 @@ const stressInput =
         "stressInput"
     );
 
+
 const stressValue =
     document.getElementById(
         "stressValue"
@@ -725,7 +942,7 @@ stressInput.addEventListener(
 
 /* ==========================================
    CHECK CURRENT USER
-   ========================================== */
+========================================== */
 
 async function getCurrentUser() {
 
@@ -747,6 +964,7 @@ async function getCurrentUser() {
             "error"
         );
 
+
         setTimeout(
             function() {
 
@@ -756,6 +974,7 @@ async function getCurrentUser() {
             },
             1200
         );
+
 
         return null;
 
@@ -769,20 +988,23 @@ async function getCurrentUser() {
 
 /* ==========================================
    GET TODAY DATE
-   ========================================== */
+========================================== */
 
 function getTodayDate() {
 
     const now =
         new Date();
 
+
     const year =
         now.getFullYear();
+
 
     const month =
         String(
             now.getMonth() + 1
         ).padStart(2, "0");
+
 
     const day =
         String(
@@ -797,7 +1019,7 @@ function getTodayDate() {
 
 /* ==========================================
    COLLECT CHECKBOXES
-   ========================================== */
+========================================== */
 
 function getSelectedValues(name) {
 
@@ -820,7 +1042,7 @@ function getSelectedValues(name) {
 
 /* ==========================================
    VALIDATE
-   ========================================== */
+========================================== */
 
 function validateForm() {
 
@@ -843,6 +1065,7 @@ function validateForm() {
             "error"
         );
 
+
         return false;
 
     }
@@ -861,6 +1084,7 @@ function validateForm() {
             t("invalidSleep"),
             "error"
         );
+
 
         return false;
 
@@ -883,6 +1107,7 @@ function validateForm() {
                 "error"
             );
 
+
             return false;
 
         }
@@ -897,7 +1122,7 @@ function validateForm() {
 
 /* ==========================================
    SHOW MESSAGE
-   ========================================== */
+========================================== */
 
 function showMessage(
     message,
@@ -928,7 +1153,7 @@ function showMessage(
 
 /* ==========================================
    CLEAR MESSAGE
-   ========================================== */
+========================================== */
 
 function clearMessage() {
 
@@ -938,7 +1163,9 @@ function clearMessage() {
         );
 
 
-    box.textContent = "";
+    box.textContent =
+        "";
+
 
     box.className =
         "message";
@@ -948,7 +1175,7 @@ function clearMessage() {
 
 /* ==========================================
    LOAD TODAY'S CHECK-IN
-   ========================================== */
+========================================== */
 
 async function loadTodayCheckin(user) {
 
@@ -981,6 +1208,7 @@ async function loadTodayCheckin(user) {
             error
         );
 
+
         return null;
 
     }
@@ -993,7 +1221,31 @@ async function loadTodayCheckin(user) {
     }
 
 
-    /* Sleep */
+    /* ======================================
+       MOOD
+    ====================================== */
+
+    if (data.mood) {
+
+        const moodInput =
+            document.querySelector(
+                `input[name="mood"][value="${data.mood}"]`
+            );
+
+
+        if (moodInput) {
+
+            moodInput.checked =
+                true;
+
+        }
+
+    }
+
+
+    /* ======================================
+       SLEEP
+    ====================================== */
 
     document.getElementById(
         "sleepInput"
@@ -1001,14 +1253,18 @@ async function loadTodayCheckin(user) {
         data.sleep_hours ?? "";
 
 
-    /* Sleep quality */
+    /* ======================================
+       SLEEP QUALITY
+    ====================================== */
 
     if (
-        data.sleep_quality
+        data.sleep_quality !== null &&
+        data.sleep_quality !== undefined
     ) {
 
         sleepQualityInput.value =
             data.sleep_quality;
+
 
         sleepQualityValue.textContent =
             data.sleep_quality;
@@ -1016,7 +1272,9 @@ async function loadTodayCheckin(user) {
     }
 
 
-    /* Water */
+    /* ======================================
+       WATER
+    ====================================== */
 
     document.getElementById(
         "waterInput"
@@ -1024,14 +1282,18 @@ async function loadTodayCheckin(user) {
         data.water_ml ?? "";
 
 
-    /* Energy */
+    /* ======================================
+       ENERGY
+    ====================================== */
 
     if (
-        data.energy_level
+        data.energy_level !== null &&
+        data.energy_level !== undefined
     ) {
 
         energyInput.value =
             data.energy_level;
+
 
         energyValue.textContent =
             data.energy_level;
@@ -1039,14 +1301,18 @@ async function loadTodayCheckin(user) {
     }
 
 
-    /* Stress */
+    /* ======================================
+       STRESS
+    ====================================== */
 
     if (
-        data.stress_level
+        data.stress_level !== null &&
+        data.stress_level !== undefined
     ) {
 
         stressInput.value =
             data.stress_level;
+
 
         stressValue.textContent =
             data.stress_level;
@@ -1054,7 +1320,9 @@ async function loadTodayCheckin(user) {
     }
 
 
-    /* Note */
+    /* ======================================
+       NOTE
+    ====================================== */
 
     document.getElementById(
         "noteInput"
@@ -1062,7 +1330,9 @@ async function loadTodayCheckin(user) {
         data.daily_note || "";
 
 
-    /* Sleep problems */
+    /* ======================================
+       SLEEP PROBLEMS
+    ====================================== */
 
     const problems =
         Array.isArray(
@@ -1088,7 +1358,9 @@ async function loadTodayCheckin(user) {
         );
 
 
-    /* Sleep reasons */
+    /* ======================================
+       SLEEP REASONS
+    ====================================== */
 
     const reasons =
         Array.isArray(
@@ -1121,7 +1393,7 @@ async function loadTodayCheckin(user) {
 
 /* ==========================================
    SAVE CHECK-IN
-   ========================================== */
+========================================== */
 
 async function saveCheckin() {
 
@@ -1152,11 +1424,33 @@ async function saveCheckin() {
         );
 
 
-    saveButton.disabled = true;
+    saveButton.disabled =
+        true;
+
 
     saveButton.textContent =
         t("saving");
 
+
+    /* ======================================
+       MOOD
+    ====================================== */
+
+    const moodInput =
+        document.querySelector(
+            'input[name="mood"]:checked'
+        );
+
+
+    const mood =
+        moodInput
+            ? moodInput.value
+            : null;
+
+
+    /* ======================================
+       SLEEP
+    ====================================== */
 
     const sleep =
         Number(
@@ -1165,6 +1459,10 @@ async function saveCheckin() {
             ).value
         );
 
+
+    /* ======================================
+       WATER
+    ====================================== */
 
     const waterValueInput =
         document.getElementById(
@@ -1178,11 +1476,19 @@ async function saveCheckin() {
             : Number(waterValueInput);
 
 
+    /* ======================================
+       SLEEP QUALITY
+    ====================================== */
+
     const sleepQuality =
         Number(
             sleepQualityInput.value
         );
 
+
+    /* ======================================
+       ENERGY
+    ====================================== */
 
     const energy =
         Number(
@@ -1190,11 +1496,19 @@ async function saveCheckin() {
         );
 
 
+    /* ======================================
+       STRESS
+    ====================================== */
+
     const stress =
         Number(
             stressInput.value
         );
 
+
+    /* ======================================
+       SLEEP PROBLEMS
+    ====================================== */
 
     const sleepProblems =
         getSelectedValues(
@@ -1202,11 +1516,19 @@ async function saveCheckin() {
         );
 
 
+    /* ======================================
+       SLEEP REASONS
+    ====================================== */
+
     const sleepReasons =
         getSelectedValues(
             "sleepReason"
         );
 
+
+    /* ======================================
+       NOTE
+    ====================================== */
 
     const note =
         document.getElementById(
@@ -1214,9 +1536,17 @@ async function saveCheckin() {
         ).value.trim();
 
 
+    /* ======================================
+       DATE
+    ====================================== */
+
     const today =
         getTodayDate();
 
+
+    /* ======================================
+       PAYLOAD
+    ====================================== */
 
     const payload = {
 
@@ -1225,6 +1555,9 @@ async function saveCheckin() {
 
         checkin_date:
             today,
+
+        mood:
+            mood,
 
         sleep_hours:
             sleep,
@@ -1258,11 +1591,9 @@ async function saveCheckin() {
 
     try {
 
-        /*
-         * UPSERT means:
-         * create today's record if it doesn't exist,
-         * otherwise update today's record.
-         */
+        /* ==================================
+           UPSERT
+        ================================== */
 
         const {
             data,
@@ -1288,10 +1619,12 @@ async function saveCheckin() {
                 error
             );
 
+
             showMessage(
                 t("saveError"),
                 "error"
             );
+
 
             return;
 
@@ -1304,15 +1637,19 @@ async function saveCheckin() {
         );
 
 
+        /* ==================================
+           SUCCESS
+        ================================== */
+
         showMessage(
             t("saved"),
             "success"
         );
 
 
-        /*
-         * Return to Home after saving.
-         */
+        /* ==================================
+           RETURN HOME
+        ================================== */
 
         setTimeout(
             function() {
@@ -1327,17 +1664,23 @@ async function saveCheckin() {
 
     } catch (error) {
 
-        console.error(error);
+        console.error(
+            "Unexpected error:",
+            error
+        );
+
 
         showMessage(
             t("saveError"),
             "error"
         );
 
+
     } finally {
 
         saveButton.disabled =
             false;
+
 
         saveButton.textContent =
             t("save");
@@ -1349,7 +1692,7 @@ async function saveCheckin() {
 
 /* ==========================================
    SAVE BUTTON
-   ========================================== */
+========================================== */
 
 document
     .getElementById("saveBtn")
@@ -1361,7 +1704,7 @@ document
 
 /* ==========================================
    BACK BUTTON
-   ========================================== */
+========================================== */
 
 document
     .getElementById("backBtn")
@@ -1378,7 +1721,7 @@ document
 
 /* ==========================================
    LANGUAGE BUTTON
-   ========================================== */
+========================================== */
 
 document
     .getElementById("languageBtn")
@@ -1406,7 +1749,7 @@ document
 
 /* ==========================================
    INITIALIZE
-   ========================================== */
+========================================== */
 
 async function initialize() {
 
