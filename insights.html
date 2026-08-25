@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#2f8f83">
+
+    <title>Circle — Insights</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5faf8;
+            color: #183330;
+            min-height: 100vh;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .topbar {
+            background: white;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e3ece9;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 21px;
+            font-weight: 800;
+            color: #2f8f83;
+        }
+
+        .logo-mark {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e4f4f0;
+            font-size: 22px;
+        }
+
+        .language-btn {
+            border: none;
+            background: #eef6f4;
+            color: #2f8f83;
+            padding: 8px 13px;
+            border-radius: 9px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            margin: auto;
+            padding: 28px 18px 60px;
+        }
+
+        .back {
+            border: none;
+            background: transparent;
+            color: #2f8f83;
+            padding: 0;
+            margin-bottom: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .header {
+            margin-bottom: 24px;
+        }
+
+        .header small {
+            color: #71807d;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .5px;
+        }
+
+        .header h1 {
+            margin: 7px 0 8px;
+            font-size: 30px;
+        }
+
+        .header p {
+            margin: 0;
+            color: #71807d;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e3ece9;
+            border-radius: 22px;
+            padding: 22px;
+            margin-bottom: 16px;
+        }
+
+        .card h2 {
+            margin: 0 0 8px;
+            font-size: 19px;
+        }
+
+        .card p {
+            color: #71807d;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .insight-main {
+            background: #e8f6f2;
+            border: 1px solid #d1ebe5;
+        }
+
+        .insight-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .insight-title {
+            font-size: 21px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #216f66;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .metric {
+            background: #f8fbfa;
+            border: 1px solid #e5eeeb;
+            border-radius: 15px;
+            padding: 16px;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: #7a8985;
+            margin-bottom: 7px;
+        }
+
+        .metric-value {
+            font-size: 25px;
+            font-weight: 800;
+            color: #2f8f83;
+        }
+
+        .metric-unit {
+            font-size: 11px;
+            color: #899692;
+        }
+
+        .pattern {
+            padding: 15px;
+            border-radius: 14px;
+            background: #f8fbfa;
+            border: 1px solid #e5eeeb;
+            margin-top: 11px;
+        }
+
+        .pattern strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .tip {
+            padding: 15px;
+            border-radius: 14px;
+            background: #f8fbfa;
+            border: 1px solid #e5eeeb;
+            margin-top: 10px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 30px 10px;
+            color: #71807d;
+            line-height: 1.7;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px 10px;
+            color: #71807d;
+        }
+
+        .error {
+            background: #fff0f0;
+            color: #b13c3c;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #899692;
+            font-size: 12px;
+            line-height: 1.6;
+            margin-top: 22px;
+        }
+
+        @media (max-width: 500px) {
+
+            .container {
+                padding: 23px 15px 50px;
+            }
+
+            .card {
+                padding: 19px;
+            }
+
+            .header h1 {
+                font-size: 26px;
+            }
+
+            .metric-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="logo">
+
+        <div class="logo-mark">
+            ◯
+        </div>
+
+        Circle
+
+    </div>
+
+    <button
+        class="language-btn"
+        id="languageBtn"
+    >
+        العربية
+    </button>
+
+</header>
+
+
+<main class="container">
+
+    <button
+        class="back"
+        id="backBtn"
+    >
+        ← Back to Home
+    </button>
+
+
+    <section class="header">
+
+        <small id="headerSmall">
+            YOUR PERSONAL INSIGHTS
+        </small>
+
+        <h1 id="pageTitle">
+            Understand your patterns
+        </h1>
+
+        <p id="pageDescription">
+            Circle looks at your recent check-ins and helps you understand the relationships between sleep, water, energy and stress.
+        </p>
+
+    </section>
+
+
+    <div id="content">
+
+        <div class="loading" id="loading">
+            Analyzing your data...
+        </div>
+
+    </div>
+
+
+    <div class="footer-note" id="footerNote">
+        These insights are based on your recorded patterns and are not a medical diagnosis.
+    </div>
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="insights.js"></script>
+
+</body>
+
+</html>
