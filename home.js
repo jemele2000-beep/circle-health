@@ -1,7 +1,14 @@
 /* ==========================================
    CIRCLE HEALTH
    HOME DASHBOARD
-   COMPLETE VERSION
+   FULL VERSION
+   Includes:
+   - Sleep
+   - Hydration
+   - Energy
+   - Stress
+   - Mood analysis
+   - Multi-day pattern detection
    ========================================== */
 
 
@@ -67,19 +74,26 @@ const translations = {
         understandingTitle:
             "What your data suggests",
 
-        sleep: "Sleep",
+        sleep:
+            "Sleep",
 
-        hydration: "Hydration",
+        hydration:
+            "Hydration",
 
-        energy: "Energy",
+        energy:
+            "Energy",
 
-        stress: "Stress",
+        stress:
+            "Stress",
 
-        mood: "Mood",
+        mood:
+            "Mood",
 
-        hours: "hours",
+        hours:
+            "hours",
 
-        ml: "ml",
+        ml:
+            "ml",
 
         noData:
             "No check-in yet",
@@ -87,43 +101,44 @@ const translations = {
         complete:
             "Complete today's check-in to see your snapshot.",
 
-        sleepGood: "Good",
-
-        sleepFair: "Fair",
-
-        sleepLow: "Low",
-
-        sleepPoor: "Poor",
-
-        hydrationGood: "Good",
-
-        hydrationModerate: "Moderate",
-
-        hydrationLow: "Low",
-
-        energyHigh: "High",
-
-        energyModerate: "Moderate",
-
-        energyLow: "Low",
-
-        stressLow: "Low",
-
-        stressModerate: "Moderate",
-
-        stressHigh: "High",
-
-        moodVeryGood:
-            "Very good",
-
-        moodGood:
+        sleepGood:
             "Good",
 
-        moodOkay:
-            "Okay",
+        sleepFair:
+            "Fair",
 
-        moodLow:
+        sleepLow:
             "Low",
+
+        sleepPoor:
+            "Poor",
+
+        hydrationGood:
+            "Good",
+
+        hydrationModerate:
+            "Moderate",
+
+        hydrationLow:
+            "Low",
+
+        energyHigh:
+            "High",
+
+        energyModerate:
+            "Moderate",
+
+        energyLow:
+            "Low",
+
+        stressLow:
+            "Low",
+
+        stressModerate:
+            "Moderate",
+
+        stressHigh:
+            "High",
 
         sleepDetails:
             "Sleep Details",
@@ -171,25 +186,43 @@ const translations = {
             "Your sleep and energy may be connected.",
 
         insightSleepText:
-            "Your recent data shows a possible relationship between sleep duration and energy. More check-ins will make the pattern clearer.",
+            "Your recent check-ins suggest that better sleep may be associated with higher energy. Keep checking in to see whether this pattern continues.",
 
         insightStress:
             "Stress may be affecting your sleep.",
 
         insightStressText:
-            "Your recent data suggests that higher stress and lower sleep quality may occur together. Continue checking in to see if this pattern persists.",
+            "Your recent data suggests that higher stress may occur together with lower sleep quality. Continue checking in to see if this pattern persists.",
 
         insightWater:
             "Hydration and energy may be connected.",
 
         insightWaterText:
-            "Your recent check-ins give Circle enough information to begin watching the relationship between water intake and energy.",
+            "Your recent check-ins suggest that higher water intake may be associated with better energy. More data will make the pattern clearer.",
 
-        insightMood:
-            "Your mood may be connected to your daily signals.",
+        insightMoodEnergy:
+            "Your mood and energy may be connected.",
 
-        insightMoodText:
-            "Circle is starting to compare your mood with sleep, energy and stress. Continue checking in to make this personal pattern clearer.",
+        insightMoodEnergyText:
+            "Your recent check-ins suggest that better mood may occur together with higher energy. Continue checking in to see whether this relationship persists.",
+
+        insightMoodSleep:
+            "Your mood may be connected to your sleep.",
+
+        insightMoodSleepText:
+            "Your recent check-ins suggest that better sleep may be associated with a better mood. More daily check-ins will help Circle understand your personal pattern.",
+
+        insightStressMood:
+            "Stress may be affecting your mood.",
+
+        insightStressMoodText:
+            "Your recent data suggests that higher stress may occur together with a lower mood. Continue checking in to see whether this pattern continues.",
+
+        insightBalanced:
+            "Your signals look relatively balanced.",
+
+        insightBalancedText:
+            "Your recent wellness signals do not show one strong pattern yet. Keep checking in so Circle can learn more about your personal rhythm.",
 
         private:
             "Your data is private and connected to your Circle account.",
@@ -271,7 +304,8 @@ const translations = {
 
     ar: {
 
-        language: "English",
+        language:
+            "English",
 
         signOut:
             "تسجيل الخروج",
@@ -375,18 +409,6 @@ const translations = {
         stressHigh:
             "مرتفع",
 
-        moodVeryGood:
-            "جيد جدًا",
-
-        moodGood:
-            "جيد",
-
-        moodOkay:
-            "مقبول",
-
-        moodLow:
-            "منخفض",
-
         sleepDetails:
             "تفاصيل النوم",
 
@@ -433,25 +455,43 @@ const translations = {
             "قد يكون هناك ارتباط بين نومك وطاقتك.",
 
         insightSleepText:
-            "تُظهر بياناتك الأخيرة احتمال وجود علاقة بين مدة النوم والطاقة. المزيد من التسجيلات سيجعل النمط أوضح.",
+            "تشير تسجيلاتك الأخيرة إلى أن النوم الأفضل قد يرتبط بطاقة أعلى. استمر في التسجيل لمعرفة ما إذا كان هذا النمط مستمرًا.",
 
         insightStress:
             "قد يكون التوتر مؤثرًا على نومك.",
 
         insightStressText:
-            "تشير تسجيلاتك الأخيرة إلى أن التوتر المرتفع وانخفاض جودة النوم قد يحدثان معًا. استمر في التسجيل لمعرفة ما إذا كان النمط مستمرًا.",
+            "تشير تسجيلاتك الأخيرة إلى أن التوتر المرتفع قد يحدث مع انخفاض جودة النوم. استمر في التسجيل لمعرفة ما إذا كان النمط مستمرًا.",
 
         insightWater:
             "قد تكون هناك علاقة بين الماء والطاقة.",
 
         insightWaterText:
-            "تسجيلاتك الأخيرة تسمح لـ Circle بالبدء في مراقبة العلاقة بين كمية الماء والطاقة.",
+            "تشير تسجيلاتك الأخيرة إلى أن شرب كمية أكبر من الماء قد يرتبط بطاقة أفضل. المزيد من البيانات سيجعل النمط أوضح.",
 
-        insightMood:
-            "قد يكون مزاجك مرتبطًا بمؤشراتك اليومية.",
+        insightMoodEnergy:
+            "قد يكون هناك ارتباط بين مزاجك وطاقتك.",
 
-        insightMoodText:
-            "بدأ Circle في مقارنة مزاجك مع النوم والطاقة والتوتر. استمر في التسجيل لجعل هذا النمط أكثر وضوحًا.",
+        insightMoodEnergyText:
+            "تشير تسجيلاتك الأخيرة إلى أن المزاج الأفضل قد يحدث مع طاقة أعلى. استمر في التسجيل لمعرفة ما إذا كانت العلاقة مستمرة.",
+
+        insightMoodSleep:
+            "قد يكون مزاجك مرتبطًا بنومك.",
+
+        insightMoodSleepText:
+            "تشير تسجيلاتك الأخيرة إلى أن النوم الأفضل قد يرتبط بمزاج أفضل. المزيد من التسجيلات اليومية سيساعد Circle على فهم نمطك الشخصي.",
+
+        insightStressMood:
+            "قد يكون التوتر مؤثرًا على مزاجك.",
+
+        insightStressMoodText:
+            "تشير بياناتك الأخيرة إلى أن التوتر المرتفع قد يحدث مع انخفاض المزاج. استمر في التسجيل لمعرفة ما إذا كان هذا النمط مستمرًا.",
+
+        insightBalanced:
+            "مؤشراتك تبدو متوازنة نسبيًا.",
+
+        insightBalancedText:
+            "لا يظهر نمط قوي واحد في مؤشرات صحتك الأخيرة حتى الآن. استمر في التسجيل حتى يتعلم Circle المزيد عن نمطك الشخصي.",
 
         private:
             "بياناتك خاصة ومرتبطة بحسابك في Circle.",
@@ -980,11 +1020,14 @@ function renderSnapshot(record) {
     const sleepHours =
         record.sleep_hours;
 
+
     const water =
         record.water_ml;
 
+
     const energy =
         record.energy_level;
+
 
     const stress =
         record.stress_level;
@@ -1087,6 +1130,7 @@ function getSleepStatus(record) {
 
     const hours =
         Number(record.sleep_hours);
+
 
     const quality =
         Number(record.sleep_quality);
@@ -1210,58 +1254,6 @@ function getStressStatus(value) {
 
 
 /* ==========================================
-   MOOD
-========================================== */
-
-function translateMood(value) {
-
-    if (!value) {
-
-        return "";
-
-    }
-
-
-    const normalized =
-        String(value)
-            .toLowerCase()
-            .trim();
-
-
-    const map = {
-
-        very_good:
-            "moodVeryGood",
-
-        verygood:
-            "moodVeryGood",
-
-        "very good":
-            "moodVeryGood",
-
-        good:
-            "moodGood",
-
-        okay:
-            "moodOkay",
-
-        ok:
-            "moodOkay",
-
-        low:
-            "moodLow"
-
-    };
-
-
-    return t(
-        map[normalized] || value
-    );
-
-}
-
-
-/* ==========================================
    TODAY ANALYSIS
 ========================================== */
 
@@ -1304,70 +1296,30 @@ function renderAnalysis(record) {
     const sleepHours =
         Number(record.sleep_hours);
 
+
     const quality =
         Number(record.sleep_quality);
+
 
     const stress =
         Number(record.stress_level);
 
+
     const energy =
         Number(record.energy_level);
 
-    const water =
-        Number(record.water_ml);
-
-
-    /* MOOD */
-
-    if (record.mood) {
-
-        items.push(
-
-            `<div class="analysis-item">
-
-                <div class="analysis-label">
-                    ${escapeHTML(
-                        t("mood")
-                    )}
-                </div>
-
-                ${escapeHTML(
-                    translateMood(
-                        record.mood
-                    )
-                )}
-
-            </div>`
-
-        );
-
-    }
-
-
-    /* SLEEP */
 
     if (
         sleepHours < 6
     ) {
 
         items.push(
-
             `<div class="analysis-item">
-
                 <div class="analysis-label">
-                    ${escapeHTML(
-                        t("sleep")
-                    )}
+                    ${escapeHTML(t("sleep"))}
                 </div>
-
-                ${
-                    language === "ar"
-                        ? "مدة نومك أقل من 6 ساعات اليوم."
-                        : "Your sleep duration was below 6 hours."
-                }
-
+                Your sleep duration was below 6 hours.
             </div>`
-
         );
 
     } else if (
@@ -1376,199 +1328,74 @@ function renderAnalysis(record) {
     ) {
 
         items.push(
-
             `<div class="analysis-item">
-
                 <div class="analysis-label">
-                    ${escapeHTML(
-                        t("sleep")
-                    )}
+                    ${escapeHTML(t("sleep"))}
                 </div>
-
-                ${
-                    language === "ar"
-                        ? "مدة النوم وجودته تبدوان جيدتين اليوم."
-                        : "Your sleep duration and quality look good today."
-                }
-
+                Your sleep duration and quality look good today.
             </div>`
-
         );
 
     }
 
-
-    /* STRESS */
 
     if (
         stress >= 7
     ) {
 
         items.push(
-
             `<div class="analysis-item">
-
                 <div class="analysis-label">
-                    ${escapeHTML(
-                        t("stress")
-                    )}
+                    ${escapeHTML(t("stress"))}
                 </div>
-
-                ${
-                    language === "ar"
-                        ? "مستوى التوتر لديك مرتفع اليوم."
-                        : "Your stress level is high today."
-                }
-
+                Your stress level is high today.
             </div>`
-
         );
 
     }
 
-
-    /* ENERGY */
 
     if (
         energy <= 3
     ) {
 
         items.push(
-
             `<div class="analysis-item">
-
                 <div class="analysis-label">
-                    ${escapeHTML(
-                        t("energy")
-                    )}
+                    ${escapeHTML(t("energy"))}
                 </div>
-
-                ${
-                    language === "ar"
-                        ? "مستوى طاقتك منخفض اليوم."
-                        : "Your energy level is low today."
-                }
-
+                Your energy level is low today.
             </div>`
-
         );
 
     }
 
 
-    /* HYDRATION */
-
     if (
-        water < 1200
+        Number(record.water_ml) < 1200
     ) {
 
         items.push(
-
             `<div class="analysis-item">
-
                 <div class="analysis-label">
-                    ${escapeHTML(
-                        t("hydration")
-                    )}
+                    ${escapeHTML(t("hydration"))}
                 </div>
-
-                ${
-                    language === "ar"
-                        ? "كمية الماء المسجلة منخفضة نسبيًا اليوم."
-                        : "Your recorded water intake is relatively low today."
-                }
-
+                Your recorded water intake is relatively low today.
             </div>`
-
         );
 
     }
 
-
-    /* MOOD + STRESS */
-
-    if (
-        record.mood &&
-        String(record.mood).toLowerCase() === "low" &&
-        stress >= 7
-    ) {
-
-        items.push(
-
-            `<div class="analysis-item">
-
-                <div class="analysis-label">
-                    ${escapeHTML(
-                        t("mood")
-                    )}
-                </div>
-
-                ${
-                    language === "ar"
-                        ? "مزاجك منخفض مع ارتفاع التوتر اليوم. Circle سيستمر في مراقبة ما إذا كان هذا النمط يتكرر."
-                        : "Your mood is low while stress is high today. Circle will keep watching to see if this pattern repeats."
-                }
-
-            </div>`
-
-        );
-
-    }
-
-
-    /* MOOD + ENERGY */
-
-    if (
-        record.mood &&
-        (
-            String(record.mood).toLowerCase() === "very_good" ||
-            String(record.mood).toLowerCase() === "very good" ||
-            String(record.mood).toLowerCase() === "good"
-        ) &&
-        energy >= 7
-    ) {
-
-        items.push(
-
-            `<div class="analysis-item">
-
-                <div class="analysis-label">
-                    ${escapeHTML(
-                        t("mood")
-                    )}
-                </div>
-
-                ${
-                    language === "ar"
-                        ? "مزاجك وطاقتك يبدوان جيدين اليوم."
-                        : "Your mood and energy both look positive today."
-                }
-
-            </div>`
-
-        );
-
-    }
-
-
-    /* BALANCED */
 
     if (
         items.length === 0
     ) {
 
         items.push(
-
             `<div class="analysis-item">
-
-                ${
-                    language === "ar"
-                        ? "مؤشراتك تبدو متوازنة نسبيًا اليوم. استمر في التسجيل حتى يتمكن Circle من تعلم أنماطك الشخصية."
-                        : "Your signals look relatively balanced today. Keep checking in so Circle can learn your personal patterns."
-                }
-
+                Your signals look relatively balanced today.
+                Keep checking in so Circle can learn your personal patterns.
             </div>`
-
         );
 
     }
@@ -1602,16 +1429,12 @@ function renderSleepDetails(record) {
 
         problemsContainer.innerHTML =
             `<span class="tag empty">
-                ${escapeHTML(
-                    t("none")
-                )}
+                ${escapeHTML(t("none"))}
             </span>`;
 
         reasonsContainer.innerHTML =
             `<span class="tag empty">
-                ${escapeHTML(
-                    t("none")
-                )}
+                ${escapeHTML(t("none"))}
             </span>`;
 
         return;
@@ -1986,7 +1809,97 @@ function calculateStreak(records) {
 
 
 /* ==========================================
-   INSIGHT
+   MOOD VALUE
+   Supports the current mood field.
+========================================== */
+
+function getMoodNumeric(record) {
+
+    if (!record) {
+
+        return null;
+
+    }
+
+
+    /*
+       The current check-in mood is normally
+       stored as a text value.
+
+       Supported values:
+       very_good
+       good
+       okay
+       low
+    */
+
+    const mood =
+        record.mood;
+
+
+    if (
+        mood === null ||
+        mood === undefined ||
+        mood === ""
+    ) {
+
+        return null;
+
+    }
+
+
+    if (
+        typeof mood === "number"
+    ) {
+
+        return mood;
+
+    }
+
+
+    const normalized =
+        String(mood)
+            .trim()
+            .toLowerCase()
+            .replace(
+                /\s+/g,
+                "_"
+            );
+
+
+    const map = {
+
+        very_good: 4,
+
+        verygood: 4,
+
+        excellent: 4,
+
+        good: 3,
+
+        okay: 2,
+
+        ok: 2,
+
+        average: 2,
+
+        low: 1,
+
+        poor: 1
+
+    };
+
+
+    return (
+        map[normalized] ??
+        null
+    );
+
+}
+
+
+/* ==========================================
+   PATTERN ANALYSIS
 ========================================== */
 
 function renderInsight(records) {
@@ -2019,17 +1932,30 @@ function renderInsight(records) {
     }
 
 
-    /* =========================
-       SLEEP + ENERGY
-    ========================= */
+    /*
+       We calculate several possible
+       relationships and choose the
+       strongest reliable one.
+    */
+
+    const patterns = [];
+
+
+    /* --------------------------------------
+       SLEEP → ENERGY
+    -------------------------------------- */
 
     const sleepEnergyData =
         records.filter(
             function(record) {
 
                 return (
-                    record.sleep_hours !== null &&
-                    record.energy_level !== null
+                    isNumber(
+                        record.sleep_hours
+                    ) &&
+                    isNumber(
+                        record.energy_level
+                    )
                 );
 
             }
@@ -2097,19 +2023,27 @@ function renderInsight(records) {
                 );
 
 
+            const difference =
+                highAverage -
+                lowAverage;
+
+
             if (
-                highAverage >
-                lowAverage + 0.7
+                difference > 0.7
             ) {
 
-                title.textContent =
-                    t("insightSleep");
+                patterns.push({
 
+                    score:
+                        difference,
 
-                text.textContent =
-                    t("insightSleepText");
+                    title:
+                        "insightSleep",
 
-                return;
+                    text:
+                        "insightSleepText"
+
+                });
 
             }
 
@@ -2118,17 +2052,21 @@ function renderInsight(records) {
     }
 
 
-    /* =========================
-       STRESS + SLEEP
-    ========================= */
+    /* --------------------------------------
+       STRESS → SLEEP
+    -------------------------------------- */
 
     const stressSleepData =
         records.filter(
             function(record) {
 
                 return (
-                    record.stress_level !== null &&
-                    record.sleep_quality !== null
+                    isNumber(
+                        record.stress_level
+                    ) &&
+                    isNumber(
+                        record.sleep_quality
+                    )
                 );
 
             }
@@ -2196,19 +2134,27 @@ function renderInsight(records) {
                 );
 
 
+            const difference =
+                lowStressQuality -
+                highStressQuality;
+
+
             if (
-                lowStressQuality >
-                highStressQuality + 0.7
+                difference > 0.7
             ) {
 
-                title.textContent =
-                    t("insightStress");
+                patterns.push({
 
+                    score:
+                        difference,
 
-                text.textContent =
-                    t("insightStressText");
+                    title:
+                        "insightStress",
 
-                return;
+                    text:
+                        "insightStressText"
+
+                });
 
             }
 
@@ -2217,17 +2163,21 @@ function renderInsight(records) {
     }
 
 
-    /* =========================
-       MOOD DATA
-    ========================= */
+    /* --------------------------------------
+       WATER → ENERGY
+    -------------------------------------- */
 
-    const moodData =
+    const waterEnergyData =
         records.filter(
             function(record) {
 
                 return (
-                    record.mood !== null &&
-                    record.mood !== undefined
+                    isNumber(
+                        record.water_ml
+                    ) &&
+                    isNumber(
+                        record.energy_level
+                    )
                 );
 
             }
@@ -2235,74 +2185,527 @@ function renderInsight(records) {
 
 
     if (
-        moodData.length >= 3
+        waterEnergyData.length >= 3
     ) {
 
-        const lowMood =
-            moodData.filter(
+        const highWater =
+            waterEnergyData.filter(
                 function(record) {
 
-                    const mood =
-                        String(
-                            record.mood
-                        ).toLowerCase();
-
-                    return (
-                        mood === "low"
-                    );
+                    return Number(
+                        record.water_ml
+                    ) >= 2000;
 
                 }
             );
 
 
-        const highMood =
-            moodData.filter(
+        const lowWater =
+            waterEnergyData.filter(
                 function(record) {
 
-                    const mood =
-                        String(
-                            record.mood
-                        ).toLowerCase();
-
-                    return (
-                        mood === "good" ||
-                        mood === "very_good" ||
-                        mood === "very good"
-                    );
+                    return Number(
+                        record.water_ml
+                    ) < 1200;
 
                 }
             );
 
 
         if (
-            lowMood.length >= 2 &&
-            highMood.length >= 1
+            highWater.length >= 2 &&
+            lowWater.length >= 1
         ) {
 
-            title.textContent =
-                t("insightMood");
+            const highAverage =
+                average(
+                    highWater.map(
+                        function(record) {
+
+                            return Number(
+                                record.energy_level
+                            );
+
+                        }
+                    )
+                );
 
 
-            text.textContent =
-                t("insightMoodText");
+            const lowAverage =
+                average(
+                    lowWater.map(
+                        function(record) {
 
-            return;
+                            return Number(
+                                record.energy_level
+                            );
+
+                        }
+                    )
+                );
+
+
+            const difference =
+                highAverage -
+                lowAverage;
+
+
+            if (
+                difference > 0.7
+            ) {
+
+                patterns.push({
+
+                    score:
+                        difference,
+
+                    title:
+                        "insightWater",
+
+                    text:
+                        "insightWaterText"
+
+                });
+
+            }
 
         }
 
     }
 
 
-    /* =========================
-       DEFAULT
-    ========================= */
+    /* --------------------------------------
+       MOOD → ENERGY
+    -------------------------------------- */
+
+    const moodEnergyData =
+        records
+            .map(
+                function(record) {
+
+                    return {
+
+                        mood:
+                            getMoodNumeric(
+                                record
+                            ),
+
+                        energy:
+                            isNumber(
+                                record.energy_level
+                            )
+                                ? Number(
+                                    record.energy_level
+                                )
+                                : null
+
+                    };
+
+                }
+            )
+            .filter(
+                function(item) {
+
+                    return (
+                        item.mood !== null &&
+                        item.energy !== null
+                    );
+
+                }
+            );
+
+
+    if (
+        moodEnergyData.length >= 3
+    ) {
+
+        const goodMood =
+            moodEnergyData.filter(
+                function(item) {
+
+                    return item.mood >= 3;
+
+                }
+            );
+
+
+        const lowMood =
+            moodEnergyData.filter(
+                function(item) {
+
+                    return item.mood <= 2;
+
+                }
+            );
+
+
+        if (
+            goodMood.length >= 2 &&
+            lowMood.length >= 1
+        ) {
+
+            const goodMoodEnergy =
+                average(
+                    goodMood.map(
+                        function(item) {
+
+                            return item.energy;
+
+                        }
+                    )
+                );
+
+
+            const lowMoodEnergy =
+                average(
+                    lowMood.map(
+                        function(item) {
+
+                            return item.energy;
+
+                        }
+                    )
+                );
+
+
+            const difference =
+                goodMoodEnergy -
+                lowMoodEnergy;
+
+
+            if (
+                difference > 0.7
+            ) {
+
+                patterns.push({
+
+                    score:
+                        difference,
+
+                    title:
+                        "insightMoodEnergy",
+
+                    text:
+                        "insightMoodEnergyText"
+
+                });
+
+            }
+
+        }
+
+    }
+
+
+    /* --------------------------------------
+       MOOD → SLEEP
+    -------------------------------------- */
+
+    const moodSleepData =
+        records
+            .map(
+                function(record) {
+
+                    return {
+
+                        mood:
+                            getMoodNumeric(
+                                record
+                            ),
+
+                        sleep:
+                            isNumber(
+                                record.sleep_quality
+                            )
+                                ? Number(
+                                    record.sleep_quality
+                                )
+                                : null
+
+                    };
+
+                }
+            )
+            .filter(
+                function(item) {
+
+                    return (
+                        item.mood !== null &&
+                        item.sleep !== null
+                    );
+
+                }
+            );
+
+
+    if (
+        moodSleepData.length >= 3
+    ) {
+
+        const goodMood =
+            moodSleepData.filter(
+                function(item) {
+
+                    return item.mood >= 3;
+
+                }
+            );
+
+
+        const lowMood =
+            moodSleepData.filter(
+                function(item) {
+
+                    return item.mood <= 2;
+
+                }
+            );
+
+
+        if (
+            goodMood.length >= 2 &&
+            lowMood.length >= 1
+        ) {
+
+            const goodMoodSleep =
+                average(
+                    goodMood.map(
+                        function(item) {
+
+                            return item.sleep;
+
+                        }
+                    )
+                );
+
+
+            const lowMoodSleep =
+                average(
+                    lowMood.map(
+                        function(item) {
+
+                            return item.sleep;
+
+                        }
+                    )
+                );
+
+
+            const difference =
+                goodMoodSleep -
+                lowMoodSleep;
+
+
+            if (
+                difference > 0.7
+            ) {
+
+                patterns.push({
+
+                    score:
+                        difference,
+
+                    title:
+                        "insightMoodSleep",
+
+                    text:
+                        "insightMoodSleepText"
+
+                });
+
+            }
+
+        }
+
+    }
+
+
+    /* --------------------------------------
+       STRESS → MOOD
+    -------------------------------------- */
+
+    const stressMoodData =
+        records
+            .map(
+                function(record) {
+
+                    return {
+
+                        stress:
+                            isNumber(
+                                record.stress_level
+                            )
+                                ? Number(
+                                    record.stress_level
+                                )
+                                : null,
+
+                        mood:
+                            getMoodNumeric(
+                                record
+                            )
+
+                    };
+
+                }
+            )
+            .filter(
+                function(item) {
+
+                    return (
+                        item.stress !== null &&
+                        item.mood !== null
+                    );
+
+                }
+            );
+
+
+    if (
+        stressMoodData.length >= 3
+    ) {
+
+        const highStress =
+            stressMoodData.filter(
+                function(item) {
+
+                    return item.stress >= 7;
+
+                }
+            );
+
+
+        const lowStress =
+            stressMoodData.filter(
+                function(item) {
+
+                    return item.stress <= 4;
+
+                }
+            );
+
+
+        if (
+            highStress.length >= 2 &&
+            lowStress.length >= 1
+        ) {
+
+            const highStressMood =
+                average(
+                    highStress.map(
+                        function(item) {
+
+                            return item.mood;
+
+                        }
+                    )
+                );
+
+
+            const lowStressMood =
+                average(
+                    lowStress.map(
+                        function(item) {
+
+                            return item.mood;
+
+                        }
+                    )
+                );
+
+
+            const difference =
+                lowStressMood -
+                highStressMood;
+
+
+            if (
+                difference > 0.5
+            ) {
+
+                patterns.push({
+
+                    score:
+                        difference,
+
+                    title:
+                        "insightStressMood",
+
+                    text:
+                        "insightStressMoodText"
+
+                });
+
+            }
+
+        }
+
+    }
+
+
+    /* --------------------------------------
+       CHOOSE STRONGEST PATTERN
+    -------------------------------------- */
+
+    if (
+        patterns.length > 0
+    ) {
+
+        patterns.sort(
+            function(a, b) {
+
+                return b.score -
+                    a.score;
+
+            }
+        );
+
+
+        const strongest =
+            patterns[0];
+
+
+        title.textContent =
+            t(strongest.title);
+
+
+        text.textContent =
+            t(strongest.text);
+
+
+        return;
+
+    }
+
+
+    /* --------------------------------------
+       NO STRONG PATTERN YET
+    -------------------------------------- */
 
     title.textContent =
-        t("insightNew");
+        t("insightBalanced");
 
 
     text.textContent =
-        t("insightNewText");
+        t("insightBalancedText");
+
+}
+
+
+/* ==========================================
+   NUMBER CHECK
+========================================== */
+
+function isNumber(value) {
+
+    return (
+        value !== null &&
+        value !== undefined &&
+        value !== "" &&
+        !Number.isNaN(
+            Number(value)
+        )
+    );
 
 }
 
