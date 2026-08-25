@@ -1,19 +1,11 @@
+```html
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="theme-color"
-        content="#2f8f83"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2f8f83">
 
     <title>Circle — Home</title>
 
@@ -25,16 +17,9 @@
 
         body {
             margin: 0;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
+            font-family: Arial, Helvetica, sans-serif;
             background: #f5faf8;
-
             color: #183330;
-
             min-height: 100vh;
         }
 
@@ -42,119 +27,69 @@
             font-family: inherit;
         }
 
-        /* =========================
-           TOP BAR
-        ========================= */
-
         .topbar {
             background: white;
-
             padding: 15px 20px;
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
-            border-bottom:
-                1px solid #e3ece9;
-
+            border-bottom: 1px solid #e3ece9;
             position: sticky;
-
             top: 0;
-
             z-index: 20;
         }
 
         .logo {
             display: flex;
-
             align-items: center;
-
             gap: 8px;
-
             font-size: 21px;
-
             font-weight: 800;
-
             color: #2f8f83;
         }
 
         .logo-mark {
             width: 34px;
-
             height: 34px;
-
             border-radius: 50%;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             background: #e4f4f0;
-
             font-size: 21px;
         }
 
         .top-actions {
             display: flex;
-
             align-items: center;
-
             gap: 9px;
         }
 
         .language-btn {
             border: none;
-
             background: #eef6f4;
-
             color: #2f8f83;
-
             padding: 8px 13px;
-
             border-radius: 9px;
-
             font-weight: 700;
-
             cursor: pointer;
         }
 
         .logout-btn {
             border: none;
-
             background: transparent;
-
             color: #71807d;
-
             padding: 8px;
-
             cursor: pointer;
-
             font-weight: 600;
         }
 
-        /* =========================
-           CONTAINER
-        ========================= */
-
         .container {
             width: 100%;
-
             max-width: 900px;
-
             margin: auto;
-
-            padding:
-                28px 18px 60px;
+            padding: 28px 18px 60px;
         }
-
-        /* =========================
-           WELCOME
-        ========================= */
 
         .welcome {
             margin-bottom: 22px;
@@ -162,56 +97,34 @@
 
         .welcome small {
             color: #71807d;
-
             font-size: 12px;
-
             font-weight: 700;
-
             letter-spacing: 0.5px;
         }
 
         .welcome h1 {
-            margin:
-                7px 0 8px;
-
+            margin: 7px 0 8px;
             font-size: 30px;
-
             line-height: 1.2;
         }
 
         .welcome p {
             margin: 0;
-
             color: #71807d;
-
             font-size: 14px;
-
             line-height: 1.6;
         }
 
-        /* =========================
-           CHECK-IN BUTTON
-        ========================= */
-
         .checkin-btn {
             width: 100%;
-
             border: none;
-
             background: #2f8f83;
-
             color: white;
-
             padding: 16px;
-
             border-radius: 15px;
-
             font-size: 17px;
-
             font-weight: 800;
-
             cursor: pointer;
-
             margin-bottom: 22px;
         }
 
@@ -219,162 +132,100 @@
             opacity: 0.92;
         }
 
-        /* =========================
-           SECTION TITLE
-        ========================= */
-
         .section-title {
-            margin:
-                25px 0 13px;
-
+            margin: 25px 0 13px;
             font-size: 20px;
-
             font-weight: 800;
         }
 
         .section-subtitle {
-            margin:
-                -5px 0 15px;
-
+            margin: -5px 0 15px;
             color: #7a8985;
-
             font-size: 13px;
         }
 
-        /* =========================
-           SNAPSHOT
-        ========================= */
-
         .snapshot-grid {
             display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
+            grid-template-columns: repeat(5, 1fr);
             gap: 12px;
         }
 
         .metric-card {
             background: white;
-
-            border:
-                1px solid #e3ece9;
-
+            border: 1px solid #e3ece9;
             border-radius: 18px;
-
             padding: 17px;
-
             min-height: 145px;
         }
 
         .metric-icon {
             font-size: 23px;
-
             margin-bottom: 10px;
         }
 
         .metric-name {
             color: #71807d;
-
             font-size: 12px;
-
             font-weight: 700;
-
             margin-bottom: 6px;
         }
 
         .metric-value {
-            font-size: 25px;
-
+            font-size: 22px;
             font-weight: 800;
-
             color: #183330;
         }
 
         .metric-status {
             margin-top: 7px;
-
             color: #2f8f83;
-
             font-size: 12px;
-
             font-weight: 700;
         }
 
-        /* =========================
-           NO DATA
-        ========================= */
-
         .empty-card {
             background: white;
-
-            border:
-                1px solid #e3ece9;
-
+            border: 1px solid #e3ece9;
             border-radius: 20px;
-
             padding: 30px 20px;
-
             text-align: center;
         }
 
         .empty-icon {
             font-size: 40px;
-
             margin-bottom: 10px;
         }
 
         .empty-card h3 {
-            margin:
-                0 0 7px;
-
+            margin: 0 0 7px;
             font-size: 18px;
         }
 
         .empty-card p {
             margin: 0;
-
             color: #71807d;
-
             font-size: 13px;
-
             line-height: 1.6;
         }
 
-        /* =========================
-           TODAY ANALYSIS
-        ========================= */
-
         .analysis-card {
             background: white;
-
-            border:
-                1px solid #e3ece9;
-
+            border: 1px solid #e3ece9;
             border-radius: 20px;
-
             padding: 21px;
-
             margin-top: 14px;
         }
 
         .analysis-title {
             font-size: 17px;
-
             font-weight: 800;
-
             margin-bottom: 12px;
         }
 
         .analysis-item {
-            padding:
-                11px 0;
-
-            border-bottom:
-                1px solid #edf2f0;
-
+            padding: 11px 0;
+            border-bottom: 1px solid #edf2f0;
             font-size: 14px;
-
             line-height: 1.5;
         }
 
@@ -384,79 +235,45 @@
 
         .analysis-label {
             color: #71807d;
-
             font-size: 12px;
-
             font-weight: 700;
-
             margin-bottom: 3px;
         }
 
-        /* =========================
-           PROBLEMS
-        ========================= */
-
         .tags {
             display: flex;
-
             flex-wrap: wrap;
-
             gap: 8px;
         }
 
         .tag {
             background: #eef6f4;
-
             color: #2f6f67;
-
-            padding:
-                7px 10px;
-
+            padding: 7px 10px;
             border-radius: 20px;
-
             font-size: 12px;
-
             font-weight: 600;
         }
 
         .tag.empty {
             background: #f5f7f6;
-
             color: #7a8985;
         }
 
-        /* =========================
-           HISTORY
-        ========================= */
-
         .history-card {
             background: white;
-
-            border:
-                1px solid #e3ece9;
-
+            border: 1px solid #e3ece9;
             border-radius: 20px;
-
             overflow: hidden;
         }
 
         .history-row {
             display: grid;
-
-            grid-template-columns:
-                1.1fr
-                repeat(4, 1fr);
-
+            grid-template-columns: 1.1fr repeat(5, 1fr);
             align-items: center;
-
             gap: 10px;
-
-            padding:
-                14px 17px;
-
-            border-bottom:
-                1px solid #edf2f0;
-
+            padding: 14px 17px;
+            border-bottom: 1px solid #edf2f0;
             font-size: 13px;
         }
 
@@ -466,13 +283,9 @@
 
         .history-header {
             background: #f8fbfa;
-
             color: #71807d;
-
             font-size: 11px;
-
             font-weight: 800;
-
             text-transform: uppercase;
         }
 
@@ -484,176 +297,110 @@
             text-align: center;
         }
 
-        /* =========================
-           STATS
-        ========================= */
-
         .stats-grid {
             display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
+            grid-template-columns: repeat(2, 1fr);
             gap: 12px;
         }
 
         .stat-card {
             background: white;
-
-            border:
-                1px solid #e3ece9;
-
+            border: 1px solid #e3ece9;
             border-radius: 18px;
-
             padding: 18px;
         }
 
         .stat-number {
             font-size: 27px;
-
             font-weight: 800;
-
             color: #2f8f83;
         }
 
         .stat-label {
             color: #71807d;
-
             font-size: 12px;
-
             margin-top: 4px;
         }
 
-        /* =========================
-           INSIGHT PREVIEW
-        ========================= */
-
         .insight-card {
             background: #e4f4f0;
-
-            border:
-                1px solid #cde9e3;
-
+            border: 1px solid #cde9e3;
             border-radius: 20px;
-
             padding: 21px;
-
             margin-top: 14px;
         }
 
         .insight-badge {
             color: #2f8f83;
-
             font-size: 11px;
-
             font-weight: 800;
-
             letter-spacing: 0.5px;
-
             margin-bottom: 8px;
         }
 
         .insight-card h3 {
-            margin:
-                0 0 7px;
-
+            margin: 0 0 7px;
             font-size: 18px;
         }
 
         .insight-card p {
             margin: 0;
-
             color: #52706b;
-
             font-size: 13px;
-
             line-height: 1.6;
         }
 
-        /* =========================
-           LOADING
-        ========================= */
-
         .loading {
             text-align: center;
-
             padding: 35px;
-
             color: #71807d;
-
             font-size: 14px;
         }
 
-        /* =========================
-           MESSAGE
-        ========================= */
-
         .message {
             display: none;
-
             padding: 13px;
-
             border-radius: 11px;
-
             margin-bottom: 15px;
-
             font-size: 14px;
-
             text-align: center;
         }
 
         .message.error {
             display: block;
-
             background: #fff0f0;
-
             color: #b13c3c;
         }
 
-        /* =========================
-           FOOTER
-        ========================= */
-
         .privacy {
             text-align: center;
-
             color: #899692;
-
             font-size: 11px;
-
             line-height: 1.6;
-
             margin-top: 35px;
         }
 
-        /* =========================
-           MOBILE
-        ========================= */
+        @media (max-width: 850px) {
+            .snapshot-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
 
         @media (max-width: 700px) {
-
             .snapshot-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .history-row {
-                grid-template-columns:
-                    1.2fr
-                    repeat(4, 1fr);
-
+                grid-template-columns: 1.2fr repeat(5, 1fr);
                 font-size: 12px;
-
                 gap: 5px;
             }
-
         }
 
         @media (max-width: 500px) {
-
             .container {
-                padding:
-                    23px 15px 50px;
+                padding: 23px 15px 50px;
             }
 
             .welcome h1 {
@@ -662,61 +409,43 @@
 
             .metric-card {
                 min-height: 130px;
-
                 padding: 15px;
             }
 
             .metric-value {
-                font-size: 22px;
+                font-size: 20px;
             }
 
             .history-row {
-                padding:
-                    12px 10px;
-
-                font-size: 11px;
+                padding: 12px 7px;
+                font-size: 10px;
             }
 
             .history-header {
-                font-size: 9px;
+                font-size: 8px;
             }
-
         }
 
     </style>
 
 </head>
 
-
 <body>
-
 
 <header class="topbar">
 
     <div class="logo">
-
-        <div class="logo-mark">
-            ◯
-        </div>
-
+        <div class="logo-mark">◯</div>
         Circle
-
     </div>
-
 
     <div class="top-actions">
 
-        <button
-            class="language-btn"
-            id="languageBtn"
-        >
+        <button class="language-btn" id="languageBtn">
             العربية
         </button>
 
-        <button
-            class="logout-btn"
-            id="logoutBtn"
-        >
+        <button class="logout-btn" id="logoutBtn">
             Sign out
         </button>
 
@@ -724,21 +453,9 @@
 
 </header>
 
-
-
 <main class="container">
 
-
-    <!-- MESSAGE -->
-
-    <div
-        class="message"
-        id="message"
-    ></div>
-
-
-
-    <!-- WELCOME -->
+    <div class="message" id="message"></div>
 
     <section class="welcome">
 
@@ -756,193 +473,93 @@
 
     </section>
 
-
-
-    <!-- CHECK-IN -->
-
-    <button
-        class="checkin-btn"
-        id="checkinBtn"
-    >
+    <button class="checkin-btn" id="checkinBtn">
         + Complete Today's Check-in
     </button>
 
-
-
-    <!-- TODAY -->
-
-    <h2
-        class="section-title"
-        id="snapshotTitle"
-    >
+    <h2 class="section-title" id="snapshotTitle">
         Today's Snapshot
     </h2>
 
-    <p
-        class="section-subtitle"
-        id="snapshotSubtitle"
-    >
+    <p class="section-subtitle" id="snapshotSubtitle">
         Your latest wellness signals.
     </p>
 
-
-
-    <div
-        id="snapshotContainer"
-    >
-
+    <div id="snapshotContainer">
         <div class="loading">
             Loading your data...
         </div>
-
     </div>
 
-
-
-    <!-- ANALYSIS -->
-
-    <h2
-        class="section-title"
-        id="analysisSectionTitle"
-    >
+    <h2 class="section-title" id="analysisSectionTitle">
         Today's Understanding
     </h2>
 
+    <div class="analysis-card">
 
-
-    <div
-        class="analysis-card"
-        id="analysisCard"
-    >
-
-        <div
-            class="analysis-title"
-            id="analysisTitle"
-        >
+        <div class="analysis-title" id="analysisTitle">
             What your data suggests
         </div>
 
-        <div
-            id="analysisContent"
-        >
-        </div>
+        <div id="analysisContent"></div>
 
     </div>
 
-
-
-    <!-- SLEEP DETAILS -->
-
-    <h2
-        class="section-title"
-        id="sleepDetailsTitle"
-    >
+    <h2 class="section-title" id="sleepDetailsTitle">
         Sleep Details
     </h2>
 
+    <div class="analysis-card">
 
+        <div class="analysis-item">
 
-    <div
-        class="analysis-card"
-        id="sleepDetailsCard"
-    >
-
-        <div
-            class="analysis-item"
-        >
-
-            <div
-                class="analysis-label"
-                id="sleepProblemsLabel"
-            >
+            <div class="analysis-label" id="sleepProblemsLabel">
                 Sleep problems
             </div>
 
-            <div
-                class="tags"
-                id="sleepProblemsTags"
-            >
-            </div>
+            <div class="tags" id="sleepProblemsTags"></div>
 
         </div>
 
+        <div class="analysis-item">
 
-        <div
-            class="analysis-item"
-        >
-
-            <div
-                class="analysis-label"
-                id="sleepReasonsLabel"
-            >
+            <div class="analysis-label" id="sleepReasonsLabel">
                 Possible reasons
             </div>
 
-            <div
-                class="tags"
-                id="sleepReasonsTags"
-            >
-            </div>
+            <div class="tags" id="sleepReasonsTags"></div>
 
         </div>
 
     </div>
 
-
-
-    <!-- HISTORY -->
-
-    <h2
-        class="section-title"
-        id="historyTitle"
-    >
+    <h2 class="section-title" id="historyTitle">
         Recent History
     </h2>
 
-    <p
-        class="section-subtitle"
-        id="historySubtitle"
-    >
+    <p class="section-subtitle" id="historySubtitle">
         Your last 7 check-ins.
     </p>
 
+    <div class="history-card">
 
+        <div class="history-row history-header">
 
-    <div
-        class="history-card"
-        id="historyCard"
-    >
+            <div id="historyDate">Date</div>
 
-        <div
-            class="history-row history-header"
-        >
+            <div>😴</div>
 
-            <div id="historyDate">
-                Date
-            </div>
+            <div>💧</div>
 
-            <div>
-                😴
-            </div>
+            <div>⚡</div>
 
-            <div>
-                💧
-            </div>
+            <div>🧠</div>
 
-            <div>
-                ⚡
-            </div>
-
-            <div>
-                🧠
-            </div>
+            <div>😊</div>
 
         </div>
 
-
-        <div
-            id="historyRows"
-        >
+        <div id="historyRows">
 
             <div class="loading">
                 Loading...
@@ -952,53 +569,31 @@
 
     </div>
 
-
-
-    <!-- STATS -->
-
-    <h2
-        class="section-title"
-        id="statsTitle"
-    >
+    <h2 class="section-title" id="statsTitle">
         Your Progress
     </h2>
-
-
 
     <div class="stats-grid">
 
         <div class="stat-card">
 
-            <div
-                class="stat-number"
-                id="totalDays"
-            >
+            <div class="stat-number" id="totalDays">
                 0
             </div>
 
-            <div
-                class="stat-label"
-                id="totalDaysLabel"
-            >
+            <div class="stat-label" id="totalDaysLabel">
                 Total check-in days
             </div>
 
         </div>
 
-
         <div class="stat-card">
 
-            <div
-                class="stat-number"
-                id="streakDays"
-            >
+            <div class="stat-number" id="streakDays">
                 0
             </div>
 
-            <div
-                class="stat-label"
-                id="streakDaysLabel"
-            >
+            <div class="stat-label" id="streakDaysLabel">
                 Current streak
             </div>
 
@@ -1006,31 +601,17 @@
 
     </div>
 
+    <div class="insight-card">
 
-
-    <!-- INSIGHT -->
-
-    <div
-        class="insight-card"
-        id="insightCard"
-    >
-
-        <div
-            class="insight-badge"
-            id="insightBadge"
-        >
+        <div class="insight-badge" id="insightBadge">
             CIRCLE INSIGHT
         </div>
 
-        <h3
-            id="insightTitle"
-        >
+        <h3 id="insightTitle">
             Your patterns are building.
         </h3>
 
-        <p
-            id="insightText"
-        >
+        <p id="insightText">
             Keep checking in daily. Circle will need
             enough data before it can identify
             meaningful personal patterns.
@@ -1038,31 +619,17 @@
 
     </div>
 
-
-
-    <!-- PRIVACY -->
-
-    <div
-        class="privacy"
-        id="privacyText"
-    >
-        Your data is private and connected to your
-        Circle account.
+    <div class="privacy" id="privacyText">
+        Your data is private and connected to your Circle account.
     </div>
-
 
 </main>
 
-
-
-<script
-    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
-></script>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script src="home.js"></script>
-
 
 </body>
 
 </html>
+```
