@@ -1,6 +1,8 @@
+```javascript
 /* ==========================================
    CIRCLE
    DAILY CHECK-IN
+   WITH CIRCLE AI
    ========================================== */
 
 
@@ -47,9 +49,6 @@ const translations = {
         description:
             "Take less than two minutes to record a few simple signals about your day.",
 
-
-        /* MOOD */
-
         mood:
             "How would you describe your mood today?",
 
@@ -68,9 +67,6 @@ const translations = {
         low:
             "Low",
 
-
-        /* SLEEP */
-
         sleep:
             "How long did you sleep?",
 
@@ -79,7 +75,6 @@ const translations = {
 
         hours:
             "Hours",
-
 
         sleepQuality:
             "How was your sleep?",
@@ -92,9 +87,6 @@ const translations = {
 
         excellent:
             "Excellent",
-
-
-        /* SLEEP PROBLEMS */
 
         sleepProblems:
             "Did you have any sleep problems?",
@@ -119,9 +111,6 @@ const translations = {
 
         noSleepProblem:
             "No sleep problems",
-
-
-        /* SLEEP REASONS */
 
         sleepReasons:
             "What may have affected your sleep?",
@@ -171,9 +160,6 @@ const translations = {
         unknown:
             "I don't know",
 
-
-        /* WATER */
-
         water:
             "How much water did you drink?",
 
@@ -182,9 +168,6 @@ const translations = {
 
         milliliters:
             "Milliliters (ml)",
-
-
-        /* ENERGY */
 
         energy:
             "How energetic do you feel?",
@@ -198,17 +181,11 @@ const translations = {
         veryHigh:
             "Very high",
 
-
-        /* STRESS */
-
         stressTitle:
             "How stressed do you feel?",
 
         stressDescription:
             "1 means very relaxed. 10 means extremely stressed.",
-
-
-        /* NOTE */
 
         note:
             "Anything else?",
@@ -218,9 +195,6 @@ const translations = {
 
         notePlaceholder:
             "How was your day?",
-
-
-        /* SAVE */
 
         save:
             "Save Today's Check-in",
@@ -233,9 +207,6 @@ const translations = {
 
         updated:
             "Today's check-in was updated successfully.",
-
-
-        /* ERRORS */
 
         loginRequired:
             "Please sign in again.",
@@ -251,7 +222,6 @@ const translations = {
 
         saveError:
             "We couldn't save your check-in. Please try again.",
-
 
         privateData:
             "Your data is private and connected to your Circle account."
@@ -277,9 +247,6 @@ const translations = {
         description:
             "يستغرق التسجيل أقل من دقيقتين لتسجيل بعض المؤشرات البسيطة عن يومك.",
 
-
-        /* MOOD */
-
         mood:
             "كيف تصف مزاجك اليوم؟",
 
@@ -298,9 +265,6 @@ const translations = {
         low:
             "منخفض",
 
-
-        /* SLEEP */
-
         sleep:
             "كم ساعة نمت؟",
 
@@ -309,7 +273,6 @@ const translations = {
 
         hours:
             "ساعات",
-
 
         sleepQuality:
             "كيف كان نومك؟",
@@ -322,9 +285,6 @@ const translations = {
 
         excellent:
             "ممتاز",
-
-
-        /* SLEEP PROBLEMS */
 
         sleepProblems:
             "هل واجهت أي مشاكل في النوم؟",
@@ -349,9 +309,6 @@ const translations = {
 
         noSleepProblem:
             "لا توجد مشاكل في النوم",
-
-
-        /* SLEEP REASONS */
 
         sleepReasons:
             "ما الذي قد يكون أثّر على نومك؟",
@@ -401,9 +358,6 @@ const translations = {
         unknown:
             "لا أعرف",
 
-
-        /* WATER */
-
         water:
             "كم كمية الماء التي شربتها؟",
 
@@ -412,9 +366,6 @@ const translations = {
 
         milliliters:
             "ملليلتر",
-
-
-        /* ENERGY */
 
         energy:
             "ما مستوى طاقتك؟",
@@ -428,17 +379,11 @@ const translations = {
         veryHigh:
             "مرتفع جدًا",
 
-
-        /* STRESS */
-
         stressTitle:
             "ما مستوى التوتر لديك؟",
 
         stressDescription:
             "1 تعني هدوءًا شديدًا و10 تعني توترًا شديدًا.",
-
-
-        /* NOTE */
 
         note:
             "هل هناك شيء آخر؟",
@@ -448,9 +393,6 @@ const translations = {
 
         notePlaceholder:
             "كيف كان يومك؟",
-
-
-        /* SAVE */
 
         save:
             "حفظ تسجيل اليوم",
@@ -463,9 +405,6 @@ const translations = {
 
         updated:
             "تم تحديث تسجيل اليوم بنجاح.",
-
-
-        /* ERRORS */
 
         loginRequired:
             "يرجى تسجيل الدخول مرة أخرى.",
@@ -482,7 +421,6 @@ const translations = {
         saveError:
             "تعذر حفظ التسجيل. حاول مرة أخرى.",
 
-
         privateData:
             "بياناتك خاصة ومرتبطة بحسابك في Circle."
 
@@ -497,7 +435,10 @@ const translations = {
 
 function t(key) {
 
-    return translations[language][key];
+    return (
+        translations[language][key] ||
+        key
+    );
 
 }
 
@@ -531,9 +472,6 @@ function applyLanguage() {
         pageDescription:
             "description",
 
-
-        /* MOOD */
-
         moodTitle:
             "mood",
 
@@ -552,9 +490,6 @@ function applyLanguage() {
         moodLow:
             "low",
 
-
-        /* SLEEP */
-
         sleepTitle:
             "sleep",
 
@@ -563,7 +498,6 @@ function applyLanguage() {
 
         sleepUnit:
             "hours",
-
 
         sleepQualityTitle:
             "sleepQuality",
@@ -577,26 +511,17 @@ function applyLanguage() {
         sleepQualityHigh:
             "excellent",
 
-
-        /* SLEEP PROBLEMS */
-
         sleepProblemsTitle:
             "sleepProblems",
 
         sleepProblemsDescription:
             "sleepProblemsDescription",
 
-
-        /* SLEEP REASONS */
-
         sleepReasonsTitle:
             "sleepReasons",
 
         sleepReasonsDescription:
             "sleepReasonsDescription",
-
-
-        /* WATER */
 
         waterTitle:
             "water",
@@ -606,9 +531,6 @@ function applyLanguage() {
 
         waterUnit:
             "milliliters",
-
-
-        /* ENERGY */
 
         energyTitle:
             "energy",
@@ -622,9 +544,6 @@ function applyLanguage() {
         energyHigh:
             "veryHigh",
 
-
-        /* STRESS */
-
         stressTitle:
             "stressTitle",
 
@@ -637,23 +556,14 @@ function applyLanguage() {
         stressHigh:
             "veryHigh",
 
-
-        /* NOTE */
-
         noteTitle:
             "note",
 
         noteDescription:
             "noteDescription",
 
-
-        /* SAVE */
-
         saveBtn:
             "save",
-
-
-        /* PRIVACY */
 
         privacyNote:
             "privateData"
@@ -678,18 +588,32 @@ function applyLanguage() {
     );
 
 
-    document.getElementById(
-        "languageBtn"
-    ).textContent =
-        language === "ar"
-            ? "English"
-            : "العربية";
+    const languageButton =
+        document.getElementById(
+            "languageBtn"
+        );
+
+    if (languageButton) {
+
+        languageButton.textContent =
+            language === "ar"
+                ? "English"
+                : "العربية";
+
+    }
 
 
-    document.getElementById(
-        "noteInput"
-    ).placeholder =
-        t("notePlaceholder");
+    const noteInput =
+        document.getElementById(
+            "noteInput"
+        );
+
+    if (noteInput) {
+
+        noteInput.placeholder =
+            t("notePlaceholder");
+
+    }
 
 
     updateCheckboxLabels();
@@ -699,10 +623,9 @@ function applyLanguage() {
 
 /* ==========================================
    CHECKBOX TRANSLATIONS
-   ========================================== */
+========================================== */
 
 function updateCheckboxLabels() {
-
 
     const problemMap = {
 
@@ -774,13 +697,6 @@ function updateCheckboxLabels() {
     };
 
 
-    /*
-     * IMPORTANT:
-     * We now target the <span> only.
-     * This prevents duplicated text.
-     */
-
-
     document
         .querySelectorAll(
             'input[name="sleepProblem"]'
@@ -790,6 +706,10 @@ function updateCheckboxLabels() {
 
                 const label =
                     input.closest("label");
+
+                if (!label) {
+                    return;
+                }
 
                 const text =
                     label.querySelector("span");
@@ -821,6 +741,10 @@ function updateCheckboxLabels() {
 
                 const label =
                     input.closest("label");
+
+                if (!label) {
+                    return;
+                }
 
                 const text =
                     label.querySelector("span");
@@ -1381,6 +1305,84 @@ async function loadTodayCheckin(user) {
 
 
 /* ==========================================
+   CIRCLE AI
+   GENERATE WELLNESS INSIGHT
+========================================== */
+
+async function generateCircleAIInsight() {
+
+    try {
+
+        console.log(
+            "Circle AI: generating insight..."
+        );
+
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient.functions.invoke(
+                "circle-ai",
+                {
+                    body: {}
+                }
+            );
+
+
+        if (error) {
+
+            console.error(
+                "Circle AI invocation error:",
+                error
+            );
+
+
+            return null;
+
+        }
+
+
+        if (
+            !data ||
+            !data.success
+        ) {
+
+            console.error(
+                "Circle AI returned an error:",
+                data
+            );
+
+
+            return null;
+
+        }
+
+
+        console.log(
+            "Circle AI result:",
+            data
+        );
+
+
+        return data;
+
+    } catch (error) {
+
+        console.error(
+            "Circle AI unexpected error:",
+            error
+        );
+
+
+        return null;
+
+    }
+
+}
+
+
+/* ==========================================
    SAVE CHECK-IN
 ========================================== */
 
@@ -1536,6 +1538,10 @@ async function saveCheckin() {
 
     try {
 
+        /* =========================
+           SAVE TO SUPABASE
+        ========================= */
+
         const {
             data,
             error
@@ -1578,11 +1584,45 @@ async function saveCheckin() {
         );
 
 
+        /* =========================
+           CIRCLE AI
+        ========================= */
+
+        const aiResult =
+            await generateCircleAIInsight();
+
+
+        if (aiResult) {
+
+            console.log(
+                "Circle AI successfully generated insight:",
+                aiResult.insight
+            );
+
+        } else {
+
+            console.warn(
+                "Circle AI was unavailable. Check-in was still saved."
+            );
+
+        }
+
+
+        /* =========================
+           SUCCESS
+        ========================= */
+
         showMessage(
-            t("saved"),
+            data.created_at
+                ? t("saved")
+                : t("updated"),
             "success"
         );
 
+
+        /* =========================
+           GO HOME
+        ========================= */
 
         setTimeout(
             function() {
@@ -1598,6 +1638,7 @@ async function saveCheckin() {
     } catch (error) {
 
         console.error(
+            "Unexpected save error:",
             error
         );
 
@@ -1707,3 +1748,4 @@ async function initialize() {
 
 
 initialize();
+```
