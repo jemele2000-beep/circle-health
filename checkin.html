@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -25,16 +26,9 @@
 
         body {
             margin: 0;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
+            font-family: Arial, Helvetica, sans-serif;
             background: #f5faf8;
-
             color: #183330;
-
             min-height: 100vh;
         }
 
@@ -46,99 +40,61 @@
 
         .topbar {
             background: white;
-
             padding: 16px 20px;
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
-            border-bottom:
-                1px solid #e3ece9;
-
+            border-bottom: 1px solid #e3ece9;
             position: sticky;
-
             top: 0;
-
             z-index: 10;
         }
 
         .logo {
             display: flex;
-
             align-items: center;
-
             gap: 8px;
-
             font-size: 21px;
-
             font-weight: 800;
-
             color: #2f8f83;
         }
 
         .logo-mark {
             width: 34px;
-
             height: 34px;
-
             border-radius: 50%;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             background: #e4f4f0;
-
             font-size: 22px;
         }
 
         .language-btn {
             border: none;
-
             background: #eef6f4;
-
             color: #2f8f83;
-
             padding: 8px 13px;
-
             border-radius: 9px;
-
             font-weight: 700;
-
             cursor: pointer;
         }
 
         .container {
             width: 100%;
-
             max-width: 650px;
-
             margin: auto;
-
-            padding:
-                28px 18px 60px;
+            padding: 28px 18px 60px;
         }
 
         .back {
             border: none;
-
             background: transparent;
-
             color: #2f8f83;
-
             padding: 0;
-
             margin-bottom: 20px;
-
             cursor: pointer;
-
             font-size: 14px;
-
             font-weight: 700;
         }
 
@@ -148,180 +104,118 @@
 
         .page-header small {
             color: #71807d;
-
             font-size: 12px;
-
             font-weight: 700;
-
             letter-spacing: 0.5px;
         }
 
         .page-header h1 {
-            margin:
-                7px 0 8px;
-
+            margin: 7px 0 8px;
             font-size: 29px;
-
             line-height: 1.2;
         }
 
         .page-header p {
             margin: 0;
-
             color: #71807d;
-
             line-height: 1.6;
-
             font-size: 14px;
         }
 
         .form-card {
             background: white;
-
-            border:
-                1px solid #e3ece9;
-
+            border: 1px solid #e3ece9;
             border-radius: 22px;
-
             padding: 22px;
-
             margin-bottom: 16px;
         }
 
         .form-card h2 {
-            margin:
-                0 0 6px;
-
+            margin: 0 0 6px;
             font-size: 18px;
-
             line-height: 1.4;
         }
 
         .form-card > p {
-            margin:
-                0 0 18px;
-
+            margin: 0 0 18px;
             color: #7a8985;
-
             font-size: 13px;
-
             line-height: 1.5;
         }
 
         .number-input {
             width: 100%;
-
             padding: 15px;
-
-            border:
-                1px solid #dce7e4;
-
+            border: 1px solid #dce7e4;
             border-radius: 12px;
-
             font-size: 20px;
-
             outline: none;
-
             background: #fbfdfc;
         }
 
         .number-input:focus {
             border-color: #2f8f83;
-
-            box-shadow:
-                0 0 0 3px
-                rgba(47, 143, 131, 0.10);
+            box-shadow: 0 0 0 3px rgba(47, 143, 131, 0.10);
         }
 
         .unit {
             margin-top: 7px;
-
             color: #899692;
-
             font-size: 12px;
         }
 
         .range-value {
             text-align: center;
-
             font-size: 36px;
-
             font-weight: 800;
-
             color: #2f8f83;
-
-            margin:
-                5px 0 15px;
+            margin: 5px 0 15px;
         }
 
         input[type="range"] {
             width: 100%;
-
             accent-color: #2f8f83;
-
             cursor: pointer;
+            height: 24px;
         }
 
         .range-labels {
             display: flex;
-
             justify-content: space-between;
-
             color: #8a9693;
-
             font-size: 12px;
-
             margin-top: 8px;
         }
 
         .checkbox-group {
             display: flex;
-
             flex-direction: column;
-
             gap: 9px;
         }
 
         .checkbox-group label {
             display: flex;
-
             align-items: center;
-
             gap: 10px;
-
             padding: 12px;
-
             background: #f8fbfa;
-
-            border:
-                1px solid #e5eeeb;
-
+            border: 1px solid #e5eeeb;
             border-radius: 11px;
-
             font-size: 14px;
-
             cursor: pointer;
-
             line-height: 1.4;
-
-            transition:
-                border-color 0.15s,
-                background 0.15s;
+            transition: border-color 0.15s, background 0.15s;
         }
 
         .checkbox-group label:hover {
             border-color: #2f8f83;
-
             background: #f3faf8;
         }
 
         .checkbox-group input {
             width: 18px;
-
             height: 18px;
-
             accent-color: #2f8f83;
-
             flex-shrink: 0;
         }
 
@@ -329,56 +223,34 @@
             flex: 1;
         }
 
-        /* =========================
-           MOOD OPTIONS
-        ========================= */
-
         .mood-group {
             display: flex;
-
             flex-direction: column;
-
             gap: 10px;
         }
 
         .mood-option {
             display: flex;
-
             align-items: center;
-
             gap: 10px;
-
             padding: 13px;
-
             background: #f8fbfa;
-
-            border:
-                1px solid #e5eeeb;
-
+            border: 1px solid #e5eeeb;
             border-radius: 11px;
-
             cursor: pointer;
-
             font-size: 14px;
-
-            transition:
-                border-color 0.15s,
-                background 0.15s;
+            transition: border-color 0.15s, background 0.15s;
         }
 
         .mood-option:hover {
             border-color: #2f8f83;
-
             background: #f3faf8;
         }
 
         .mood-option input {
             width: 18px;
-
             height: 18px;
-
             accent-color: #2f8f83;
-
             flex-shrink: 0;
         }
 
@@ -388,56 +260,33 @@
 
         textarea {
             width: 100%;
-
             min-height: 115px;
-
             resize: vertical;
-
             padding: 14px;
-
-            border:
-                1px solid #dce7e4;
-
+            border: 1px solid #dce7e4;
             border-radius: 12px;
-
             font-size: 15px;
-
             outline: none;
-
             background: #fbfdfc;
         }
 
         textarea:focus {
             border-color: #2f8f83;
-
-            box-shadow:
-                0 0 0 3px
-                rgba(47, 143, 131, 0.10);
+            box-shadow: 0 0 0 3px rgba(47, 143, 131, 0.10);
         }
 
         .save-btn {
             width: 100%;
-
             border: none;
-
             background: #2f8f83;
-
             color: white;
-
             padding: 16px;
-
             border-radius: 13px;
-
             font-size: 17px;
-
             font-weight: 800;
-
             cursor: pointer;
-
             margin-top: 4px;
-
-            transition:
-                opacity 0.2s;
+            transition: opacity 0.2s;
         }
 
         .save-btn:hover {
@@ -446,59 +295,43 @@
 
         .save-btn:disabled {
             opacity: 0.6;
-
             cursor: wait;
         }
 
         .message {
             display: none;
-
             padding: 13px;
-
             border-radius: 11px;
-
             margin-top: 15px;
-
             font-size: 14px;
-
             text-align: center;
-
             line-height: 1.5;
         }
 
         .message.success {
             display: block;
-
             background: #e9f7ef;
-
             color: #267346;
         }
 
         .message.error {
             display: block;
-
             background: #fff0f0;
-
             color: #b13c3c;
         }
 
         .privacy-note {
             margin-top: 18px;
-
             text-align: center;
-
             color: #899692;
-
             font-size: 12px;
-
             line-height: 1.6;
         }
 
         @media (max-width: 500px) {
 
             .container {
-                padding:
-                    23px 15px 50px;
+                padding: 23px 15px 50px;
             }
 
             .form-card {
@@ -515,9 +348,7 @@
 
 </head>
 
-
 <body>
-
 
 <header class="topbar">
 
@@ -531,10 +362,10 @@
 
     </div>
 
-
     <button
         class="language-btn"
         id="languageBtn"
+        type="button"
     >
         العربية
     </button>
@@ -542,17 +373,15 @@
 </header>
 
 
-
 <main class="container">
-
 
     <button
         class="back"
         id="backBtn"
+        type="button"
     >
         ← Back to Home
     </button>
-
 
 
     <section class="page-header">
@@ -573,10 +402,7 @@
     </section>
 
 
-
-    <!-- =========================
-         MOOD
-    ========================= -->
+    <!-- MOOD -->
 
     <section class="form-card">
 
@@ -588,9 +414,7 @@
             Choose the option that best describes how you feel today.
         </p>
 
-
         <div class="mood-group">
-
 
             <label class="mood-option">
 
@@ -606,8 +430,6 @@
 
             </label>
 
-
-
             <label class="mood-option">
 
                 <input
@@ -621,8 +443,6 @@
                 </span>
 
             </label>
-
-
 
             <label class="mood-option">
 
@@ -638,8 +458,6 @@
 
             </label>
 
-
-
             <label class="mood-option">
 
                 <input
@@ -654,16 +472,12 @@
 
             </label>
 
-
         </div>
 
     </section>
 
 
-
-    <!-- =========================
-         SLEEP HOURS
-    ========================= -->
+    <!-- SLEEP HOURS -->
 
     <section class="form-card">
 
@@ -675,7 +489,6 @@
             Enter the actual hours you slept.
         </p>
 
-
         <input
             type="number"
             id="sleepInput"
@@ -685,7 +498,6 @@
             step="0.1"
             placeholder="7.5"
         >
-
 
         <div
             class="unit"
@@ -697,10 +509,7 @@
     </section>
 
 
-
-    <!-- =========================
-         SLEEP QUALITY
-    ========================= -->
+    <!-- SLEEP QUALITY -->
 
     <section class="form-card">
 
@@ -712,14 +521,12 @@
             Rate the quality of your sleep from 1 to 10.
         </p>
 
-
         <div
             class="range-value"
             id="sleepQualityValue"
         >
             5
         </div>
-
 
         <input
             type="range"
@@ -728,8 +535,8 @@
             max="10"
             value="5"
             step="1"
+            oninput="document.getElementById('sleepQualityValue').textContent = this.value"
         >
-
 
         <div class="range-labels">
 
@@ -746,10 +553,7 @@
     </section>
 
 
-
-    <!-- =========================
-         SLEEP PROBLEMS
-    ========================= -->
+    <!-- SLEEP PROBLEMS -->
 
     <section class="form-card">
 
@@ -761,114 +565,68 @@
             Select everything that applies.
         </p>
 
-
         <div class="checkbox-group">
 
-
             <label>
-
                 <input
                     type="checkbox"
                     name="sleepProblem"
                     value="difficulty_falling_asleep"
                 >
-
-                <span>
-                    Difficulty falling asleep
-                </span>
-
+                <span>Difficulty falling asleep</span>
             </label>
 
-
-
             <label>
-
                 <input
                     type="checkbox"
                     name="sleepProblem"
                     value="frequent_waking"
                 >
-
-                <span>
-                    Waking up during the night
-                </span>
-
+                <span>Waking up during the night</span>
             </label>
 
-
-
             <label>
-
                 <input
                     type="checkbox"
                     name="sleepProblem"
                     value="early_waking"
                 >
-
-                <span>
-                    Waking up too early
-                </span>
-
+                <span>Waking up too early</span>
             </label>
 
-
-
             <label>
-
                 <input
                     type="checkbox"
                     name="sleepProblem"
                     value="light_sleep"
                 >
-
-                <span>
-                    Light / non-restorative sleep
-                </span>
-
+                <span>Light / non-restorative sleep</span>
             </label>
 
-
-
             <label>
-
                 <input
                     type="checkbox"
                     name="sleepProblem"
                     value="daytime_sleepiness"
                 >
-
-                <span>
-                    Feeling sleepy during the day
-                </span>
-
+                <span>Feeling sleepy during the day</span>
             </label>
 
-
-
             <label>
-
                 <input
                     type="checkbox"
                     name="sleepProblem"
                     value="none"
                 >
-
-                <span>
-                    No sleep problems
-                </span>
-
+                <span>No sleep problems</span>
             </label>
-
 
         </div>
 
     </section>
 
 
-
-    <!-- =========================
-         POSSIBLE SLEEP REASONS
-    ========================= -->
+    <!-- SLEEP REASONS -->
 
     <section class="form-card">
 
@@ -880,242 +638,84 @@
             Select the factors that may have contributed.
         </p>
 
-
         <div class="checkbox-group">
 
-
             <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepReason"
-                    value="work"
-                >
-
-                <span>
-                    Work or study pressure
-                </span>
-
+                <input type="checkbox" name="sleepReason" value="work">
+                <span>Work or study pressure</span>
             </label>
 
-
-
             <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepReason"
-                    value="family"
-                >
-
-                <span>
-                    Family responsibilities
-                </span>
-
+                <input type="checkbox" name="sleepReason" value="family">
+                <span>Family responsibilities</span>
             </label>
 
-
-
             <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepReason"
-                    value="stress"
-                >
-
-                <span>
-                    Stress or anxiety
-                </span>
-
+                <input type="checkbox" name="sleepReason" value="stress">
+                <span>Stress or anxiety</span>
             </label>
 
-
-
             <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepReason"
-                    value="overthinking"
-                >
-
-                <span>
-                    Overthinking
-                </span>
-
+                <input type="checkbox" name="sleepReason" value="overthinking">
+                <span>Overthinking</span>
             </label>
 
-
-
             <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepReason"
-                    value="financial"
-                >
-
-                <span>
-                    Financial concerns
-                </span>
-
+                <input type="checkbox" name="sleepReason" value="financial">
+                <span>Financial concerns</span>
             </label>
 
-
-
             <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepReason"
-                    value="screens"
-                >
-
-                <span>
-                    Phone or screen use
-                </span>
-
+                <input type="checkbox" name="sleepReason" value="screens">
+                <span>Phone or screen use</span>
             </label>
 
-
-
             <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepReason"
-                    value="caffeine"
-                >
-
-                <span>
-                    Caffeine
-                </span>
-
+                <input type="checkbox" name="sleepReason" value="caffeine">
+                <span>Caffeine</span>
             </label>
 
-
-
             <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepReason"
-                    value="schedule"
-                >
-
-                <span>
-                    Irregular sleep schedule
-                </span>
-
+                <input type="checkbox" name="sleepReason" value="schedule">
+                <span>Irregular sleep schedule</span>
             </label>
 
-
-
             <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepReason"
-                    value="noise"
-                >
-
-                <span>
-                    Noise
-                </span>
-
+                <input type="checkbox" name="sleepReason" value="noise">
+                <span>Noise</span>
             </label>
 
-
-
             <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepReason"
-                    value="environment"
-                >
-
-                <span>
-                    Room temperature / heat
-                </span>
-
+                <input type="checkbox" name="sleepReason" value="environment">
+                <span>Room temperature / heat</span>
             </label>
 
-
-
             <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepReason"
-                    value="pain"
-                >
-
-                <span>
-                    Pain or physical discomfort
-                </span>
-
+                <input type="checkbox" name="sleepReason" value="pain">
+                <span>Pain or physical discomfort</span>
             </label>
 
-
-
             <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepReason"
-                    value="health"
-                >
-
-                <span>
-                    Health problem
-                </span>
-
+                <input type="checkbox" name="sleepReason" value="health">
+                <span>Health problem</span>
             </label>
 
-
-
             <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepReason"
-                    value="other"
-                >
-
-                <span>
-                    Something else
-                </span>
-
+                <input type="checkbox" name="sleepReason" value="other">
+                <span>Something else</span>
             </label>
 
-
-
             <label>
-
-                <input
-                    type="checkbox"
-                    name="sleepReason"
-                    value="unknown"
-                >
-
-                <span>
-                    I don't know
-                </span>
-
+                <input type="checkbox" name="sleepReason" value="unknown">
+                <span>I don't know</span>
             </label>
-
 
         </div>
 
     </section>
 
 
-
-    <!-- =========================
-         WATER
-    ========================= -->
+    <!-- WATER -->
 
     <section class="form-card">
 
@@ -1127,7 +727,6 @@
             Enter your approximate water intake.
         </p>
 
-
         <input
             type="number"
             id="waterInput"
@@ -1137,7 +736,6 @@
             step="50"
             placeholder="1800"
         >
-
 
         <div
             class="unit"
@@ -1149,10 +747,7 @@
     </section>
 
 
-
-    <!-- =========================
-         ENERGY
-    ========================= -->
+    <!-- ENERGY -->
 
     <section class="form-card">
 
@@ -1165,14 +760,12 @@
             extremely energetic.
         </p>
 
-
         <div
             class="range-value"
             id="energyValue"
         >
             5
         </div>
-
 
         <input
             type="range"
@@ -1181,8 +774,8 @@
             max="10"
             value="5"
             step="1"
+            oninput="document.getElementById('energyValue').textContent = this.value"
         >
-
 
         <div class="range-labels">
 
@@ -1199,10 +792,7 @@
     </section>
 
 
-
-    <!-- =========================
-         STRESS
-    ========================= -->
+    <!-- STRESS -->
 
     <section class="form-card">
 
@@ -1215,14 +805,12 @@
             extremely stressed.
         </p>
 
-
         <div
             class="range-value"
             id="stressValue"
         >
             5
         </div>
-
 
         <input
             type="range"
@@ -1231,8 +819,8 @@
             max="10"
             value="5"
             step="1"
+            oninput="document.getElementById('stressValue').textContent = this.value"
         >
-
 
         <div class="range-labels">
 
@@ -1249,10 +837,7 @@
     </section>
 
 
-
-    <!-- =========================
-         DAILY NOTE
-    ========================= -->
+    <!-- DAILY NOTE -->
 
     <section class="form-card">
 
@@ -1265,7 +850,6 @@
             you understand your day.
         </p>
 
-
         <textarea
             id="noteInput"
             maxlength="1000"
@@ -1275,21 +859,19 @@
     </section>
 
 
-
     <button
         class="save-btn"
         id="saveBtn"
+        type="button"
     >
         Save Today's Check-in
     </button>
-
 
 
     <div
         class="message"
         id="message"
     ></div>
-
 
 
     <div
@@ -1300,19 +882,15 @@
         your Circle account.
     </div>
 
-
 </main>
 
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script
-    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
-</script>
-
-
-<script src="checkin.js"></script>
-
+<!-- Version number forces browser to load the newest checkin.js -->
+<script src="checkin.js?v=20260828"></script>
 
 </body>
 
 </html>
+```
