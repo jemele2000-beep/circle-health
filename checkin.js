@@ -1,4 +1,3 @@
-```javascript
 /* ==========================================
    CIRCLE
    DAILY CHECK-IN
@@ -39,14 +38,20 @@ const translations = {
 
     en: {
 
-        back: "← Back to Home",
+        back:
+            "← Back to Home",
 
-        daily: "DAILY CHECK-IN",
+        daily:
+            "DAILY CHECK-IN",
 
-        title: "How are you feeling today?",
+        title:
+            "How are you feeling today?",
 
         description:
             "Take less than two minutes to record a few simple signals about your day.",
+
+
+        /* MOOD */
 
         mood:
             "How would you describe your mood today?",
@@ -54,13 +59,20 @@ const translations = {
         moodDescription:
             "Choose the option that best describes how you feel today.",
 
-        veryGood: "Very good",
+        veryGood:
+            "Very good",
 
-        good: "Good",
+        good:
+            "Good",
 
-        okay: "Okay",
+        okay:
+            "Okay",
 
-        low: "Low",
+        low:
+            "Low",
+
+
+        /* SLEEP */
 
         sleep:
             "How long did you sleep?",
@@ -68,7 +80,9 @@ const translations = {
         sleepDescription:
             "Enter the actual hours you slept.",
 
-        hours: "Hours",
+        hours:
+            "Hours",
+
 
         sleepQuality:
             "How was your sleep?",
@@ -76,9 +90,14 @@ const translations = {
         sleepQualityDescription:
             "Rate the quality of your sleep from 1 to 10.",
 
-        veryPoor: "Very poor",
+        veryPoor:
+            "Very poor",
 
-        excellent: "Excellent",
+        excellent:
+            "Excellent",
+
+
+        /* SLEEP PROBLEMS */
 
         sleepProblems:
             "Did you have any sleep problems?",
@@ -103,6 +122,9 @@ const translations = {
 
         noSleepProblem:
             "No sleep problems",
+
+
+        /* SLEEP REASONS */
 
         sleepReasons:
             "What may have affected your sleep?",
@@ -152,6 +174,9 @@ const translations = {
         unknown:
             "I don't know",
 
+
+        /* WATER */
+
         water:
             "How much water did you drink?",
 
@@ -160,6 +185,9 @@ const translations = {
 
         milliliters:
             "Milliliters (ml)",
+
+
+        /* ENERGY */
 
         energy:
             "How energetic do you feel?",
@@ -173,11 +201,17 @@ const translations = {
         veryHigh:
             "Very high",
 
+
+        /* STRESS */
+
         stressTitle:
             "How stressed do you feel?",
 
         stressDescription:
             "1 means very relaxed. 10 means extremely stressed.",
+
+
+        /* NOTE */
 
         note:
             "Anything else?",
@@ -187,6 +221,9 @@ const translations = {
 
         notePlaceholder:
             "How was your day?",
+
+
+        /* SAVE */
 
         save:
             "Save Today's Check-in",
@@ -199,6 +236,9 @@ const translations = {
 
         updated:
             "Today's check-in was updated successfully.",
+
+
+        /* ERRORS */
 
         loginRequired:
             "Please sign in again.",
@@ -214,6 +254,7 @@ const translations = {
 
         saveError:
             "We couldn't save your check-in. Please try again.",
+
 
         privateData:
             "Your data is private and connected to your Circle account."
@@ -239,6 +280,9 @@ const translations = {
         description:
             "يستغرق التسجيل أقل من دقيقتين لتسجيل بعض المؤشرات البسيطة عن يومك.",
 
+
+        /* MOOD */
+
         mood:
             "كيف تصف مزاجك اليوم؟",
 
@@ -257,6 +301,9 @@ const translations = {
         low:
             "منخفض",
 
+
+        /* SLEEP */
+
         sleep:
             "كم ساعة نمت؟",
 
@@ -265,6 +312,7 @@ const translations = {
 
         hours:
             "ساعات",
+
 
         sleepQuality:
             "كيف كان نومك؟",
@@ -277,6 +325,9 @@ const translations = {
 
         excellent:
             "ممتاز",
+
+
+        /* SLEEP PROBLEMS */
 
         sleepProblems:
             "هل واجهت أي مشاكل في النوم؟",
@@ -301,6 +352,9 @@ const translations = {
 
         noSleepProblem:
             "لا توجد مشاكل في النوم",
+
+
+        /* SLEEP REASONS */
 
         sleepReasons:
             "ما الذي قد يكون أثّر على نومك؟",
@@ -350,6 +404,9 @@ const translations = {
         unknown:
             "لا أعرف",
 
+
+        /* WATER */
+
         water:
             "كم كمية الماء التي شربتها؟",
 
@@ -358,6 +415,9 @@ const translations = {
 
         milliliters:
             "ملليلتر",
+
+
+        /* ENERGY */
 
         energy:
             "ما مستوى طاقتك؟",
@@ -371,11 +431,17 @@ const translations = {
         veryHigh:
             "مرتفع جدًا",
 
+
+        /* STRESS */
+
         stressTitle:
             "ما مستوى التوتر لديك؟",
 
         stressDescription:
             "1 تعني هدوءًا شديدًا و10 تعني توترًا شديدًا.",
+
+
+        /* NOTE */
 
         note:
             "هل هناك شيء آخر؟",
@@ -385,6 +451,9 @@ const translations = {
 
         notePlaceholder:
             "كيف كان يومك؟",
+
+
+        /* SAVE */
 
         save:
             "حفظ تسجيل اليوم",
@@ -397,6 +466,9 @@ const translations = {
 
         updated:
             "تم تحديث تسجيل اليوم بنجاح.",
+
+
+        /* ERRORS */
 
         loginRequired:
             "يرجى تسجيل الدخول مرة أخرى.",
@@ -413,6 +485,7 @@ const translations = {
         saveError:
             "تعذر حفظ التسجيل. حاول مرة أخرى.",
 
+
         privateData:
             "بياناتك خاصة ومرتبطة بحسابك في Circle."
 
@@ -422,15 +495,15 @@ const translations = {
 
 
 /* ==========================================
-   TRANSLATION
+   TRANSLATION FUNCTION
 ========================================== */
 
 function t(key) {
 
     return (
-        translations[language] &&
-        translations[language][key]
-    ) || key;
+        translations[language][key] ||
+        key
+    );
 
 }
 
@@ -452,40 +525,68 @@ function applyLanguage() {
 
     const ids = {
 
-        backBtn: "back",
+        backBtn:
+            "back",
 
-        dateLabel: "daily",
+        dateLabel:
+            "daily",
 
-        pageTitle: "title",
+        pageTitle:
+            "title",
 
-        pageDescription: "description",
+        pageDescription:
+            "description",
 
-        moodTitle: "mood",
 
-        moodDescription: "moodDescription",
+        /* MOOD */
 
-        moodVeryGood: "veryGood",
+        moodTitle:
+            "mood",
 
-        moodGood: "good",
+        moodDescription:
+            "moodDescription",
 
-        moodOkay: "okay",
+        moodVeryGood:
+            "veryGood",
 
-        moodLow: "low",
+        moodGood:
+            "good",
 
-        sleepTitle: "sleep",
+        moodOkay:
+            "okay",
 
-        sleepDescription: "sleepDescription",
+        moodLow:
+            "low",
 
-        sleepUnit: "hours",
 
-        sleepQualityTitle: "sleepQuality",
+        /* SLEEP */
+
+        sleepTitle:
+            "sleep",
+
+        sleepDescription:
+            "sleepDescription",
+
+        sleepUnit:
+            "hours",
+
+
+        /* SLEEP QUALITY */
+
+        sleepQualityTitle:
+            "sleepQuality",
 
         sleepQualityDescription:
             "sleepQualityDescription",
 
-        sleepQualityLow: "veryPoor",
+        sleepQualityLow:
+            "veryPoor",
 
-        sleepQualityHigh: "excellent",
+        sleepQualityHigh:
+            "excellent",
+
+
+        /* SLEEP PROBLEMS */
 
         sleepProblemsTitle:
             "sleepProblems",
@@ -493,45 +594,77 @@ function applyLanguage() {
         sleepProblemsDescription:
             "sleepProblemsDescription",
 
+
+        /* SLEEP REASONS */
+
         sleepReasonsTitle:
             "sleepReasons",
 
         sleepReasonsDescription:
             "sleepReasonsDescription",
 
-        waterTitle: "water",
+
+        /* WATER */
+
+        waterTitle:
+            "water",
 
         waterDescription:
             "waterDescription",
 
-        waterUnit: "milliliters",
+        waterUnit:
+            "milliliters",
 
-        energyTitle: "energy",
+
+        /* ENERGY */
+
+        energyTitle:
+            "energy",
 
         energyDescription:
             "energyDescription",
 
-        energyLow: "veryLow",
+        energyLow:
+            "veryLow",
 
-        energyHigh: "veryHigh",
+        energyHigh:
+            "veryHigh",
 
-        stressTitle: "stressTitle",
+
+        /* STRESS */
+
+        stressTitle:
+            "stressTitle",
 
         stressDescription:
             "stressDescription",
 
-        stressLow: "veryLow",
+        stressLow:
+            "veryLow",
 
-        stressHigh: "veryHigh",
+        stressHigh:
+            "veryHigh",
 
-        noteTitle: "note",
+
+        /* NOTE */
+
+        noteTitle:
+            "note",
 
         noteDescription:
             "noteDescription",
 
-        saveBtn: "save",
 
-        privacyNote: "privateData"
+        /* SAVE */
+
+        saveBtn:
+            "save",
+
+
+        /* PRIVACY */
+
+        privacyNote:
+            "privateData"
 
     };
 
@@ -617,33 +750,47 @@ function updateCheckboxLabels() {
 
     const reasonMap = {
 
-        work: "work",
+        work:
+            "work",
 
-        family: "family",
+        family:
+            "family",
 
-        stress: "stress",
+        stress:
+            "stress",
 
-        overthinking: "overthinking",
+        overthinking:
+            "overthinking",
 
-        financial: "financial",
+        financial:
+            "financial",
 
-        screens: "screens",
+        screens:
+            "screens",
 
-        caffeine: "caffeine",
+        caffeine:
+            "caffeine",
 
-        schedule: "schedule",
+        schedule:
+            "schedule",
 
-        noise: "noise",
+        noise:
+            "noise",
 
-        environment: "environment",
+        environment:
+            "environment",
 
-        pain: "pain",
+        pain:
+            "pain",
 
-        health: "health",
+        health:
+            "health",
 
-        other: "other",
+        other:
+            "other",
 
-        unknown: "unknown"
+        unknown:
+            "unknown"
 
     };
 
@@ -658,7 +805,9 @@ function updateCheckboxLabels() {
                 const label =
                     input.closest("label");
 
-                if (!label) return;
+                if (!label) {
+                    return;
+                }
 
                 const text =
                     label.querySelector("span");
@@ -666,7 +815,11 @@ function updateCheckboxLabels() {
                 const key =
                     problemMap[input.value];
 
-                if (text && key) {
+
+                if (
+                    text &&
+                    key
+                ) {
 
                     text.textContent =
                         t(key);
@@ -687,7 +840,9 @@ function updateCheckboxLabels() {
                 const label =
                     input.closest("label");
 
-                if (!label) return;
+                if (!label) {
+                    return;
+                }
 
                 const text =
                     label.querySelector("span");
@@ -695,7 +850,11 @@ function updateCheckboxLabels() {
                 const key =
                     reasonMap[input.value];
 
-                if (text && key) {
+
+                if (
+                    text &&
+                    key
+                ) {
 
                     text.textContent =
                         t(key);
@@ -712,70 +871,91 @@ function updateCheckboxLabels() {
    RANGE INPUTS
 ========================================== */
 
-function setupRangeInput(
-    inputId,
-    valueId
+const sleepQualityInput =
+    document.getElementById(
+        "sleepQualityInput"
+    );
+
+const sleepQualityValue =
+    document.getElementById(
+        "sleepQualityValue"
+    );
+
+
+if (
+    sleepQualityInput &&
+    sleepQualityValue
 ) {
 
-    const input =
-        document.getElementById(inputId);
-
-    const value =
-        document.getElementById(valueId);
-
-
-    if (!input || !value) {
-
-        console.error(
-            "Range element missing:",
-            inputId,
-            valueId
-        );
-
-        return;
-
-    }
-
-
-    function updateValue() {
-
-        value.textContent =
-            input.value;
-
-    }
-
-
-    input.addEventListener(
+    sleepQualityInput.addEventListener(
         "input",
-        updateValue
+        function() {
+
+            sleepQualityValue.textContent =
+                sleepQualityInput.value;
+
+        }
     );
-
-
-    input.addEventListener(
-        "change",
-        updateValue
-    );
-
-
-    updateValue();
 
 }
 
 
-setupRangeInput(
-    "sleepQualityInput",
-    "sleepQualityValue"
-);
+const energyInput =
+    document.getElementById(
+        "energyInput"
+    );
 
-setupRangeInput(
-    "energyInput",
-    "energyValue"
-);
+const energyValue =
+    document.getElementById(
+        "energyValue"
+    );
 
-setupRangeInput(
-    "stressInput",
-    "stressValue"
-);
+
+if (
+    energyInput &&
+    energyValue
+) {
+
+    energyInput.addEventListener(
+        "input",
+        function() {
+
+            energyValue.textContent =
+                energyInput.value;
+
+        }
+    );
+
+}
+
+
+const stressInput =
+    document.getElementById(
+        "stressInput"
+    );
+
+const stressValue =
+    document.getElementById(
+        "stressValue"
+    );
+
+
+if (
+    stressInput &&
+    stressValue
+) {
+
+    stressInput.addEventListener(
+        "input",
+        function() {
+
+            stressValue.textContent =
+                stressInput.value;
+
+        }
+    );
+
+}
 
 
 /* ==========================================
@@ -784,52 +964,18 @@ setupRangeInput(
 
 async function getCurrentUser() {
 
-    try {
-
-        const {
-            data,
-            error
-        } =
-            await supabaseClient.auth.getUser();
+    const {
+        data,
+        error
+    } =
+        await supabaseClient.auth.getUser();
 
 
-        if (
-            error ||
-            !data ||
-            !data.user
-        ) {
-
-            showMessage(
-                t("loginRequired"),
-                "error"
-            );
-
-
-            setTimeout(
-                function() {
-
-                    window.location.href =
-                        "auth.html";
-
-                },
-                1200
-            );
-
-
-            return null;
-
-        }
-
-
-        return data.user;
-
-    } catch (error) {
-
-        console.error(
-            "Get user error:",
-            error
-        );
-
+    if (
+        error ||
+        !data ||
+        !data.user
+    ) {
 
         showMessage(
             t("loginRequired"),
@@ -837,9 +983,23 @@ async function getCurrentUser() {
         );
 
 
+        setTimeout(
+            function() {
+
+                window.location.href =
+                    "auth.html";
+
+            },
+            1200
+        );
+
+
         return null;
 
     }
+
+
+    return data.user;
 
 }
 
@@ -861,34 +1021,22 @@ function getTodayDate() {
     const month =
         String(
             now.getMonth() + 1
-        ).padStart(
-            2,
-            "0"
-        );
+        ).padStart(2, "0");
 
 
     const day =
         String(
             now.getDate()
-        ).padStart(
-            2,
-            "0"
-        );
+        ).padStart(2, "0");
 
 
-    return (
-        year +
-        "-" +
-        month +
-        "-" +
-        day
-    );
+    return `${year}-${month}-${day}`;
 
 }
 
 
 /* ==========================================
-   CHECKBOX VALUES
+   SELECTED CHECKBOX VALUES
 ========================================== */
 
 function getSelectedValues(name) {
@@ -896,9 +1044,7 @@ function getSelectedValues(name) {
     return Array
         .from(
             document.querySelectorAll(
-                'input[name="' +
-                name +
-                '"]:checked'
+                `input[name="${name}"]:checked`
             )
         )
         .map(
@@ -913,7 +1059,7 @@ function getSelectedValues(name) {
 
 
 /* ==========================================
-   MOOD
+   SELECTED MOOD
 ========================================== */
 
 function getSelectedMood() {
@@ -932,26 +1078,26 @@ function getSelectedMood() {
 
 
 /* ==========================================
-   VALIDATION
+   VALIDATE FORM
 ========================================== */
 
 function validateForm() {
 
-    const sleepInput =
+    const sleepInputElement =
         document.getElementById(
             "sleepInput"
         );
 
-    const waterInput =
+    const waterInputElement =
         document.getElementById(
             "waterInput"
         );
 
 
-    if (!sleepInput) {
+    if (!sleepInputElement) {
 
         console.error(
-            "sleepInput not found"
+            "sleepInput was not found."
         );
 
         return false;
@@ -960,7 +1106,13 @@ function validateForm() {
 
 
     const sleep =
-        sleepInput.value.trim();
+        sleepInputElement.value;
+
+
+    const water =
+        waterInputElement
+            ? waterInputElement.value
+            : "";
 
 
     if (sleep === "") {
@@ -980,9 +1132,7 @@ function validateForm() {
 
 
     if (
-        !Number.isFinite(
-            sleepNumber
-        ) ||
+        Number.isNaN(sleepNumber) ||
         sleepNumber < 0 ||
         sleepNumber > 24
     ) {
@@ -997,21 +1147,14 @@ function validateForm() {
     }
 
 
-    if (
-        waterInput &&
-        waterInput.value.trim() !== ""
-    ) {
+    if (water !== "") {
 
         const waterNumber =
-            Number(
-                waterInput.value
-            );
+            Number(water);
 
 
         if (
-            !Number.isFinite(
-                waterNumber
-            ) ||
+            Number.isNaN(waterNumber) ||
             waterNumber < 0 ||
             waterNumber > 10000
         ) {
@@ -1085,10 +1228,14 @@ function clearMessage() {
         );
 
 
-    if (!box) return;
+    if (!box) {
+        return;
+    }
 
 
-    box.textContent = "";
+    box.textContent =
+        "";
+
 
     box.className =
         "message";
@@ -1102,306 +1249,248 @@ function clearMessage() {
 
 async function loadTodayCheckin(user) {
 
-    try {
-
-        const today =
-            getTodayDate();
-
-
-        const {
-            data,
-            error
-        } =
-            await supabaseClient
-                .from("daily_checkins")
-                .select("*")
-                .eq(
-                    "user_id",
-                    user.id
-                )
-                .eq(
-                    "checkin_date",
-                    today
-                )
-                .maybeSingle();
-
-
-        if (error) {
-
-            console.error(
-                "Load check-in error:",
-                error
-            );
-
-            return null;
-
-        }
-
-
-        if (!data) {
-
-            return null;
-
-        }
-
-
-        /* =========================
-           MOOD
-        ========================= */
-
-        if (data.mood) {
-
-            const moodInput =
-                document.querySelector(
-                    'input[name="mood"][value="' +
-                    data.mood +
-                    '"]'
-                );
-
-
-            if (moodInput) {
-
-                moodInput.checked =
-                    true;
-
-            }
-
-        }
-
-
-        /* =========================
-           SLEEP
-        ========================= */
-
-        const sleepInput =
-            document.getElementById(
-                "sleepInput"
-            );
-
-
-        if (sleepInput) {
-
-            sleepInput.value =
-                data.sleep_hours ?? "";
-
-        }
-
-
-        /* =========================
-           SLEEP QUALITY
-        ========================= */
-
-        const sleepQualityInput =
-            document.getElementById(
-                "sleepQualityInput"
-            );
-
-        const sleepQualityValue =
-            document.getElementById(
-                "sleepQualityValue"
-            );
-
-
-        if (
-            sleepQualityInput &&
-            data.sleep_quality !== null &&
-            data.sleep_quality !== undefined
-        ) {
-
-            sleepQualityInput.value =
-                data.sleep_quality;
-
-
-            if (sleepQualityValue) {
-
-                sleepQualityValue.textContent =
-                    data.sleep_quality;
-
-            }
-
-        }
-
-
-        /* =========================
-           WATER
-        ========================= */
-
-        const waterInput =
-            document.getElementById(
-                "waterInput"
-            );
-
-
-        if (waterInput) {
-
-            waterInput.value =
-                data.water_ml ?? "";
-
-        }
-
-
-        /* =========================
-           ENERGY
-        ========================= */
-
-        const energyInput =
-            document.getElementById(
-                "energyInput"
-            );
-
-        const energyValue =
-            document.getElementById(
-                "energyValue"
-            );
-
-
-        if (
-            energyInput &&
-            data.energy_level !== null &&
-            data.energy_level !== undefined
-        ) {
-
-            energyInput.value =
-                data.energy_level;
-
-
-            if (energyValue) {
-
-                energyValue.textContent =
-                    data.energy_level;
-
-            }
-
-        }
-
-
-        /* =========================
-           STRESS
-        ========================= */
-
-        const stressInput =
-            document.getElementById(
-                "stressInput"
-            );
-
-        const stressValue =
-            document.getElementById(
-                "stressValue"
-            );
-
-
-        if (
-            stressInput &&
-            data.stress_level !== null &&
-            data.stress_level !== undefined
-        ) {
-
-            stressInput.value =
-                data.stress_level;
-
-
-            if (stressValue) {
-
-                stressValue.textContent =
-                    data.stress_level;
-
-            }
-
-        }
-
-
-        /* =========================
-           NOTE
-        ========================= */
-
-        const noteInput =
-            document.getElementById(
-                "noteInput"
-            );
-
-
-        if (noteInput) {
-
-            noteInput.value =
-                data.daily_note || "";
-
-        }
-
-
-        /* =========================
-           SLEEP PROBLEMS
-        ========================= */
-
-        const problems =
-            Array.isArray(
-                data.sleep_problems
+    const today =
+        getTodayDate();
+
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+            .from("daily_checkins")
+            .select("*")
+            .eq(
+                "user_id",
+                user.id
             )
-                ? data.sleep_problems
-                : [];
-
-
-        document
-            .querySelectorAll(
-                'input[name="sleepProblem"]'
+            .eq(
+                "checkin_date",
+                today
             )
-            .forEach(
-                function(input) {
-
-                    input.checked =
-                        problems.includes(
-                            input.value
-                        );
-
-                }
-            );
+            .maybeSingle();
 
 
-        /* =========================
-           SLEEP REASONS
-        ========================= */
-
-        const reasons =
-            Array.isArray(
-                data.sleep_reasons
-            )
-                ? data.sleep_reasons
-                : [];
-
-
-        document
-            .querySelectorAll(
-                'input[name="sleepReason"]'
-            )
-            .forEach(
-                function(input) {
-
-                    input.checked =
-                        reasons.includes(
-                            input.value
-                        );
-
-                }
-            );
-
-
-        return data;
-
-    } catch (error) {
+    if (error) {
 
         console.error(
-            "Unexpected load error:",
+            "Load check-in error:",
             error
         );
+
 
         return null;
 
     }
+
+
+    if (!data) {
+
+        return null;
+
+    }
+
+
+    /* =========================
+       MOOD
+    ========================= */
+
+    if (data.mood) {
+
+        const moodInput =
+            document.querySelector(
+                `input[name="mood"][value="${data.mood}"]`
+            );
+
+
+        if (moodInput) {
+
+            moodInput.checked =
+                true;
+
+        }
+
+    }
+
+
+    /* =========================
+       SLEEP
+    ========================= */
+
+    const sleepInputElement =
+        document.getElementById(
+            "sleepInput"
+        );
+
+
+    if (sleepInputElement) {
+
+        sleepInputElement.value =
+            data.sleep_hours ?? "";
+
+    }
+
+
+    /* =========================
+       SLEEP QUALITY
+    ========================= */
+
+    if (
+        sleepQualityInput &&
+        sleepQualityValue &&
+        data.sleep_quality !== null &&
+        data.sleep_quality !== undefined
+    ) {
+
+        sleepQualityInput.value =
+            data.sleep_quality;
+
+        sleepQualityValue.textContent =
+            data.sleep_quality;
+
+    }
+
+
+    /* =========================
+       WATER
+    ========================= */
+
+    const waterInputElement =
+        document.getElementById(
+            "waterInput"
+        );
+
+
+    if (waterInputElement) {
+
+        waterInputElement.value =
+            data.water_ml ?? "";
+
+    }
+
+
+    /* =========================
+       ENERGY
+    ========================= */
+
+    if (
+        energyInput &&
+        energyValue &&
+        data.energy_level !== null &&
+        data.energy_level !== undefined
+    ) {
+
+        energyInput.value =
+            data.energy_level;
+
+        energyValue.textContent =
+            data.energy_level;
+
+    }
+
+
+    /* =========================
+       STRESS
+    ========================= */
+
+    if (
+        stressInput &&
+        stressValue &&
+        data.stress_level !== null &&
+        data.stress_level !== undefined
+    ) {
+
+        stressInput.value =
+            data.stress_level;
+
+        stressValue.textContent =
+            data.stress_level;
+
+    }
+
+
+    /* =========================
+       NOTE
+    ========================= */
+
+    const noteInput =
+        document.getElementById(
+            "noteInput"
+        );
+
+
+    if (noteInput) {
+
+        noteInput.value =
+            data.daily_note || "";
+
+    }
+
+
+    /* =========================
+       SLEEP PROBLEMS
+    ========================= */
+
+    const problems =
+        Array.isArray(
+            data.sleep_problems
+        )
+            ? data.sleep_problems
+            : [];
+
+
+    document
+        .querySelectorAll(
+            'input[name="sleepProblem"]'
+        )
+        .forEach(
+            function(input) {
+
+                input.checked =
+                    problems.includes(
+                        input.value
+                    );
+
+            }
+        );
+
+
+    /* =========================
+       SLEEP REASONS
+    ========================= */
+
+    const reasons =
+        Array.isArray(
+            data.sleep_reasons
+        )
+            ? data.sleep_reasons
+            : [];
+
+
+    document
+        .querySelectorAll(
+            'input[name="sleepReason"]'
+        )
+        .forEach(
+            function(input) {
+
+                input.checked =
+                    reasons.includes(
+                        input.value
+                    );
+
+            }
+        );
+
+
+    return data;
 
 }
 
 
 /* ==========================================
    CIRCLE AI
+   GENERATE WELLNESS INSIGHT
 ========================================== */
 
 async function generateCircleAIInsight() {
@@ -1409,7 +1498,7 @@ async function generateCircleAIInsight() {
     try {
 
         console.log(
-            "Circle AI: starting..."
+            "Circle AI: generating insight..."
         );
 
 
@@ -1428,9 +1517,10 @@ async function generateCircleAIInsight() {
         if (error) {
 
             console.error(
-                "Circle AI error:",
+                "Circle AI invocation error:",
                 error
             );
+
 
             return null;
 
@@ -1443,9 +1533,10 @@ async function generateCircleAIInsight() {
         ) {
 
             console.error(
-                "Circle AI returned:",
+                "Circle AI returned an error:",
                 data
             );
+
 
             return null;
 
@@ -1467,6 +1558,7 @@ async function generateCircleAIInsight() {
             error
         );
 
+
         return null;
 
     }
@@ -1483,11 +1575,20 @@ async function saveCheckin() {
     clearMessage();
 
 
+    console.log(
+        "Circle: Save button clicked."
+    );
+
+
     /* =========================
        VALIDATE
     ========================= */
 
     if (!validateForm()) {
+
+        console.log(
+            "Circle: validation failed."
+        );
 
         return;
 
@@ -1495,7 +1596,7 @@ async function saveCheckin() {
 
 
     /* =========================
-       USER
+       GET USER
     ========================= */
 
     const user =
@@ -1504,13 +1605,17 @@ async function saveCheckin() {
 
     if (!user) {
 
+        console.log(
+            "Circle: no authenticated user."
+        );
+
         return;
 
     }
 
 
     /* =========================
-       BUTTON
+       SAVE BUTTON
     ========================= */
 
     const saveButton =
@@ -1522,7 +1627,7 @@ async function saveCheckin() {
     if (!saveButton) {
 
         console.error(
-            "saveBtn not found"
+            "Circle: saveBtn was not found."
         );
 
         return;
@@ -1550,42 +1655,33 @@ async function saveCheckin() {
         );
 
 
-    const waterElement =
+    const waterValueInput =
         document.getElementById(
             "waterInput"
-        );
+        ).value;
 
 
     const water =
-        waterElement &&
-        waterElement.value.trim() !== ""
-            ? Number(
-                waterElement.value
-            )
-            : null;
+        waterValueInput === ""
+            ? null
+            : Number(waterValueInput);
 
 
     const sleepQuality =
         Number(
-            document.getElementById(
-                "sleepQualityInput"
-            ).value
+            sleepQualityInput.value
         );
 
 
     const energy =
         Number(
-            document.getElementById(
-                "energyInput"
-            ).value
+            energyInput.value
         );
 
 
     const stress =
         Number(
-            document.getElementById(
-                "stressInput"
-            ).value
+            stressInput.value
         );
 
 
@@ -1605,16 +1701,12 @@ async function saveCheckin() {
         );
 
 
-    const noteElement =
+    const note =
         document.getElementById(
             "noteInput"
-        );
-
-
-    const note =
-        noteElement
-            ? noteElement.value.trim()
-            : "";
+        )
+        .value
+        .trim();
 
 
     const today =
@@ -1667,7 +1759,7 @@ async function saveCheckin() {
 
 
     console.log(
-        "Saving payload:",
+        "Circle: sending payload:",
         payload
     );
 
@@ -1679,7 +1771,6 @@ async function saveCheckin() {
         ========================= */
 
         const {
-            data,
             error
         } =
             await supabaseClient
@@ -1690,31 +1781,39 @@ async function saveCheckin() {
                         onConflict:
                             "user_id,checkin_date"
                     }
-                )
-                .select()
-                .single();
+                );
 
 
         /* =========================
-           SAVE ERROR
+           CHECK SAVE ERROR
         ========================= */
 
         if (error) {
 
             console.error(
-                "SUPABASE SAVE ERROR:",
+                "Circle: CHECK-IN SAVE ERROR:",
                 error
             );
 
 
+            /*
+             * Show the real Supabase
+             * error instead of hiding it.
+             */
+
             showMessage(
-                "Save failed: " +
-                (
-                    error.message ||
-                    "Unknown error"
-                ),
+                error.message ||
+                t("saveError"),
                 "error"
             );
+
+
+            saveButton.disabled =
+                false;
+
+
+            saveButton.textContent =
+                t("save");
 
 
             return;
@@ -1722,15 +1821,14 @@ async function saveCheckin() {
         }
 
 
-        console.log(
-            "CHECK-IN SAVED:",
-            data
-        );
-
-
         /* =========================
            SUCCESS
         ========================= */
+
+        console.log(
+            "Circle: CHECK-IN SAVED SUCCESSFULLY."
+        );
+
 
         showMessage(
             t("saved"),
@@ -1738,18 +1836,12 @@ async function saveCheckin() {
         );
 
 
-        /*
-         * IMPORTANT:
-         *
-         * We DO NOT wait for Circle AI.
-         *
-         * The check-in has already been
-         * successfully saved.
-         */
-
-
         /* =========================
-           START AI IN BACKGROUND
+           CIRCLE AI
+           
+           IMPORTANT:
+           AI runs in background.
+           We DO NOT wait for it.
         ========================= */
 
         generateCircleAIInsight()
@@ -1759,14 +1851,14 @@ async function saveCheckin() {
                     if (aiResult) {
 
                         console.log(
-                            "Circle AI completed:",
-                            aiResult
+                            "Circle AI insight:",
+                            aiResult.insight
                         );
 
                     } else {
 
                         console.warn(
-                            "Circle AI unavailable."
+                            "Circle AI did not return a result."
                         );
 
                     }
@@ -1776,8 +1868,8 @@ async function saveCheckin() {
             .catch(
                 function(aiError) {
 
-                    console.error(
-                        "Background AI error:",
+                    console.warn(
+                        "Circle AI failed:",
                         aiError
                     );
 
@@ -1786,45 +1878,42 @@ async function saveCheckin() {
 
 
         /* =========================
-           GO HOME IMMEDIATELY
+           GO HOME
+           
+           Do not wait for AI.
         ========================= */
 
         setTimeout(
             function() {
+
+                console.log(
+                    "Circle: redirecting to home.html"
+                );
+
 
                 window.location.replace(
                     "home.html"
                 );
 
             },
-            500
+            700
         );
 
 
     } catch (error) {
 
         console.error(
-            "UNEXPECTED SAVE ERROR:",
+            "Circle: UNEXPECTED SAVE ERROR:",
             error
         );
 
 
         showMessage(
-            "Save failed: " +
-            (
-                error.message ||
-                "Unknown error"
-            ),
+            error.message ||
+            t("saveError"),
             "error"
         );
 
-
-    } finally {
-
-        /*
-         * Do not keep button disabled
-         * if an error occurs.
-         */
 
         saveButton.disabled =
             false;
@@ -1842,108 +1931,81 @@ async function saveCheckin() {
    SAVE BUTTON
 ========================================== */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-        const saveButton =
-            document.getElementById(
-                "saveBtn"
-            );
+const saveButtonElement =
+    document.getElementById(
+        "saveBtn"
+    );
 
 
-        if (saveButton) {
+if (saveButtonElement) {
 
-            saveButton.addEventListener(
-                "click",
-                saveCheckin
-            );
+    saveButtonElement.addEventListener(
+        "click",
+        saveCheckin
+    );
 
-        } else {
-
-            console.error(
-                "Save button not found."
-            );
-
-        }
-
-    }
-);
+}
 
 
 /* ==========================================
    BACK BUTTON
 ========================================== */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-        const backButton =
-            document.getElementById(
-                "backBtn"
-            );
+const backButtonElement =
+    document.getElementById(
+        "backBtn"
+    );
 
 
-        if (backButton) {
+if (backButtonElement) {
 
-            backButton.addEventListener(
-                "click",
-                function() {
+    backButtonElement.addEventListener(
+        "click",
+        function() {
 
-                    window.location.href =
-                        "home.html";
-
-                }
-            );
+            window.location.href =
+                "home.html";
 
         }
+    );
 
-    }
-);
+}
 
 
 /* ==========================================
    LANGUAGE BUTTON
 ========================================== */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
+const languageButtonElement =
+    document.getElementById(
+        "languageBtn"
+    );
 
-        const languageButton =
-            document.getElementById(
-                "languageBtn"
+
+if (languageButtonElement) {
+
+    languageButtonElement.addEventListener(
+        "click",
+        function() {
+
+            language =
+                language === "en"
+                    ? "ar"
+                    : "en";
+
+
+            localStorage.setItem(
+                "circleLanguage",
+                language
             );
 
 
-        if (languageButton) {
-
-            languageButton.addEventListener(
-                "click",
-                function() {
-
-                    language =
-                        language === "en"
-                            ? "ar"
-                            : "en";
-
-
-                    localStorage.setItem(
-                        "circleLanguage",
-                        language
-                    );
-
-
-                    applyLanguage();
-
-                }
-            );
+            applyLanguage();
 
         }
+    );
 
-    }
-);
+}
 
 
 /* ==========================================
@@ -1951,6 +2013,11 @@ document.addEventListener(
 ========================================== */
 
 async function initialize() {
+
+    console.log(
+        "Circle: initializing check-in page..."
+    );
+
 
     applyLanguage();
 
@@ -1970,6 +2037,11 @@ async function initialize() {
         user
     );
 
+
+    console.log(
+        "Circle: check-in page initialized."
+    );
+
 }
 
 
@@ -1977,19 +2049,4 @@ async function initialize() {
    START
 ========================================== */
 
-if (
-    document.readyState ===
-    "loading"
-) {
-
-    document.addEventListener(
-        "DOMContentLoaded",
-        initialize
-    );
-
-} else {
-
-    initialize();
-
-}
-```
+initialize();
