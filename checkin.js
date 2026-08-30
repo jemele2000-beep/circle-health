@@ -1,17 +1,19 @@
 /* ==========================================
-   CIRCLE HEALTH
-   HOME DASHBOARD
-   PERSONAL WELLNESS ANALYSIS
+   CIRCLE
+   DAILY CHECK-IN
+   WITH CIRCLE AI
    ========================================== */
 
+
+/* ==========================================
+   SUPABASE
+========================================== */
 
 const SUPABASE_URL =
     "https://nkgyoixxwweghklemtut.supabase.co";
 
-
 const SUPABASE_PUBLISHABLE_KEY =
     "sb_publishable__HrEEcznU83KyZYmovtOow_qINbm_fq";
-
 
 const supabaseClient =
     window.supabase.createClient(
@@ -36,255 +38,104 @@ const translations = {
 
     en: {
 
-        language: "العربية",
+        back: "← Back to Home",
 
-        signOut: "Sign out",
+        daily: "DAILY CHECK-IN",
 
-        wellness: "YOUR DAILY WELLNESS",
+        title: "How are you feeling today?",
 
-        welcome: "Welcome back",
+        description:
+            "Take less than two minutes to record a few simple signals about your day.",
 
-        welcomeWithName:
-            "Welcome back, {name}",
 
-        welcomeDescription:
-            "See what your data is telling you today.",
+        /* MOOD */
 
-        checkin:
-            "+ Complete Today's Check-in",
+        mood:
+            "How would you describe your mood today?",
 
-        editCheckin:
-            "Edit Today's Check-in",
+        moodDescription:
+            "Choose the option that best describes how you feel today.",
 
-        snapshot:
-            "Today's Snapshot",
+        veryGood:
+            "Very good",
 
-        snapshotSubtitle:
-            "Your latest wellness signals.",
+        good:
+            "Good",
 
-        loading:
-            "Loading your data...",
+        okay:
+            "Okay",
 
-        understanding:
-            "Today's Understanding",
+        low:
+            "Low",
 
-        understandingTitle:
-            "What your data suggests",
+
+        /* SLEEP */
 
         sleep:
-            "Sleep",
+            "How long did you sleep?",
 
-        hydration:
-            "Hydration",
-
-        energy:
-            "Energy",
-
-        stress:
-            "Stress",
+        sleepDescription:
+            "Enter the actual hours you slept.",
 
         hours:
-            "hours",
+            "Hours",
 
-        ml:
-            "ml",
 
-        noData:
-            "No check-in yet",
+        sleepQuality:
+            "How was your sleep?",
 
-        complete:
-            "Complete today's check-in to see your snapshot.",
+        sleepQualityDescription:
+            "Rate the quality of your sleep from 1 to 10.",
 
-        sleepGood:
-            "Good",
+        veryPoor:
+            "Very poor",
 
-        sleepFair:
-            "Fair",
+        excellent:
+            "Excellent",
 
-        sleepLow:
-            "Low",
 
-        sleepPoor:
-            "Poor",
-
-        hydrationGood:
-            "Good",
-
-        hydrationModerate:
-            "Moderate",
-
-        hydrationLow:
-            "Low",
-
-        energyHigh:
-            "High",
-
-        energyModerate:
-            "Moderate",
-
-        energyLow:
-            "Low",
-
-        stressLow:
-            "Low",
-
-        stressModerate:
-            "Moderate",
-
-        stressHigh:
-            "High",
-
-        sleepDetails:
-            "Sleep Details",
+        /* SLEEP PROBLEMS */
 
         sleepProblems:
-            "Sleep problems",
+            "Did you have any sleep problems?",
 
-        possibleReasons:
-            "Possible reasons",
+        sleepProblemsDescription:
+            "Select everything that applies.",
 
-        none:
-            "None reported",
-
-        history:
-            "Recent History",
-
-        historySubtitle:
-            "Your last 7 check-ins.",
-
-        date:
-            "Date",
-
-        progress:
-            "Your Progress",
-
-        totalDays:
-            "Total check-in days",
-
-        streak:
-            "Current streak",
-
-        days:
-            "days",
-
-        insight:
-            "CIRCLE INSIGHT",
-
-        insightNew:
-            "Your patterns are building.",
-
-        insightNewText:
-            "Keep checking in daily. Circle will need enough data before it can identify meaningful personal patterns.",
-
-        insightSleep:
-            "Your sleep and energy may be connected.",
-
-        insightSleepText:
-            "Your recent check-ins suggest that your energy tends to be higher on days when you sleep longer. This is an association, not proof of cause.",
-
-        insightStress:
-            "Stress may be affecting your sleep.",
-
-        insightStressText:
-            "Your recent data suggests that higher stress and lower sleep quality may occur together. Continue checking in to see whether this pattern persists.",
-
-        insightWater:
-            "Hydration and energy may be connected.",
-
-        insightWaterText:
-            "Your recent data suggests that your energy tends to be higher on days with higher recorded water intake. Continue checking in to make the pattern clearer.",
-
-        insightBalanced:
-            "Your recent signals look relatively balanced.",
-
-        insightBalancedText:
-            "Circle is not seeing one strong pattern yet. Keep checking in so your personal rhythm becomes clearer.",
-
-        insightEnergy:
-            "Your energy appears to follow your sleep pattern.",
-
-        insightEnergyText:
-            "Your recent data shows a noticeable difference in energy between days with more sleep and days with less sleep.",
-
-        todayGoodSleep:
-            "Your sleep duration and quality look good today.",
-
-        todayShortSleep:
-            "You slept less than 6 hours today. This may be contributing to lower energy.",
-
-        todayPoorQuality:
-            "Your sleep quality was relatively low today.",
-
-        todayHighStress:
-            "Your stress level is high today.",
-
-        todayModerateStress:
-            "Your stress level is moderate today.",
-
-        todayLowEnergy:
-            "Your energy level is relatively low today.",
-
-        todayHighEnergy:
-            "Your energy level is relatively high today.",
-
-        todayLowWater:
-            "Your recorded water intake is relatively low today.",
-
-        todayGoodWater:
-            "Your recorded water intake looks good today.",
-
-        todayBalanced:
-            "Your signals look relatively balanced today.",
-
-        todaySleepStress:
-            "Your sleep was limited while your stress was relatively high today. These signals may be related to how you feel.",
-
-        todaySleepEnergy:
-            "Your sleep and energy both look relatively good today.",
-
-        todayWaterEnergy:
-            "Your water intake and energy both look relatively good today.",
-
-        difficulty_falling_asleep:
+        difficultyFallingAsleep:
             "Difficulty falling asleep",
 
-        frequent_waking:
-            "Waking up frequently",
+        frequentWaking:
+            "Waking up during the night",
 
-        early_waking:
+        earlyWaking:
             "Waking up too early",
 
-        light_sleep:
+        lightSleep:
             "Light / non-restorative sleep",
 
-        daytime_sleepiness:
+        daytimeSleepiness:
             "Feeling sleepy during the day",
 
-        phone:
-            "Phone or screen use",
+        noSleepProblem:
+            "No sleep problems",
 
-        noise:
-            "Noise",
 
-        heat:
-            "Room temperature / heat",
+        /* SLEEP REASONS */
 
-        caffeine:
-            "Caffeine",
+        sleepReasons:
+            "What may have affected your sleep?",
 
-        pain:
-            "Pain or physical discomfort",
-
-        none_sleep:
-            "No sleep problem",
+        sleepReasonsDescription:
+            "Select the factors that may have contributed.",
 
         work:
             "Work or study pressure",
 
         family:
-            "Family pressure",
+            "Family responsibilities",
 
-        stress_reason:
+        stress:
             "Stress or anxiety",
 
         overthinking:
@@ -294,31 +145,116 @@ const translations = {
             "Financial concerns",
 
         screens:
-            "Phone / screen use",
+            "Phone or screen use",
+
+        caffeine:
+            "Caffeine",
 
         schedule:
             "Irregular sleep schedule",
 
+        noise:
+            "Noise",
+
         environment:
-            "Sleep environment",
+            "Room temperature / heat",
+
+        pain:
+            "Pain or physical discomfort",
 
         health:
-            "Health problem or pain",
+            "Health problem",
+
+        other:
+            "Something else",
 
         unknown:
             "I don't know",
 
-        other:
-            "Other",
 
-        private:
-            "Your data is private and connected to your Circle account.",
+        /* WATER */
 
-        login:
+        water:
+            "How much water did you drink?",
+
+        waterDescription:
+            "Enter your approximate water intake.",
+
+        milliliters:
+            "Milliliters (ml)",
+
+
+        /* ENERGY */
+
+        energy:
+            "How energetic do you feel?",
+
+        energyDescription:
+            "1 means very low energy. 10 means extremely energetic.",
+
+        veryLow:
+            "Very low",
+
+        veryHigh:
+            "Very high",
+
+
+        /* STRESS */
+
+        stressTitle:
+            "How stressed do you feel?",
+
+        stressDescription:
+            "1 means very relaxed. 10 means extremely stressed.",
+
+
+        /* NOTE */
+
+        note:
+            "Anything else?",
+
+        noteDescription:
+            "Optional. Write anything that may help you understand your day.",
+
+        notePlaceholder:
+            "How was your day?",
+
+
+        /* SAVE */
+
+        save:
+            "Save Today's Check-in",
+
+        saving:
+            "Saving...",
+
+        saved:
+            "Your check-in was saved successfully.",
+
+        updated:
+            "Today's check-in was updated successfully.",
+
+
+        /* ERRORS */
+
+        loginRequired:
             "Please sign in again.",
 
-        error:
-            "We couldn't load your data. Please try again."
+        requiredSleep:
+            "Please enter your sleep hours.",
+
+        invalidSleep:
+            "Sleep hours must be between 0 and 24.",
+
+        invalidWater:
+            "Water intake must be between 0 and 10,000 ml.",
+
+        saveError:
+            "We couldn't save your check-in. Please try again.",
+
+
+        privateData:
+            "Your data is private and connected to your Circle account."
 
     },
 
@@ -329,293 +265,226 @@ const translations = {
 
     ar: {
 
-        language:
-            "English",
+        back:
+            "→ العودة للرئيسية",
 
-        signOut:
-            "تسجيل الخروج",
+        daily:
+            "التسجيل اليومي",
 
-        wellness:
-            "صحتك اليومية",
+        title:
+            "كيف تشعر اليوم؟",
 
-        welcome:
-            "مرحبًا بعودتك",
+        description:
+            "يستغرق التسجيل أقل من دقيقتين لتسجيل بعض المؤشرات البسيطة عن يومك.",
 
-        welcomeWithName:
-            "مرحبًا بعودتك، {name}",
 
-        welcomeDescription:
-            "شاهد ماذا تخبرك بياناتك اليوم.",
+        /* MOOD */
 
-        checkin:
-            "+ تسجيل اليوم",
+        mood:
+            "كيف تصف مزاجك اليوم؟",
 
-        editCheckin:
-            "تعديل تسجيل اليوم",
+        moodDescription:
+            "اختر الخيار الذي يصف شعورك اليوم بشكل أفضل.",
 
-        snapshot:
-            "ملخص اليوم",
+        veryGood:
+            "جيد جدًا",
 
-        snapshotSubtitle:
-            "أحدث مؤشرات صحتك اليومية.",
+        good:
+            "جيد",
 
-        loading:
-            "جارٍ تحميل بياناتك...",
+        okay:
+            "عادي",
 
-        understanding:
-            "فهم يومك",
+        low:
+            "منخفض",
 
-        understandingTitle:
-            "ماذا تخبرنا بياناتك؟",
+
+        /* SLEEP */
 
         sleep:
-            "النوم",
+            "كم ساعة نمت؟",
 
-        hydration:
-            "الماء",
-
-        energy:
-            "الطاقة",
-
-        stress:
-            "التوتر",
+        sleepDescription:
+            "أدخل عدد ساعات النوم الفعلية.",
 
         hours:
             "ساعات",
 
-        ml:
-            "مل",
 
-        noData:
-            "لا يوجد تسجيل بعد",
+        sleepQuality:
+            "كيف كان نومك؟",
 
-        complete:
-            "أكمل تسجيل اليوم لرؤية ملخصك.",
+        sleepQualityDescription:
+            "قيّم جودة نومك من 1 إلى 10.",
 
-        sleepGood:
-            "جيد",
+        veryPoor:
+            "سيئ جدًا",
 
-        sleepFair:
-            "متوسط",
+        excellent:
+            "ممتاز",
 
-        sleepLow:
-            "منخفض",
 
-        sleepPoor:
-            "ضعيف",
-
-        hydrationGood:
-            "جيد",
-
-        hydrationModerate:
-            "متوسط",
-
-        hydrationLow:
-            "منخفض",
-
-        energyHigh:
-            "مرتفع",
-
-        energyModerate:
-            "متوسط",
-
-        energyLow:
-            "منخفض",
-
-        stressLow:
-            "منخفض",
-
-        stressModerate:
-            "متوسط",
-
-        stressHigh:
-            "مرتفع",
-
-        sleepDetails:
-            "تفاصيل النوم",
+        /* SLEEP PROBLEMS */
 
         sleepProblems:
-            "مشاكل النوم",
+            "هل واجهت أي مشاكل في النوم؟",
 
-        possibleReasons:
-            "الأسباب المحتملة",
+        sleepProblemsDescription:
+            "اختر كل ما ينطبق عليك.",
 
-        none:
-            "لا يوجد",
-
-        history:
-            "السجل الأخير",
-
-        historySubtitle:
-            "آخر 7 تسجيلات.",
-
-        date:
-            "التاريخ",
-
-        progress:
-            "تقدمك",
-
-        totalDays:
-            "أيام التسجيل",
-
-        streak:
-            "التتابع الحالي",
-
-        days:
-            "أيام",
-
-        insight:
-            "استنتاج CIRCLE",
-
-        insightNew:
-            "بياناتك بدأت في تكوين نمط.",
-
-        insightNewText:
-            "استمر في التسجيل يوميًا. يحتاج Circle إلى بيانات كافية قبل اكتشاف الأنماط الشخصية المهمة.",
-
-        insightSleep:
-            "قد يكون هناك ارتباط بين نومك وطاقتك.",
-
-        insightSleepText:
-            "تشير تسجيلاتك الأخيرة إلى أن طاقتك تميل إلى أن تكون أعلى في الأيام التي تنام فيها لفترة أطول. هذا ارتباط وليس إثباتًا للسببية.",
-
-        insightStress:
-            "قد يكون التوتر مؤثرًا على نومك.",
-
-        insightStressText:
-            "تشير بياناتك الأخيرة إلى أن التوتر المرتفع وانخفاض جودة النوم قد يحدثان معًا. استمر في التسجيل لمعرفة ما إذا كان النمط مستمرًا.",
-
-        insightWater:
-            "قد تكون هناك علاقة بين الماء والطاقة.",
-
-        insightWaterText:
-            "تشير بياناتك الأخيرة إلى أن طاقتك تميل إلى أن تكون أعلى في الأيام التي تسجل فيها كمية ماء أكبر. استمر في التسجيل لتوضيح النمط.",
-
-        insightBalanced:
-            "مؤشراتك الأخيرة تبدو متوازنة نسبيًا.",
-
-        insightBalancedText:
-            "لا يرى Circle نمطًا قويًا واحدًا حتى الآن. استمر في التسجيل حتى يصبح نمطك الشخصي أوضح.",
-
-        insightEnergy:
-            "يبدو أن طاقتك تتبع نمط نومك.",
-
-        insightEnergyText:
-            "تظهر بياناتك الأخيرة فرقًا ملحوظًا في الطاقة بين أيام النوم الأطول وأيام النوم الأقصر.",
-
-        todayGoodSleep:
-            "مدة نومك وجودته تبدوان جيدتين اليوم.",
-
-        todayShortSleep:
-            "نمت أقل من 6 ساعات اليوم. قد يكون ذلك مساهمًا في انخفاض طاقتك.",
-
-        todayPoorQuality:
-            "جودة نومك كانت منخفضة نسبيًا اليوم.",
-
-        todayHighStress:
-            "مستوى التوتر لديك مرتفع اليوم.",
-
-        todayModerateStress:
-            "مستوى التوتر لديك متوسط اليوم.",
-
-        todayLowEnergy:
-            "مستوى طاقتك منخفض نسبيًا اليوم.",
-
-        todayHighEnergy:
-            "مستوى طاقتك مرتفع نسبيًا اليوم.",
-
-        todayLowWater:
-            "كمية الماء التي سجلتها منخفضة نسبيًا اليوم.",
-
-        todayGoodWater:
-            "كمية الماء التي سجلتها تبدو جيدة اليوم.",
-
-        todayBalanced:
-            "مؤشراتك تبدو متوازنة نسبيًا اليوم.",
-
-        todaySleepStress:
-            "كان نومك محدودًا بينما كان التوتر مرتفعًا نسبيًا اليوم. قد تكون هذه المؤشرات مرتبطة بشعورك اليوم.",
-
-        todaySleepEnergy:
-            "النوم والطاقة يبدوان جيدين نسبيًا اليوم.",
-
-        todayWaterEnergy:
-            "كمية الماء والطاقة تبدوان جيدتين نسبيًا اليوم.",
-
-        difficulty_falling_asleep:
+        difficultyFallingAsleep:
             "صعوبة في النوم",
 
-        frequent_waking:
-            "الاستيقاظ عدة مرات",
+        frequentWaking:
+            "الاستيقاظ أثناء الليل",
 
-        early_waking:
+        earlyWaking:
             "الاستيقاظ مبكرًا",
 
-        light_sleep:
+        lightSleep:
             "نوم خفيف أو غير مريح",
 
-        daytime_sleepiness:
+        daytimeSleepiness:
             "الشعور بالنعاس أثناء النهار",
 
-        phone:
-            "استخدام الهاتف أو الشاشات",
+        noSleepProblem:
+            "لا توجد مشاكل في النوم",
 
-        noise:
-            "الضوضاء",
 
-        heat:
-            "حرارة الغرفة",
+        /* SLEEP REASONS */
 
-        caffeine:
-            "الكافيين",
+        sleepReasons:
+            "ما الذي قد يكون أثّر على نومك؟",
 
-        pain:
-            "ألم أو شعور بعدم الراحة",
-
-        none_sleep:
-            "لا توجد مشكلة في النوم",
+        sleepReasonsDescription:
+            "اختر العوامل التي قد تكون ساهمت في ذلك.",
 
         work:
             "ضغوط العمل أو الدراسة",
 
         family:
-            "ضغوط أسرية",
+            "المسؤوليات الأسرية",
 
-        stress_reason:
+        stress:
             "التوتر أو القلق",
 
         overthinking:
             "التفكير الزائد",
 
         financial:
-            "ضغوط مالية",
+            "الضغوط المالية",
 
         screens:
             "الهاتف أو الشاشات",
 
+        caffeine:
+            "الكافيين",
+
         schedule:
             "عدم انتظام مواعيد النوم",
 
+        noise:
+            "الضوضاء",
+
         environment:
-            "بيئة النوم",
+            "حرارة الغرفة",
+
+        pain:
+            "ألم أو شعور بعدم الراحة",
 
         health:
-            "مشكلة صحية أو ألم",
+            "مشكلة صحية",
+
+        other:
+            "شيء آخر",
 
         unknown:
             "لا أعرف",
 
-        other:
-            "سبب آخر",
 
-        private:
-            "بياناتك خاصة ومرتبطة بحسابك في Circle.",
+        /* WATER */
 
-        login:
+        water:
+            "كم كمية الماء التي شربتها؟",
+
+        waterDescription:
+            "أدخل الكمية التقريبية للماء الذي شربته.",
+
+        milliliters:
+            "ملليلتر",
+
+
+        /* ENERGY */
+
+        energy:
+            "ما مستوى طاقتك؟",
+
+        energyDescription:
+            "1 تعني طاقة منخفضة جدًا و10 تعني طاقة عالية جدًا.",
+
+        veryLow:
+            "منخفض جدًا",
+
+        veryHigh:
+            "مرتفع جدًا",
+
+
+        /* STRESS */
+
+        stressTitle:
+            "ما مستوى التوتر لديك؟",
+
+        stressDescription:
+            "1 تعني هدوءًا شديدًا و10 تعني توترًا شديدًا.",
+
+
+        /* NOTE */
+
+        note:
+            "هل هناك شيء آخر؟",
+
+        noteDescription:
+            "اختياري. اكتب أي شيء قد يساعدك على فهم يومك.",
+
+        notePlaceholder:
+            "كيف كان يومك؟",
+
+
+        /* SAVE */
+
+        save:
+            "حفظ تسجيل اليوم",
+
+        saving:
+            "جارٍ الحفظ...",
+
+        saved:
+            "تم حفظ تسجيلك بنجاح.",
+
+        updated:
+            "تم تحديث تسجيل اليوم بنجاح.",
+
+
+        /* ERRORS */
+
+        loginRequired:
             "يرجى تسجيل الدخول مرة أخرى.",
 
-        error:
-            "تعذر تحميل بياناتك. حاول مرة أخرى."
+        requiredSleep:
+            "يرجى إدخال عدد ساعات النوم.",
+
+        invalidSleep:
+            "يجب أن تكون ساعات النوم بين 0 و24.",
+
+        invalidWater:
+            "يجب أن تكون كمية الماء بين 0 و10,000 مل.",
+
+        saveError:
+            "تعذر حفظ التسجيل. حاول مرة أخرى.",
+
+
+        privateData:
+            "بياناتك خاصة ومرتبطة بحسابك في Circle."
 
     }
 
@@ -623,88 +492,15 @@ const translations = {
 
 
 /* ==========================================
-   TRANSLATION
+   TRANSLATION FUNCTION
 ========================================== */
 
 function t(key) {
 
     return (
-        translations[language] &&
-        translations[language][key]
-    ) || key;
-
-}
-
-
-/* ==========================================
-   TODAY
-========================================== */
-
-function getTodayDate() {
-
-    const now =
-        new Date();
-
-    const year =
-        now.getFullYear();
-
-    const month =
-        String(
-            now.getMonth() + 1
-        ).padStart(2, "0");
-
-    const day =
-        String(
-            now.getDate()
-        ).padStart(2, "0");
-
-    return `${year}-${month}-${day}`;
-
-}
-
-
-/* ==========================================
-   FORMAT DATE
-========================================== */
-
-function formatDate(dateString) {
-
-    const date =
-        new Date(
-            dateString + "T00:00:00"
-        );
-
-    return date.toLocaleDateString(
-        language === "ar"
-            ? "ar"
-            : "en",
-        {
-            month: "short",
-            day: "numeric"
-        }
+        translations[language][key] ||
+        key
     );
-
-}
-
-
-/* ==========================================
-   SAFE DOM
-========================================== */
-
-function setText(
-    id,
-    value
-) {
-
-    const element =
-        document.getElementById(id);
-
-    if (element) {
-
-        element.textContent =
-            value;
-
-    }
 
 }
 
@@ -724,1157 +520,232 @@ function applyLanguage() {
             : "ltr";
 
 
-    setText(
-        "languageBtn",
-        t("language")
-    );
-
-    setText(
-        "logoutBtn",
-        t("signOut")
-    );
-
-    setText(
-        "welcomeSmall",
-        t("wellness")
-    );
-
-    setText(
-        "welcomeDescription",
-        t("welcomeDescription")
-    );
-
-    setText(
-        "checkinBtn",
-        t("checkin")
-    );
-
-    setText(
-        "snapshotTitle",
-        t("snapshot")
-    );
-
-    setText(
-        "snapshotSubtitle",
-        t("snapshotSubtitle")
-    );
-
-    setText(
-        "analysisSectionTitle",
-        t("understanding")
-    );
-
-    setText(
-        "analysisTitle",
-        t("understandingTitle")
-    );
+    const ids = {
 
-    setText(
-        "sleepDetailsTitle",
-        t("sleepDetails")
-    );
+        backBtn:
+            "back",
 
-    setText(
-        "sleepProblemsLabel",
-        t("sleepProblems")
-    );
+        dateLabel:
+            "daily",
 
-    setText(
-        "sleepReasonsLabel",
-        t("possibleReasons")
-    );
+        pageTitle:
+            "title",
 
-    setText(
-        "historyTitle",
-        t("history")
-    );
+        pageDescription:
+            "description",
 
-    setText(
-        "historySubtitle",
-        t("historySubtitle")
-    );
 
-    setText(
-        "historyDate",
-        t("date")
-    );
+        /* MOOD */
 
-    setText(
-        "statsTitle",
-        t("progress")
-    );
+        moodTitle:
+            "mood",
 
-    setText(
-        "totalDaysLabel",
-        t("totalDays")
-    );
+        moodDescription:
+            "moodDescription",
 
-    setText(
-        "streakDaysLabel",
-        t("streak")
-    );
+        moodVeryGood:
+            "veryGood",
 
-    setText(
-        "insightBadge",
-        t("insight")
-    );
+        moodGood:
+            "good",
 
-    setText(
-        "privacyText",
-        t("private")
-    );
+        moodOkay:
+            "okay",
 
-}
+        moodLow:
+            "low",
 
 
-/* ==========================================
-   USER
-========================================== */
+        /* SLEEP */
 
-async function getCurrentUser() {
+        sleepTitle:
+            "sleep",
 
-    const {
-        data,
-        error
-    } =
-        await supabaseClient.auth.getUser();
+        sleepDescription:
+            "sleepDescription",
 
+        sleepUnit:
+            "hours",
 
-    if (
-        error ||
-        !data ||
-        !data.user
-    ) {
 
-        showMessage(
-            t("login")
-        );
+        sleepQualityTitle:
+            "sleepQuality",
 
+        sleepQualityDescription:
+            "sleepQualityDescription",
 
-        setTimeout(
-            function() {
+        sleepQualityLow:
+            "veryPoor",
 
-                window.location.href =
-                    "auth.html";
+        sleepQualityHigh:
+            "excellent",
 
-            },
-            1200
-        );
 
+        /* SLEEP PROBLEMS */
 
-        return null;
+        sleepProblemsTitle:
+            "sleepProblems",
 
-    }
+        sleepProblemsDescription:
+            "sleepProblemsDescription",
 
 
-    return data.user;
+        /* SLEEP REASONS */
 
-}
+        sleepReasonsTitle:
+            "sleepReasons",
 
+        sleepReasonsDescription:
+            "sleepReasonsDescription",
 
-/* ==========================================
-   LOAD DASHBOARD
-========================================== */
 
-async function loadDashboard() {
+        /* WATER */
 
-    const user =
-        await getCurrentUser();
+        waterTitle:
+            "water",
 
+        waterDescription:
+            "waterDescription",
 
-    if (!user) {
+        waterUnit:
+            "milliliters",
 
-        return;
 
-    }
+        /* ENERGY */
 
+        energyTitle:
+            "energy",
 
-    setWelcomeName(user);
+        energyDescription:
+            "energyDescription",
 
+        energyLow:
+            "veryLow",
 
-    const {
-        data,
-        error
-    } =
-        await supabaseClient
-            .from("daily_checkins")
-            .select("*")
-            .eq(
-                "user_id",
-                user.id
-            )
-            .order(
-                "checkin_date",
-                {
-                    ascending: false
-                }
-            )
-            .limit(30);
+        energyHigh:
+            "veryHigh",
 
 
-    if (error) {
+        /* STRESS */
 
-        console.error(
-            "Dashboard error:",
-            error
-        );
+        stressTitle:
+            "stressTitle",
 
+        stressDescription:
+            "stressDescription",
 
-        showMessage(
-            t("error")
-        );
+        stressLow:
+            "veryLow",
 
+        stressHigh:
+            "veryHigh",
 
-        return;
 
-    }
+        /* NOTE */
 
+        noteTitle:
+            "note",
 
-    const records =
-        Array.isArray(data)
-            ? data
-            : [];
+        noteDescription:
+            "noteDescription",
 
 
-    const today =
-        getTodayDate();
+        /* SAVE */
 
+        saveBtn:
+            "save",
 
-    const todayRecord =
-        records.find(
-            function(record) {
 
-                return (
-                    record.checkin_date ===
-                    today
-                );
+        /* PRIVACY */
 
-            }
-        );
-
-
-    renderSnapshot(
-        todayRecord
-    );
-
-
-    renderAnalysis(
-        todayRecord
-    );
-
-
-    renderSleepDetails(
-        todayRecord
-    );
-
-
-    renderHistory(
-        records.slice(0, 7)
-    );
-
-
-    renderStats(
-        records
-    );
-
-
-    renderInsight(
-        records
-    );
-
-
-    if (todayRecord) {
-
-        setText(
-            "checkinBtn",
-            t("editCheckin")
-        );
-
-    } else {
-
-        setText(
-            "checkinBtn",
-            t("checkin")
-        );
-
-    }
-
-}
-
-
-/* ==========================================
-   WELCOME
-========================================== */
-
-function setWelcomeName(user) {
-
-    const name =
-        user.user_metadata?.first_name ||
-        user.user_metadata?.name ||
-        "";
-
-
-    const element =
-        document.getElementById(
-            "welcomeTitle"
-        );
-
-
-    if (!element) {
-
-        return;
-
-    }
-
-
-    if (name) {
-
-        element.textContent =
-            t("welcomeWithName")
-                .replace(
-                    "{name}",
-                    name
-                );
-
-    } else {
-
-        element.textContent =
-            t("welcome");
-
-    }
-
-}
-
-
-/* ==========================================
-   SNAPSHOT
-========================================== */
-
-function renderSnapshot(record) {
-
-    const container =
-        document.getElementById(
-            "snapshotContainer"
-        );
-
-
-    if (!container) {
-
-        return;
-
-    }
-
-
-    if (!record) {
-
-        container.innerHTML = `
-
-            <div class="empty-card">
-
-                <div class="empty-icon">
-                    🌱
-                </div>
-
-                <h3>
-                    ${escapeHTML(
-                        t("noData")
-                    )}
-                </h3>
-
-                <p>
-                    ${escapeHTML(
-                        t("complete")
-                    )}
-                </p>
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    const sleepHours =
-        record.sleep_hours;
-
-    const water =
-        record.water_ml;
-
-    const energy =
-        record.energy_level;
-
-    const stress =
-        record.stress_level;
-
-
-    container.innerHTML = `
-
-        <div class="snapshot-grid">
-
-            ${metricCard(
-                "😴",
-                t("sleep"),
-                sleepHours !== null &&
-                sleepHours !== undefined
-                    ? `${sleepHours} ${t("hours")}`
-                    : "--",
-                getSleepStatus(record)
-            )}
-
-            ${metricCard(
-                "💧",
-                t("hydration"),
-                water !== null &&
-                water !== undefined
-                    ? `${water} ${t("ml")}`
-                    : "--",
-                getWaterStatus(water)
-            )}
-
-            ${metricCard(
-                "⚡",
-                t("energy"),
-                energy !== null &&
-                energy !== undefined
-                    ? `${energy}/10`
-                    : "--",
-                getEnergyStatus(energy)
-            )}
-
-            ${metricCard(
-                "🧠",
-                t("stress"),
-                stress !== null &&
-                stress !== undefined
-                    ? `${stress}/10`
-                    : "--",
-                getStressStatus(stress)
-            )}
-
-        </div>
-
-    `;
-
-}
-
-
-/* ==========================================
-   METRIC CARD
-========================================== */
-
-function metricCard(
-    icon,
-    name,
-    value,
-    status
-) {
-
-    return `
-
-        <div class="metric-card">
-
-            <div class="metric-icon">
-                ${icon}
-            </div>
-
-            <div class="metric-name">
-                ${escapeHTML(name)}
-            </div>
-
-            <div class="metric-value">
-                ${escapeHTML(
-                    String(value)
-                )}
-            </div>
-
-            <div class="metric-status">
-                ${escapeHTML(status)}
-            </div>
-
-        </div>
-
-    `;
-
-}
-
-
-/* ==========================================
-   SLEEP STATUS
-========================================== */
-
-function getSleepStatus(record) {
-
-    const hours =
-        Number(
-            record.sleep_hours
-        );
-
-    const quality =
-        Number(
-            record.sleep_quality
-        );
-
-
-    if (
-        hours >= 7 &&
-        quality >= 7
-    ) {
-
-        return t("sleepGood");
-
-    }
-
-
-    if (
-        hours >= 6 &&
-        quality >= 5
-    ) {
-
-        return t("sleepFair");
-
-    }
-
-
-    if (
-        hours < 6 ||
-        quality < 5
-    ) {
-
-        return t("sleepPoor");
-
-    }
-
-
-    return t("sleepLow");
-
-}
-
-
-/* ==========================================
-   WATER STATUS
-========================================== */
-
-function getWaterStatus(water) {
-
-    if (
-        water === null ||
-        water === undefined ||
-        water === ""
-    ) {
-
-        return t("hydrationLow");
-
-    }
-
-
-    const value =
-        Number(water);
-
-
-    if (value >= 2000) {
-
-        return t("hydrationGood");
-
-    }
-
-
-    if (value >= 1200) {
-
-        return t("hydrationModerate");
-
-    }
-
-
-    return t("hydrationLow");
-
-}
-
-
-/* ==========================================
-   ENERGY STATUS
-========================================== */
-
-function getEnergyStatus(value) {
-
-    if (
-        value === null ||
-        value === undefined ||
-        value === ""
-    ) {
-
-        return t("energyLow");
-
-    }
-
-
-    const number =
-        Number(value);
-
-
-    if (number >= 7) {
-
-        return t("energyHigh");
-
-    }
-
-
-    if (number >= 4) {
-
-        return t("energyModerate");
-
-    }
-
-
-    return t("energyLow");
-
-}
-
-
-/* ==========================================
-   STRESS STATUS
-========================================== */
-
-function getStressStatus(value) {
-
-    if (
-        value === null ||
-        value === undefined ||
-        value === ""
-    ) {
-
-        return t("stressModerate");
-
-    }
-
-
-    const number =
-        Number(value);
-
-
-    if (number <= 3) {
-
-        return t("stressLow");
-
-    }
-
-
-    if (number <= 6) {
-
-        return t("stressModerate");
-
-    }
-
-
-    return t("stressHigh");
-
-}
-
-
-/* ==========================================
-   TODAY ANALYSIS
-========================================== */
-
-function renderAnalysis(record) {
-
-    const container =
-        document.getElementById(
-            "analysisContent"
-        );
-
-
-    if (!container) {
-
-        return;
-
-    }
-
-
-    if (!record) {
-
-        container.innerHTML = `
-
-            <div class="analysis-item">
-
-                <div class="analysis-label">
-                    ${escapeHTML(
-                        t("sleep")
-                    )}
-                </div>
-
-                ${escapeHTML(
-                    t("complete")
-                )}
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    const sleepHours =
-        Number(
-            record.sleep_hours
-        );
-
-    const quality =
-        Number(
-            record.sleep_quality
-        );
-
-    const stress =
-        Number(
-            record.stress_level
-        );
-
-    const energy =
-        Number(
-            record.energy_level
-        );
-
-    const water =
-        Number(
-            record.water_ml
-        );
-
-
-    const items = [];
-
-
-    /* =========================
-       COMBINED PATTERNS
-    ========================= */
-
-    if (
-        sleepHours < 6 &&
-        stress >= 7
-    ) {
-
-        items.push(
-            analysisItem(
-                t("sleep"),
-                t("todaySleepStress")
-            )
-        );
-
-    }
-
-
-    else if (
-        sleepHours >= 7 &&
-        quality >= 7 &&
-        energy >= 7
-    ) {
-
-        items.push(
-            analysisItem(
-                t("sleep"),
-                t("todaySleepEnergy")
-            )
-        );
-
-    }
-
-
-    else {
-
-        if (
-            sleepHours < 6
-        ) {
-
-            items.push(
-                analysisItem(
-                    t("sleep"),
-                    t("todayShortSleep")
-                )
-            );
-
-        }
-        else if (
-            quality < 5
-        ) {
-
-            items.push(
-                analysisItem(
-                    t("sleep"),
-                    t("todayPoorQuality")
-                )
-            );
-
-        }
-        else if (
-            sleepHours >= 7 &&
-            quality >= 7
-        ) {
-
-            items.push(
-                analysisItem(
-                    t("sleep"),
-                    t("todayGoodSleep")
-                )
-            );
-
-        }
-
-    }
-
-
-    /* =========================
-       STRESS
-    ========================= */
-
-    if (
-        stress >= 7
-    ) {
-
-        items.push(
-            analysisItem(
-                t("stress"),
-                t("todayHighStress")
-            )
-        );
-
-    }
-    else if (
-        stress >= 4
-    ) {
-
-        items.push(
-            analysisItem(
-                t("stress"),
-                t("todayModerateStress")
-            )
-        );
-
-    }
-
-
-    /* =========================
-       ENERGY
-    ========================= */
-
-    if (
-        energy <= 3
-    ) {
-
-        items.push(
-            analysisItem(
-                t("energy"),
-                t("todayLowEnergy")
-            )
-        );
-
-    }
-    else if (
-        energy >= 7
-    ) {
-
-        items.push(
-            analysisItem(
-                t("energy"),
-                t("todayHighEnergy")
-            )
-        );
-
-    }
-
-
-    /* =========================
-       WATER
-    ========================= */
-
-    if (
-        !Number.isNaN(water)
-    ) {
-
-        if (
-            water < 1200
-        ) {
-
-            items.push(
-                analysisItem(
-                    t("hydration"),
-                    t("todayLowWater")
-                )
-            );
-
-        }
-        else if (
-            water >= 2000
-        ) {
-
-            items.push(
-                analysisItem(
-                    t("hydration"),
-                    t("todayGoodWater")
-                )
-            );
-
-        }
-
-    }
-
-
-    /* =========================
-       FALLBACK
-    ========================= */
-
-    if (
-        items.length === 0
-    ) {
-
-        items.push(
-            analysisItem(
-                "",
-                t("todayBalanced")
-            )
-        );
-
-    }
-
-
-    container.innerHTML =
-        items.join("");
-
-}
-
-
-/* ==========================================
-   ANALYSIS ITEM
-========================================== */
-
-function analysisItem(
-    label,
-    text
-) {
-
-    return `
-
-        <div class="analysis-item">
-
-            ${
-                label
-                    ? `
-                        <div class="analysis-label">
-                            ${escapeHTML(label)}
-                        </div>
-                      `
-                    : ""
-            }
-
-            ${escapeHTML(text)}
-
-        </div>
-
-    `;
-
-}
-
-
-/* ==========================================
-   SLEEP DETAILS
-========================================== */
-
-function renderSleepDetails(record) {
-
-    const problemsContainer =
-        document.getElementById(
-            "sleepProblemsTags"
-        );
-
-    const reasonsContainer =
-        document.getElementById(
-            "sleepReasonsTags"
-        );
-
-
-    if (
-        !problemsContainer ||
-        !reasonsContainer
-    ) {
-
-        return;
-
-    }
-
-
-    if (!record) {
-
-        problemsContainer.innerHTML =
-            `
-                <span class="tag empty">
-                    ${escapeHTML(
-                        t("none")
-                    )}
-                </span>
-            `;
-
-
-        reasonsContainer.innerHTML =
-            `
-                <span class="tag empty">
-                    ${escapeHTML(
-                        t("none")
-                    )}
-                </span>
-            `;
-
-        return;
-
-    }
-
-
-    const problems =
-        Array.isArray(
-            record.sleep_problems
-        )
-            ? record.sleep_problems
-            : [];
-
-
-    const reasons =
-        Array.isArray(
-            record.sleep_reasons
-        )
-            ? record.sleep_reasons
-            : [];
-
-
-    problemsContainer.innerHTML =
-        problems.length
-            ? problems
-                .map(
-                    function(item) {
-
-                        return `
-
-                            <span class="tag">
-
-                                ${escapeHTML(
-                                    translateProblem(item)
-                                )}
-
-                            </span>
-
-                        `;
-
-                    }
-                )
-                .join("")
-            : `
-
-                <span class="tag empty">
-
-                    ${escapeHTML(
-                        t("none")
-                    )}
-
-                </span>
-
-              `;
-
-
-    reasonsContainer.innerHTML =
-        reasons.length
-            ? reasons
-                .map(
-                    function(item) {
-
-                        return `
-
-                            <span class="tag">
-
-                                ${escapeHTML(
-                                    translateReason(item)
-                                )}
-
-                            </span>
-
-                        `;
-
-                    }
-                )
-                .join("")
-            : `
-
-                <span class="tag empty">
-
-                    ${escapeHTML(
-                        t("none")
-                    )}
-
-                </span>
-
-              `;
-
-}
-
-
-/* ==========================================
-   TRANSLATE PROBLEMS
-========================================== */
-
-function translateProblem(value) {
-
-    const map = {
-
-        difficulty_falling_asleep:
-            "difficulty_falling_asleep",
-
-        frequent_waking:
-            "frequent_waking",
-
-        early_waking:
-            "early_waking",
-
-        light_sleep:
-            "light_sleep",
-
-        daytime_sleepiness:
-            "daytime_sleepiness",
-
-        phone:
-            "phone",
-
-        screens:
-            "screens",
-
-        noise:
-            "noise",
-
-        heat:
-            "heat",
-
-        caffeine:
-            "caffeine",
-
-        pain:
-            "pain",
-
-        none:
-            "none_sleep"
+        privacyNote:
+            "privateData"
 
     };
 
 
-    return t(
-        map[value] || value
+    Object.keys(ids).forEach(
+        function(id) {
+
+            const element =
+                document.getElementById(id);
+
+            if (element) {
+
+                element.textContent =
+                    t(ids[id]);
+
+            }
+
+        }
     );
+
+
+    const languageButton =
+        document.getElementById(
+            "languageBtn"
+        );
+
+
+    if (languageButton) {
+
+        languageButton.textContent =
+            language === "ar"
+                ? "English"
+                : "العربية";
+
+    }
+
+
+    const noteInput =
+        document.getElementById(
+            "noteInput"
+        );
+
+
+    if (noteInput) {
+
+        noteInput.placeholder =
+            t("notePlaceholder");
+
+    }
+
+
+    updateCheckboxLabels();
 
 }
 
 
 /* ==========================================
-   TRANSLATE REASONS
+   CHECKBOX TRANSLATIONS
 ========================================== */
 
-function translateReason(value) {
+function updateCheckboxLabels() {
 
-    const map = {
+    const problemMap = {
+
+        difficulty_falling_asleep:
+            "difficultyFallingAsleep",
+
+        frequent_waking:
+            "frequentWaking",
+
+        early_waking:
+            "earlyWaking",
+
+        light_sleep:
+            "lightSleep",
+
+        daytime_sleepiness:
+            "daytimeSleepiness",
+
+        none:
+            "noSleepProblem"
+
+    };
+
+
+    const reasonMap = {
 
         work:
             "work",
@@ -1883,7 +754,7 @@ function translateReason(value) {
             "family",
 
         stress:
-            "stress_reason",
+            "stress",
 
         overthinking:
             "overthinking",
@@ -1912,692 +783,364 @@ function translateReason(value) {
         health:
             "health",
 
-        unknown:
-            "unknown",
-
         other:
-            "other"
+            "other",
+
+        unknown:
+            "unknown"
 
     };
 
 
-    return t(
-        map[value] || value
-    );
+    document
+        .querySelectorAll(
+            'input[name="sleepProblem"]'
+        )
+        .forEach(
+            function(input) {
 
-}
+                const label =
+                    input.closest("label");
 
+                if (!label) {
+                    return;
+                }
 
-/* ==========================================
-   HISTORY
-========================================== */
+                const text =
+                    label.querySelector("span");
 
-function renderHistory(records) {
-
-    const container =
-        document.getElementById(
-            "historyRows"
-        );
-
-
-    if (!container) {
-
-        return;
-
-    }
+                const key =
+                    problemMap[input.value];
 
 
-    if (!records.length) {
+                if (
+                    text &&
+                    key
+                ) {
 
-        container.innerHTML = `
-
-            <div class="loading">
-
-                ${escapeHTML(
-                    t("complete")
-                )}
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    container.innerHTML =
-        records
-            .map(
-                function(record) {
-
-                    return `
-
-                        <div class="history-row">
-
-                            <div class="history-date">
-
-                                ${escapeHTML(
-                                    formatDate(
-                                        record.checkin_date
-                                    )
-                                )}
-
-                            </div>
-
-
-                            <div class="history-value">
-
-                                ${
-                                    record.sleep_hours ??
-                                    "--"
-                                }
-
-                            </div>
-
-
-                            <div class="history-value">
-
-                                ${
-                                    record.water_ml ??
-                                    "--"
-                                }
-
-                            </div>
-
-
-                            <div class="history-value">
-
-                                ${
-                                    record.energy_level ??
-                                    "--"
-                                }
-
-                            </div>
-
-
-                            <div class="history-value">
-
-                                ${
-                                    record.stress_level ??
-                                    "--"
-                                }
-
-                            </div>
-
-                        </div>
-
-                    `;
+                    text.textContent =
+                        t(key);
 
                 }
-            )
-            .join("");
 
-}
-
-
-/* ==========================================
-   STATS
-========================================== */
-
-function renderStats(records) {
-
-    const total =
-        records.length;
-
-
-    setText(
-        "totalDays",
-        total
-    );
-
-
-    const streak =
-        calculateStreak(
-            records
+            }
         );
 
 
-    setText(
-        "streakDays",
-        streak
-    );
+    document
+        .querySelectorAll(
+            'input[name="sleepReason"]'
+        )
+        .forEach(
+            function(input) {
+
+                const label =
+                    input.closest("label");
+
+                if (!label) {
+                    return;
+                }
+
+                const text =
+                    label.querySelector("span");
+
+                const key =
+                    reasonMap[input.value];
+
+
+                if (
+                    text &&
+                    key
+                ) {
+
+                    text.textContent =
+                        t(key);
+
+                }
+
+            }
+        );
 
 }
 
 
 /* ==========================================
-   STREAK
+   RANGE INPUTS
 ========================================== */
 
-function calculateStreak(records) {
+const sleepQualityInput =
+    document.getElementById(
+        "sleepQualityInput"
+    );
 
-    if (!records.length) {
+const sleepQualityValue =
+    document.getElementById(
+        "sleepQualityValue"
+    );
 
-        return 0;
+
+sleepQualityInput.addEventListener(
+    "input",
+    function() {
+
+        sleepQualityValue.textContent =
+            sleepQualityInput.value;
+
+    }
+);
+
+
+const energyInput =
+    document.getElementById(
+        "energyInput"
+    );
+
+const energyValue =
+    document.getElementById(
+        "energyValue"
+    );
+
+
+energyInput.addEventListener(
+    "input",
+    function() {
+
+        energyValue.textContent =
+            energyInput.value;
+
+    }
+);
+
+
+const stressInput =
+    document.getElementById(
+        "stressInput"
+    );
+
+const stressValue =
+    document.getElementById(
+        "stressValue"
+    );
+
+
+stressInput.addEventListener(
+    "input",
+    function() {
+
+        stressValue.textContent =
+            stressInput.value;
+
+    }
+);
+
+
+/* ==========================================
+   CURRENT USER
+========================================== */
+
+async function getCurrentUser() {
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient.auth.getUser();
+
+
+    if (
+        error ||
+        !data ||
+        !data.user
+    ) {
+
+        showMessage(
+            t("loginRequired"),
+            "error"
+        );
+
+
+        setTimeout(
+            function() {
+
+                window.location.href =
+                    "auth.html";
+
+            },
+            1200
+        );
+
+
+        return null;
 
     }
 
 
-    const dates =
-        new Set(
-            records.map(
-                function(record) {
+    return data.user;
 
-                    return record.checkin_date;
-
-                }
-            )
-        );
+}
 
 
-    let streak = 0;
+/* ==========================================
+   TODAY DATE
+========================================== */
 
+function getTodayDate() {
 
-    const current =
+    const now =
         new Date();
 
 
-    current.setHours(
-        0,
-        0,
-        0,
-        0
-    );
+    const year =
+        now.getFullYear();
 
 
-    while (true) {
-
-        const year =
-            current.getFullYear();
-
-        const month =
-            String(
-                current.getMonth() + 1
-            ).padStart(
-                2,
-                "0"
-            );
-
-        const day =
-            String(
-                current.getDate()
-            ).padStart(
-                2,
-                "0"
-            );
+    const month =
+        String(
+            now.getMonth() + 1
+        ).padStart(2, "0");
 
 
-        const key =
-            `${year}-${month}-${day}`;
+    const day =
+        String(
+            now.getDate()
+        ).padStart(2, "0");
 
 
-        if (
-            !dates.has(key)
-        ) {
-
-            break;
-
-        }
-
-
-        streak++;
-
-
-        current.setDate(
-            current.getDate() - 1
-        );
-
-    }
-
-
-    return streak;
+    return `${year}-${month}-${day}`;
 
 }
 
 
 /* ==========================================
-   INSIGHT
+   SELECTED CHECKBOX VALUES
 ========================================== */
 
-function renderInsight(records) {
+function getSelectedValues(name) {
 
-    const title =
+    return Array
+        .from(
+            document.querySelectorAll(
+                `input[name="${name}"]:checked`
+            )
+        )
+        .map(
+            function(input) {
+
+                return input.value;
+
+            }
+        );
+
+}
+
+
+/* ==========================================
+   SELECTED MOOD
+========================================== */
+
+function getSelectedMood() {
+
+    const selected =
+        document.querySelector(
+            'input[name="mood"]:checked'
+        );
+
+
+    return selected
+        ? selected.value
+        : null;
+
+}
+
+
+/* ==========================================
+   VALIDATE
+========================================== */
+
+function validateForm() {
+
+    const sleep =
         document.getElementById(
-            "insightTitle"
-        );
+            "sleepInput"
+        ).value;
 
-    const text =
+
+    const water =
         document.getElementById(
-            "insightText"
+            "waterInput"
+        ).value;
+
+
+    if (sleep === "") {
+
+        showMessage(
+            t("requiredSleep"),
+            "error"
         );
 
-
-    if (
-        !title ||
-        !text
-    ) {
-
-        return;
-
-    }
-
-
-    /* =========================
-       NOT ENOUGH DATA
-    ========================= */
-
-    if (
-        records.length < 3
-    ) {
-
-        title.textContent =
-            t("insightNew");
-
-        text.textContent =
-            t("insightNewText");
-
-        return;
-
-    }
-
-
-    /* =========================
-       SLEEP → ENERGY
-    ========================= */
-
-    const sleepEnergyData =
-        records.filter(
-            function(record) {
-
-                return (
-                    isValidNumber(
-                        record.sleep_hours
-                    ) &&
-                    isValidNumber(
-                        record.energy_level
-                    )
-                );
-
-            }
-        );
-
-
-    if (
-        sleepEnergyData.length >= 3
-    ) {
-
-        const highSleep =
-            sleepEnergyData.filter(
-                function(record) {
-
-                    return (
-                        Number(
-                            record.sleep_hours
-                        ) >= 7
-                    );
-
-                }
-            );
-
-
-        const lowSleep =
-            sleepEnergyData.filter(
-                function(record) {
-
-                    return (
-                        Number(
-                            record.sleep_hours
-                        ) < 7
-                    );
-
-                }
-            );
-
-
-        if (
-            highSleep.length >= 2 &&
-            lowSleep.length >= 1
-        ) {
-
-            const highAverage =
-                average(
-                    highSleep.map(
-                        function(record) {
-
-                            return Number(
-                                record.energy_level
-                            );
-
-                        }
-                    )
-                );
-
-
-            const lowAverage =
-                average(
-                    lowSleep.map(
-                        function(record) {
-
-                            return Number(
-                                record.energy_level
-                            );
-
-                        }
-                    )
-                );
-
-
-            if (
-                highAverage >
-                lowAverage + 0.7
-            ) {
-
-                title.textContent =
-                    t("insightSleep");
-
-                text.textContent =
-                    t("insightSleepText");
-
-                return;
-
-            }
-
-        }
-
-    }
-
-
-    /* =========================
-       STRESS → SLEEP QUALITY
-    ========================= */
-
-    const stressSleepData =
-        records.filter(
-            function(record) {
-
-                return (
-                    isValidNumber(
-                        record.stress_level
-                    ) &&
-                    isValidNumber(
-                        record.sleep_quality
-                    )
-                );
-
-            }
-        );
-
-
-    if (
-        stressSleepData.length >= 3
-    ) {
-
-        const highStress =
-            stressSleepData.filter(
-                function(record) {
-
-                    return (
-                        Number(
-                            record.stress_level
-                        ) >= 7
-                    );
-
-                }
-            );
-
-
-        const lowStress =
-            stressSleepData.filter(
-                function(record) {
-
-                    return (
-                        Number(
-                            record.stress_level
-                        ) <= 4
-                    );
-
-                }
-            );
-
-
-        if (
-            highStress.length >= 2 &&
-            lowStress.length >= 1
-        ) {
-
-            const highStressQuality =
-                average(
-                    highStress.map(
-                        function(record) {
-
-                            return Number(
-                                record.sleep_quality
-                            );
-
-                        }
-                    )
-                );
-
-
-            const lowStressQuality =
-                average(
-                    lowStress.map(
-                        function(record) {
-
-                            return Number(
-                                record.sleep_quality
-                            );
-
-                        }
-                    )
-                );
-
-
-            if (
-                lowStressQuality >
-                highStressQuality + 0.7
-            ) {
-
-                title.textContent =
-                    t("insightStress");
-
-                text.textContent =
-                    t("insightStressText");
-
-                return;
-
-            }
-
-        }
-
-    }
-
-
-    /* =========================
-       WATER → ENERGY
-    ========================= */
-
-    const waterEnergyData =
-        records.filter(
-            function(record) {
-
-                return (
-                    isValidNumber(
-                        record.water_ml
-                    ) &&
-                    isValidNumber(
-                        record.energy_level
-                    )
-                );
-
-            }
-        );
-
-
-    if (
-        waterEnergyData.length >= 3
-    ) {
-
-        const highWater =
-            waterEnergyData.filter(
-                function(record) {
-
-                    return (
-                        Number(
-                            record.water_ml
-                        ) >= 1800
-                    );
-
-                }
-            );
-
-
-        const lowWater =
-            waterEnergyData.filter(
-                function(record) {
-
-                    return (
-                        Number(
-                            record.water_ml
-                        ) < 1200
-                    );
-
-                }
-            );
-
-
-        if (
-            highWater.length >= 2 &&
-            lowWater.length >= 1
-        ) {
-
-            const highWaterEnergy =
-                average(
-                    highWater.map(
-                        function(record) {
-
-                            return Number(
-                                record.energy_level
-                            );
-
-                        }
-                    )
-                );
-
-
-            const lowWaterEnergy =
-                average(
-                    lowWater.map(
-                        function(record) {
-
-                            return Number(
-                                record.energy_level
-                            );
-
-                        }
-                    )
-                );
-
-
-            if (
-                highWaterEnergy >
-                lowWaterEnergy + 0.7
-            ) {
-
-                title.textContent =
-                    t("insightWater");
-
-                text.textContent =
-                    t("insightWaterText");
-
-                return;
-
-            }
-
-        }
-
-    }
-
-
-    /* =========================
-       GENERAL BALANCED RESULT
-    ========================= */
-
-    title.textContent =
-        t("insightBalanced");
-
-    text.textContent =
-        t("insightBalancedText");
-
-}
-
-
-/* ==========================================
-   AVERAGE
-========================================== */
-
-function average(values) {
-
-    if (
-        !values.length
-    ) {
-
-        return 0;
-
-    }
-
-
-    return (
-        values.reduce(
-            function(
-                sum,
-                value
-            ) {
-
-                return (
-                    sum +
-                    value
-                );
-
-            },
-            0
-        ) /
-        values.length
-    );
-
-}
-
-
-/* ==========================================
-   NUMBER VALIDATION
-========================================== */
-
-function isValidNumber(value) {
-
-    if (
-        value === null ||
-        value === undefined ||
-        value === ""
-    ) {
 
         return false;
 
     }
 
 
-    return Number.isFinite(
-        Number(value)
-    );
+    const sleepNumber =
+        Number(sleep);
+
+
+    if (
+        sleepNumber < 0 ||
+        sleepNumber > 24
+    ) {
+
+        showMessage(
+            t("invalidSleep"),
+            "error"
+        );
+
+
+        return false;
+
+    }
+
+
+    if (water !== "") {
+
+        const waterNumber =
+            Number(water);
+
+
+        if (
+            waterNumber < 0 ||
+            waterNumber > 10000
+        ) {
+
+            showMessage(
+                t("invalidWater"),
+                "error"
+            );
+
+
+            return false;
+
+        }
+
+    }
+
+
+    return true;
 
 }
 
 
 /* ==========================================
-   MESSAGE
+   SHOW MESSAGE
 ========================================== */
 
-function showMessage(message) {
+function showMessage(
+    message,
+    type
+) {
 
     const box =
         document.getElementById(
@@ -2605,77 +1148,665 @@ function showMessage(message) {
         );
 
 
-    if (!box) {
+    box.textContent =
+        message;
+
+
+    box.className =
+        "message " + type;
+
+
+    box.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+    });
+
+}
+
+
+/* ==========================================
+   CLEAR MESSAGE
+========================================== */
+
+function clearMessage() {
+
+    const box =
+        document.getElementById(
+            "message"
+        );
+
+
+    box.textContent = "";
+
+    box.className =
+        "message";
+
+}
+
+
+/* ==========================================
+   LOAD TODAY CHECK-IN
+========================================== */
+
+async function loadTodayCheckin(user) {
+
+    const today =
+        getTodayDate();
+
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+            .from("daily_checkins")
+            .select("*")
+            .eq(
+                "user_id",
+                user.id
+            )
+            .eq(
+                "checkin_date",
+                today
+            )
+            .maybeSingle();
+
+
+    if (error) {
+
+        console.error(
+            "Load check-in error:",
+            error
+        );
+
+
+        return null;
+
+    }
+
+
+    if (!data) {
+
+        return null;
+
+    }
+
+
+    /* =========================
+       MOOD
+    ========================= */
+
+    if (data.mood) {
+
+        const moodInput =
+            document.querySelector(
+                `input[name="mood"][value="${data.mood}"]`
+            );
+
+
+        if (moodInput) {
+
+            moodInput.checked =
+                true;
+
+        }
+
+    }
+
+
+    /* =========================
+       SLEEP
+    ========================= */
+
+    document.getElementById(
+        "sleepInput"
+    ).value =
+        data.sleep_hours ?? "";
+
+
+    /* =========================
+       SLEEP QUALITY
+    ========================= */
+
+    if (
+        data.sleep_quality !== null &&
+        data.sleep_quality !== undefined
+    ) {
+
+        sleepQualityInput.value =
+            data.sleep_quality;
+
+        sleepQualityValue.textContent =
+            data.sleep_quality;
+
+    }
+
+
+    /* =========================
+       WATER
+    ========================= */
+
+    document.getElementById(
+        "waterInput"
+    ).value =
+        data.water_ml ?? "";
+
+
+    /* =========================
+       ENERGY
+    ========================= */
+
+    if (
+        data.energy_level !== null &&
+        data.energy_level !== undefined
+    ) {
+
+        energyInput.value =
+            data.energy_level;
+
+        energyValue.textContent =
+            data.energy_level;
+
+    }
+
+
+    /* =========================
+       STRESS
+    ========================= */
+
+    if (
+        data.stress_level !== null &&
+        data.stress_level !== undefined
+    ) {
+
+        stressInput.value =
+            data.stress_level;
+
+        stressValue.textContent =
+            data.stress_level;
+
+    }
+
+
+    /* =========================
+       NOTE
+    ========================= */
+
+    document.getElementById(
+        "noteInput"
+    ).value =
+        data.daily_note || "";
+
+
+    /* =========================
+       SLEEP PROBLEMS
+    ========================= */
+
+    const problems =
+        Array.isArray(
+            data.sleep_problems
+        )
+            ? data.sleep_problems
+            : [];
+
+
+    document
+        .querySelectorAll(
+            'input[name="sleepProblem"]'
+        )
+        .forEach(
+            function(input) {
+
+                input.checked =
+                    problems.includes(
+                        input.value
+                    );
+
+            }
+        );
+
+
+    /* =========================
+       SLEEP REASONS
+    ========================= */
+
+    const reasons =
+        Array.isArray(
+            data.sleep_reasons
+        )
+            ? data.sleep_reasons
+            : [];
+
+
+    document
+        .querySelectorAll(
+            'input[name="sleepReason"]'
+        )
+        .forEach(
+            function(input) {
+
+                input.checked =
+                    reasons.includes(
+                        input.value
+                    );
+
+            }
+        );
+
+
+    return data;
+
+}
+
+
+/* ==========================================
+   CIRCLE AI
+   GENERATE WELLNESS INSIGHT
+========================================== */
+
+async function generateCircleAIInsight() {
+
+    try {
+
+        console.log(
+            "Circle AI: generating insight..."
+        );
+
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient.functions.invoke(
+                "circle-ai",
+                {
+                    body: {}
+                }
+            );
+
+
+        if (error) {
+
+            console.error(
+                "Circle AI invocation error:",
+                error
+            );
+
+
+            return null;
+
+        }
+
+
+        if (
+            !data ||
+            !data.success
+        ) {
+
+            console.error(
+                "Circle AI returned an error:",
+                data
+            );
+
+
+            return null;
+
+        }
+
+
+        console.log(
+            "Circle AI result:",
+            data
+        );
+
+
+        return data;
+
+    } catch (error) {
+
+        console.error(
+            "Circle AI unexpected error:",
+            error
+        );
+
+
+        return null;
+
+    }
+
+}
+
+
+/* ==========================================
+   SAVE CHECK-IN
+========================================== */
+
+async function saveCheckin() {
+
+    clearMessage();
+
+
+    if (!validateForm()) {
 
         return;
 
     }
 
 
-    box.textContent =
-        message;
+    const user =
+        await getCurrentUser();
 
 
-    box.className =
-        "message error";
+    if (!user) {
 
-}
+        return;
+
+    }
 
 
-/* ==========================================
-   ESCAPE HTML
-========================================== */
-
-function escapeHTML(value) {
-
-    return String(value)
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
+    const saveButton =
+        document.getElementById(
+            "saveBtn"
         );
 
+
+    saveButton.disabled =
+        true;
+
+
+    saveButton.textContent =
+        t("saving");
+
+
+    /* =========================
+       VALUES
+    ========================= */
+
+    const sleep =
+        Number(
+            document.getElementById(
+                "sleepInput"
+            ).value
+        );
+
+
+    const waterValueInput =
+        document.getElementById(
+            "waterInput"
+        ).value;
+
+
+    const water =
+        waterValueInput === ""
+            ? null
+            : Number(waterValueInput);
+
+
+    const sleepQuality =
+        Number(
+            sleepQualityInput.value
+        );
+
+
+    const energy =
+        Number(
+            energyInput.value
+        );
+
+
+    const stress =
+        Number(
+            stressInput.value
+        );
+
+
+    const mood =
+        getSelectedMood();
+
+
+    const sleepProblems =
+        getSelectedValues(
+            "sleepProblem"
+        );
+
+
+    const sleepReasons =
+        getSelectedValues(
+            "sleepReason"
+        );
+
+
+    const note =
+        document.getElementById(
+            "noteInput"
+        ).value.trim();
+
+
+    const today =
+        getTodayDate();
+
+
+    /* =========================
+       PAYLOAD
+    ========================= */
+
+    const payload = {
+
+        user_id:
+            user.id,
+
+        checkin_date:
+            today,
+
+        mood:
+            mood,
+
+        sleep_hours:
+            sleep,
+
+        sleep_quality:
+            sleepQuality,
+
+        sleep_problems:
+            sleepProblems,
+
+        sleep_reasons:
+            sleepReasons,
+
+        water_ml:
+            water,
+
+        energy_level:
+            energy,
+
+        stress_level:
+            stress,
+
+        daily_note:
+            note || null,
+
+        updated_at:
+            new Date().toISOString()
+
+    };
+
+
+    try {
+
+        /* =========================
+           SAVE TO SUPABASE
+        ========================= */
+
+        const {
+            error
+        } =
+            await supabaseClient
+                .from("daily_checkins")
+                .upsert(
+                    payload,
+                    {
+                        onConflict:
+                            "user_id,checkin_date"
+                    }
+                );
+
+
+        if (error) {
+
+            console.error(
+                "Save error:",
+                error
+            );
+
+
+            showMessage(
+                error.message ||
+                t("saveError"),
+                "error"
+            );
+
+
+            return;
+
+        }
+
+
+        console.log(
+            "Check-in saved successfully."
+        );
+
+
+        /* =========================
+           CIRCLE AI
+           RUN IN BACKGROUND
+        ========================= */
+
+        generateCircleAIInsight()
+            .then(
+                function(aiResult) {
+
+                    if (aiResult) {
+
+                        console.log(
+                            "Circle AI insight:",
+                            aiResult.insight
+                        );
+
+                    } else {
+
+                        console.warn(
+                            "Circle AI unavailable."
+                        );
+
+                    }
+
+                }
+            )
+            .catch(
+                function(error) {
+
+                    console.error(
+                        "Circle AI background error:",
+                        error
+                    );
+
+                }
+            );
+
+
+        /* =========================
+           SUCCESS
+        ========================= */
+
+        showMessage(
+            t("saved"),
+            "success"
+        );
+
+
+        /* =========================
+           GO HOME
+        ========================= */
+
+        setTimeout(
+            function() {
+
+                window.location.replace(
+                    "home.html"
+                );
+
+            },
+            800
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Unexpected save error:",
+            error
+        );
+
+
+        showMessage(
+            error.message ||
+            t("saveError"),
+            "error"
+        );
+
+
+    } finally {
+
+        saveButton.disabled =
+            false;
+
+
+        saveButton.textContent =
+            t("save");
+
+    }
+
 }
 
 
 /* ==========================================
-   CHECK-IN BUTTON
+   SAVE BUTTON
 ========================================== */
 
-const checkinButton =
+const saveButton =
     document.getElementById(
-        "checkinBtn"
+        "saveBtn"
     );
 
 
-if (checkinButton) {
+if (saveButton) {
 
-    checkinButton.addEventListener(
+    saveButton.addEventListener(
+        "click",
+        saveCheckin
+    );
+
+}
+
+
+/* ==========================================
+   BACK BUTTON
+========================================== */
+
+const backButton =
+    document.getElementById(
+        "backBtn"
+    );
+
+
+if (backButton) {
+
+    backButton.addEventListener(
         "click",
         function() {
 
             window.location.href =
-                "checkin.html";
+                "home.html";
 
         }
     );
@@ -2713,50 +1844,6 @@ if (languageButton) {
 
             applyLanguage();
 
-
-            loadDashboard();
-
-        }
-    );
-
-}
-
-
-/* ==========================================
-   LOGOUT
-========================================== */
-
-const logoutButton =
-    document.getElementById(
-        "logoutBtn"
-    );
-
-
-if (logoutButton) {
-
-    logoutButton.addEventListener(
-        "click",
-        async function() {
-
-            try {
-
-                await supabaseClient
-                    .auth
-                    .signOut();
-
-            } catch (error) {
-
-                console.error(
-                    "Logout error:",
-                    error
-                );
-
-            }
-
-
-            window.location.href =
-                "auth.html";
-
         }
     );
 
@@ -2769,11 +1856,39 @@ if (logoutButton) {
 
 async function initialize() {
 
+    console.log(
+        "Circle: initializing check-in page..."
+    );
+
+
     applyLanguage();
 
-    await loadDashboard();
+
+    const user =
+        await getCurrentUser();
+
+
+    if (!user) {
+
+        return;
+
+    }
+
+
+    await loadTodayCheckin(
+        user
+    );
+
+
+    console.log(
+        "Circle: check-in page initialized."
+    );
 
 }
 
+
+/* ==========================================
+   START
+========================================== */
 
 initialize();
