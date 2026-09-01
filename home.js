@@ -1,7 +1,7 @@
 /* ==========================================
    CIRCLE
    HOME DASHBOARD
-   FINAL VERSION + CIRCLE AI
+   AI CONNECTED VERSION
    ========================================== */
 
 
@@ -13,7 +13,7 @@ const SUPABASE_URL =
     "https://nkgyoixxwweghklemtut.supabase.co";
 
 const SUPABASE_PUBLISHABLE_KEY =
-    "sb_publishable__HrEEcznU83KyZYmovtOow_qINbm_fq";
+    "sb_publishable__HrEEczUnu83KyZYmovtOow_qINbm_fq";
 
 const supabaseClient =
     window.supabase.createClient(
@@ -152,15 +152,6 @@ const translations = {
         insight:
             "CIRCLE INSIGHT",
 
-        aiInsight:
-            "Circle AI",
-
-        aiLoading:
-            "Circle AI is analyzing your recent entries...",
-
-        noAiInsight:
-            "Circle will generate deeper personal insights as more data becomes available.",
-
         building:
             "Your patterns are building.",
 
@@ -182,8 +173,11 @@ const translations = {
         loading:
             "Loading your data...",
 
-        unavailable:
-            "Unable to load your data. Please try again.",
+        aiLoading:
+            "Circle is analyzing your recent entries...",
+
+        aiUnavailable:
+            "Circle could not generate an AI insight right now. Your data is still saved safely.",
 
         today:
             "Today",
@@ -355,15 +349,6 @@ const translations = {
         insight:
             "إشارة CIRCLE",
 
-        aiInsight:
-            "Circle AI",
-
-        aiLoading:
-            "يقوم Circle AI بتحليل تسجيلاتك الأخيرة...",
-
-        noAiInsight:
-            "سيقدم Circle رؤى شخصية أعمق كلما توفرت بيانات أكثر.",
-
         building:
             "أنماطك بدأت تتضح.",
 
@@ -385,8 +370,11 @@ const translations = {
         loading:
             "جارٍ تحميل بياناتك...",
 
-        unavailable:
-            "تعذر تحميل بياناتك. حاول مرة أخرى.",
+        aiLoading:
+            "يقوم Circle بتحليل تسجيلاتك الأخيرة...",
+
+        aiUnavailable:
+            "تعذر إنشاء تحليل Circle AI الآن، لكن بياناتك ما زالت محفوظة بأمان.",
 
         today:
             "اليوم",
@@ -518,8 +506,16 @@ function formatDate(dateString) {
 
     const yesterdayString =
         yesterday
-            .toISOString()
-            .slice(0, 10);
+            .getFullYear() +
+        "-" +
+        String(
+            yesterday.getMonth() + 1
+        ).padStart(2, "0") +
+        "-" +
+        String(
+            yesterday.getDate()
+        ).padStart(2, "0");
+
 
     if (
         dateString ===
@@ -529,6 +525,7 @@ function formatDate(dateString) {
         return t("yesterday");
 
     }
+
 
     return date.toLocaleDateString(
         language === "ar"
@@ -557,6 +554,7 @@ async function getCurrentUser() {
             .auth
             .getUser();
 
+
     if (
         error ||
         !data ||
@@ -568,6 +566,7 @@ async function getCurrentUser() {
             "error"
         );
 
+
         setTimeout(
             function() {
 
@@ -578,9 +577,11 @@ async function getCurrentUser() {
             1000
         );
 
+
         return null;
 
     }
+
 
     return data.user;
 
@@ -601,12 +602,15 @@ function showMessage(
             "message"
         );
 
+
     if (!box) {
         return;
     }
 
+
     box.textContent =
         message;
+
 
     box.className =
         "message " + type;
@@ -627,6 +631,7 @@ function applyLanguage() {
         language === "ar"
             ? "rtl"
             : "ltr";
+
 
     const elements = {
 
@@ -689,6 +694,7 @@ function applyLanguage() {
 
     };
 
+
     Object.keys(elements)
         .forEach(
             function(id) {
@@ -706,12 +712,15 @@ function applyLanguage() {
             }
         );
 
+
     updateCheckinButton();
+
 
     const languageButton =
         document.getElementById(
             "languageBtn"
         );
+
 
     if (languageButton) {
 
@@ -721,6 +730,7 @@ function applyLanguage() {
                 : "العربية";
 
     }
+
 
     if (lastCheckinData) {
 
@@ -749,9 +759,11 @@ function updateCheckinButton() {
             "checkinBtn"
         );
 
+
     if (!button) {
         return;
     }
+
 
     button.textContent =
         todayCheckinExists
@@ -796,6 +808,7 @@ async function loadCheckins(user) {
                 }
             );
 
+
     if (error) {
 
         console.error(
@@ -803,14 +816,17 @@ async function loadCheckins(user) {
             error
         );
 
+
         showMessage(
-            t("unavailable"),
+            t("aiUnavailable"),
             "error"
         );
+
 
         return [];
 
     }
+
 
     return data || [];
 
@@ -828,9 +844,11 @@ function renderSnapshot(data) {
             "snapshotContainer"
         );
 
+
     if (!container) {
         return;
     }
+
 
     if (!data) {
 
@@ -858,6 +876,7 @@ function renderSnapshot(data) {
 
     }
 
+
     const sleep =
         data.sleep_hours;
 
@@ -878,6 +897,7 @@ function renderSnapshot(data) {
             data.mood
         );
 
+
     container.innerHTML = `
 
         <div class="snapshot-grid">
@@ -889,9 +909,7 @@ function renderSnapshot(data) {
                 sleep !== undefined
                     ? `${sleep} ${t("hours")}`
                     : "—",
-                getSleepStatus(
-                    sleep
-                )
+                getSleepStatus(sleep)
             )}
 
             ${metricCard(
@@ -901,9 +919,7 @@ function renderSnapshot(data) {
                 quality !== undefined
                     ? `${quality}/10`
                     : "—",
-                getQualityStatus(
-                    quality
-                )
+                getQualityStatus(quality)
             )}
 
             ${metricCard(
@@ -913,9 +929,7 @@ function renderSnapshot(data) {
                 water !== undefined
                     ? `${water} ${t("ml")}`
                     : "—",
-                getWaterStatus(
-                    water
-                )
+                getWaterStatus(water)
             )}
 
             ${metricCard(
@@ -925,9 +939,7 @@ function renderSnapshot(data) {
                 energy !== undefined
                     ? `${energy}/10`
                     : "—",
-                getEnergyStatus(
-                    energy
-                )
+                getEnergyStatus(energy)
             )}
 
             ${metricCard(
@@ -937,9 +949,7 @@ function renderSnapshot(data) {
                 stress !== undefined
                     ? `${stress}/10`
                     : "—",
-                getStressStatus(
-                    stress
-                )
+                getStressStatus(stress)
             )}
 
         </div>
@@ -953,7 +963,7 @@ function renderSnapshot(data) {
                 </div>
 
                 <div>
-                    ${mood}
+                    ${escapeHtml(mood)}
                 </div>
 
             </div>
@@ -985,7 +995,7 @@ function metricCard(
             </div>
 
             <div class="metric-name">
-                ${name}
+                ${escapeHtml(name)}
             </div>
 
             <div class="metric-value">
@@ -1011,9 +1021,7 @@ function metricCard(
    STATUS HELPERS
 ========================================== */
 
-function getSleepStatus(
-    value
-) {
+function getSleepStatus(value) {
 
     if (
         value === null ||
@@ -1041,9 +1049,7 @@ function getSleepStatus(
 }
 
 
-function getQualityStatus(
-    value
-) {
+function getQualityStatus(value) {
 
     if (
         value === null ||
@@ -1061,9 +1067,7 @@ function getQualityStatus(
 }
 
 
-function getWaterStatus(
-    value
-) {
+function getWaterStatus(value) {
 
     if (
         value === null ||
@@ -1081,9 +1085,7 @@ function getWaterStatus(
 }
 
 
-function getEnergyStatus(
-    value
-) {
+function getEnergyStatus(value) {
 
     if (
         value === null ||
@@ -1101,9 +1103,7 @@ function getEnergyStatus(
 }
 
 
-function getStressStatus(
-    value
-) {
+function getStressStatus(value) {
 
     if (
         value === null ||
@@ -1125,9 +1125,7 @@ function getStressStatus(
    MOOD
 ========================================== */
 
-function getMoodLabel(
-    mood
-) {
+function getMoodLabel(mood) {
 
     const map = {
 
@@ -1151,164 +1149,10 @@ function getMoodLabel(
 
 
 /* ==========================================
-   TODAY'S UNDERSTANDING
+   LOCAL PATTERN DETECTION
 ========================================== */
 
-function renderUnderstanding(
-    data,
-    history
-) {
-
-    const container =
-        document.getElementById(
-            "analysisContent"
-        );
-
-    if (!container) {
-        return;
-    }
-
-    if (!data) {
-
-        container.innerHTML = `
-
-            <div class="analysis-item">
-
-                ${t("noDataText")}
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-    const items = [];
-
-    if (
-        data.sleep_hours !== null &&
-        data.sleep_hours !== undefined
-    ) {
-
-        items.push(
-            `<div class="analysis-item">
-                <div class="analysis-label">
-                    ${t("sleep")}
-                </div>
-                ${escapeHtml(
-                    getSleepStatus(
-                        data.sleep_hours
-                    )
-                )}
-            </div>`
-        );
-
-    }
-
-    if (
-        data.sleep_quality !== null &&
-        data.sleep_quality !== undefined
-    ) {
-
-        items.push(
-            `<div class="analysis-item">
-                <div class="analysis-label">
-                    ${t("sleepQuality")}
-                </div>
-                ${escapeHtml(
-                    getQualityStatus(
-                        data.sleep_quality
-                    )
-                )}
-            </div>`
-        );
-
-    }
-
-    if (
-        data.energy_level !== null &&
-        data.energy_level !== undefined
-    ) {
-
-        items.push(
-            `<div class="analysis-item">
-                <div class="analysis-label">
-                    ${t("energy")}
-                </div>
-                ${escapeHtml(
-                    getEnergyStatus(
-                        data.energy_level
-                    )
-                )}
-            </div>`
-        );
-
-    }
-
-    if (
-        data.stress_level !== null &&
-        data.stress_level !== undefined
-    ) {
-
-        items.push(
-            `<div class="analysis-item">
-                <div class="analysis-label">
-                    ${t("stress")}
-                </div>
-                ${escapeHtml(
-                    getStressStatus(
-                        data.stress_level
-                    )
-                )}
-            </div>`
-        );
-
-    }
-
-    const pattern =
-        detectPattern(
-            history
-        );
-
-    if (pattern) {
-
-        items.push(
-            `<div class="analysis-item">
-                <div class="analysis-label">
-                    Circle
-                </div>
-                ${escapeHtml(pattern)}
-            </div>`
-        );
-
-    }
-
-    if (
-        items.length === 0
-    ) {
-
-        items.push(
-            `<div class="analysis-item">
-                ${t("patternGeneral")}
-            </div>`
-        );
-
-    }
-
-    container.innerHTML =
-        items.join("");
-
-}
-
-
-/* ==========================================
-   PATTERN DETECTION
-========================================== */
-
-function detectPattern(
-    history
-) {
+function detectPattern(history) {
 
     if (
         !history ||
@@ -1319,11 +1163,10 @@ function detectPattern(
 
     }
 
+
     const recent =
-        history.slice(
-            0,
-            7
-        );
+        history.slice(0, 7);
+
 
     const withSleepStress =
         recent.filter(
@@ -1331,11 +1174,14 @@ function detectPattern(
 
                 return (
                     row.sleep_hours !== null &&
-                    row.stress_level !== null
+                    row.sleep_hours !== undefined &&
+                    row.stress_level !== null &&
+                    row.stress_level !== undefined
                 );
 
             }
         );
+
 
     if (
         withSleepStress.length >= 3
@@ -1353,6 +1199,7 @@ function detectPattern(
                 }
             ).length;
 
+
         if (
             lowSleepHighStress >= 2
         ) {
@@ -1365,17 +1212,21 @@ function detectPattern(
 
     }
 
+
     const withSleepEnergy =
         recent.filter(
             function(row) {
 
                 return (
                     row.sleep_hours !== null &&
-                    row.energy_level !== null
+                    row.sleep_hours !== undefined &&
+                    row.energy_level !== null &&
+                    row.energy_level !== undefined
                 );
 
             }
         );
+
 
     if (
         withSleepEnergy.length >= 3
@@ -1393,6 +1244,7 @@ function detectPattern(
                 }
             ).length;
 
+
         if (
             lowSleepLowEnergy >= 2
         ) {
@@ -1405,17 +1257,21 @@ function detectPattern(
 
     }
 
+
     const stressEnergy =
         recent.filter(
             function(row) {
 
                 return (
                     row.stress_level !== null &&
-                    row.energy_level !== null
+                    row.stress_level !== undefined &&
+                    row.energy_level !== null &&
+                    row.energy_level !== undefined
                 );
 
             }
         );
+
 
     if (
         stressEnergy.length >= 3
@@ -1433,6 +1289,7 @@ function detectPattern(
                 }
             ).length;
 
+
         if (
             highStressLowEnergy >= 2
         ) {
@@ -1445,7 +1302,200 @@ function detectPattern(
 
     }
 
+
     return t("patternGeneral");
+
+}
+
+
+/* ==========================================
+   TODAY'S UNDERSTANDING
+========================================== */
+
+function renderUnderstanding(
+    data,
+    history
+) {
+
+    const container =
+        document.getElementById(
+            "analysisContent"
+        );
+
+
+    if (!container) {
+        return;
+    }
+
+
+    if (!data) {
+
+        container.innerHTML = `
+
+            <div class="analysis-item">
+
+                ${t("noDataText")}
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    const items = [];
+
+
+    if (
+        data.sleep_hours !== null &&
+        data.sleep_hours !== undefined
+    ) {
+
+        items.push(
+
+            `<div class="analysis-item">
+
+                <div class="analysis-label">
+                    ${t("sleep")}
+                </div>
+
+                ${escapeHtml(
+                    getSleepStatus(
+                        data.sleep_hours
+                    )
+                )}
+
+            </div>`
+
+        );
+
+    }
+
+
+    if (
+        data.sleep_quality !== null &&
+        data.sleep_quality !== undefined
+    ) {
+
+        items.push(
+
+            `<div class="analysis-item">
+
+                <div class="analysis-label">
+                    ${t("sleepQuality")}
+                </div>
+
+                ${escapeHtml(
+                    getQualityStatus(
+                        data.sleep_quality
+                    )
+                )}
+
+            </div>`
+
+        );
+
+    }
+
+
+    if (
+        data.energy_level !== null &&
+        data.energy_level !== undefined
+    ) {
+
+        items.push(
+
+            `<div class="analysis-item">
+
+                <div class="analysis-label">
+                    ${t("energy")}
+                </div>
+
+                ${escapeHtml(
+                    getEnergyStatus(
+                        data.energy_level
+                    )
+                )}
+
+            </div>`
+
+        );
+
+    }
+
+
+    if (
+        data.stress_level !== null &&
+        data.stress_level !== undefined
+    ) {
+
+        items.push(
+
+            `<div class="analysis-item">
+
+                <div class="analysis-label">
+                    ${t("stress")}
+                </div>
+
+                ${escapeHtml(
+                    getStressStatus(
+                        data.stress_level
+                    )
+                )}
+
+            </div>`
+
+        );
+
+    }
+
+
+    const pattern =
+        detectPattern(
+            history
+        );
+
+
+    if (pattern) {
+
+        items.push(
+
+            `<div class="analysis-item">
+
+                <div class="analysis-label">
+                    Circle
+                </div>
+
+                ${escapeHtml(pattern)}
+
+            </div>`
+
+        );
+
+    }
+
+
+    if (
+        items.length === 0
+    ) {
+
+        items.push(
+
+            `<div class="analysis-item">
+
+                ${t("patternGeneral")}
+
+            </div>`
+
+        );
+
+    }
+
+
+    container.innerHTML =
+        items.join("");
 
 }
 
@@ -1454,9 +1504,7 @@ function detectPattern(
    SLEEP DETAILS
 ========================================== */
 
-function renderSleepDetails(
-    data
-) {
+function renderSleepDetails(data) {
 
     const problemsContainer =
         document.getElementById(
@@ -1468,29 +1516,28 @@ function renderSleepDetails(
             "sleepReasonsTags"
         );
 
+
     if (!problemsContainer) {
         return;
     }
 
+
     if (!data) {
 
         problemsContainer.innerHTML =
-            emptyTag(
-                t("none")
-            );
+            emptyTag(t("none"));
 
         if (reasonsContainer) {
 
             reasonsContainer.innerHTML =
-                emptyTag(
-                    t("none")
-                );
+                emptyTag(t("none"));
 
         }
 
         return;
 
     }
+
 
     const problems =
         Array.isArray(
@@ -1499,6 +1546,7 @@ function renderSleepDetails(
             ? data.sleep_problems
             : [];
 
+
     const reasons =
         Array.isArray(
             data.sleep_reasons
@@ -1506,42 +1554,44 @@ function renderSleepDetails(
             ? data.sleep_reasons
             : [];
 
+
     problemsContainer.innerHTML =
         problems.length
+
             ? problems
                 .map(
                     function(value) {
 
                         return tag(
-                            translateValue(
-                                value
-                            )
+                            translateValue(value)
                         );
 
                     }
                 )
                 .join("")
+
             : emptyTag(
                 t("noProblems")
             );
+
 
     if (reasonsContainer) {
 
         reasonsContainer.innerHTML =
             reasons.length
+
                 ? reasons
                     .map(
                         function(value) {
 
                             return tag(
-                                translateValue(
-                                    value
-                                )
+                                translateValue(value)
                             );
 
                         }
                     )
                     .join("")
+
                 : emptyTag(
                     t("none")
                 );
@@ -1555,27 +1605,27 @@ function renderSleepDetails(
    TAG
 ========================================== */
 
-function tag(
-    text
-) {
+function tag(text) {
 
     return `
+
         <span class="tag">
             ${escapeHtml(text)}
         </span>
+
     `;
 
 }
 
 
-function emptyTag(
-    text
-) {
+function emptyTag(text) {
 
     return `
+
         <span class="tag empty">
             ${escapeHtml(text)}
         </span>
+
     `;
 
 }
@@ -1585,9 +1635,7 @@ function emptyTag(
    TRANSLATE DATABASE VALUES
 ========================================== */
 
-function translateValue(
-    value
-) {
+function translateValue(value) {
 
     const map = {
 
@@ -1693,6 +1741,7 @@ function translateValue(
 
     };
 
+
     return map[value] || value;
 
 }
@@ -1702,18 +1751,18 @@ function translateValue(
    HISTORY
 ========================================== */
 
-function renderHistory(
-    history
-) {
+function renderHistory(history) {
 
     const rows =
         document.getElementById(
             "historyRows"
         );
 
+
     if (!rows) {
         return;
     }
+
 
     if (
         !history ||
@@ -1732,11 +1781,10 @@ function renderHistory(
 
     }
 
+
     const recent =
-        history.slice(
-            0,
-            7
-        );
+        history.slice(0, 7);
+
 
     rows.innerHTML =
         recent
@@ -1802,9 +1850,7 @@ function renderHistory(
    MOOD EMOJI
 ========================================== */
 
-function moodEmoji(
-    mood
-) {
+function moodEmoji(mood) {
 
     const map = {
 
@@ -1822,6 +1868,7 @@ function moodEmoji(
 
     };
 
+
     return map[mood] || "—";
 
 }
@@ -1831,15 +1878,15 @@ function moodEmoji(
    VALUE
 ========================================== */
 
-function valueOrDash(
-    value
-) {
+function valueOrDash(value) {
 
     return (
         value === null ||
         value === undefined
     )
+
         ? "—"
+
         : escapeHtml(
             String(value)
         );
@@ -1851,9 +1898,7 @@ function valueOrDash(
    PROGRESS
 ========================================== */
 
-function renderProgress(
-    history
-) {
+function renderProgress(history) {
 
     const totalDays =
         document.getElementById(
@@ -1865,6 +1910,7 @@ function renderProgress(
             "streakDays"
         );
 
+
     if (totalDays) {
 
         totalDays.textContent =
@@ -1872,12 +1918,11 @@ function renderProgress(
 
     }
 
+
     if (streakDays) {
 
         streakDays.textContent =
-            calculateStreak(
-                history
-            );
+            calculateStreak(history);
 
     }
 
@@ -1888,9 +1933,7 @@ function renderProgress(
    STREAK
 ========================================== */
 
-function calculateStreak(
-    history
-) {
+function calculateStreak(history) {
 
     if (
         !history ||
@@ -1900,6 +1943,7 @@ function calculateStreak(
         return 0;
 
     }
+
 
     const dates =
         new Set(
@@ -1912,21 +1956,29 @@ function calculateStreak(
             )
         );
 
+
     let streak =
         0;
 
+
     let current =
         new Date();
+
 
     while (true) {
 
         const date =
             current
-                .toISOString()
-                .slice(
-                    0,
-                    10
-                );
+                .getFullYear() +
+            "-" +
+            String(
+                current.getMonth() + 1
+            ).padStart(2, "0") +
+            "-" +
+            String(
+                current.getDate()
+            ).padStart(2, "0");
+
 
         if (
             dates.has(date)
@@ -1946,16 +1998,180 @@ function calculateStreak(
 
     }
 
+
     return streak;
 
 }
 
 
 /* ==========================================
-   CIRCLE AI INSIGHT
+   CIRCLE AI
 ========================================== */
 
-async function renderInsight(
+async function generateAIInsight(history) {
+
+    const title =
+        document.getElementById(
+            "insightTitle"
+        );
+
+    const text =
+        document.getElementById(
+            "insightText"
+        );
+
+
+    if (!title || !text) {
+
+        console.error(
+            "AI insight elements not found."
+        );
+
+        return;
+
+    }
+
+
+    /* Show loading state */
+
+    title.textContent =
+        t("aiLoading");
+
+    text.textContent =
+        t("aiLoading");
+
+
+    try {
+
+        /* ----------------------------------
+           Send latest 7 entries to Circle AI
+        ---------------------------------- */
+
+        const recent =
+            history.slice(
+                0,
+                7
+            );
+
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient.functions.invoke(
+                "circle-ai",
+                {
+                    body: {
+
+                        language:
+                            language,
+
+                        checkins:
+                            recent
+
+                    }
+
+                }
+            );
+
+
+        if (error) {
+
+            console.error(
+                "Circle AI invoke error:",
+                error
+            );
+
+            throw error;
+
+        }
+
+
+        if (
+            !data ||
+            !data.success
+        ) {
+
+            console.error(
+                "Circle AI returned invalid data:",
+                data
+            );
+
+            throw new Error(
+                "Invalid AI response"
+            );
+
+        }
+
+
+        /* ----------------------------------
+           Crisis response
+        ---------------------------------- */
+
+        if (
+            data.crisis === true
+        ) {
+
+            title.textContent =
+                "Circle AI";
+
+            text.textContent =
+                data.insight ||
+                t("aiUnavailable");
+
+            return;
+
+        }
+
+
+        /* ----------------------------------
+           Normal AI insight
+        ---------------------------------- */
+
+        title.textContent =
+            "Circle AI";
+
+
+        text.textContent =
+            data.insight ||
+            t("buildingText");
+
+
+        console.log(
+            "Circle AI success:",
+            data
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Circle AI failed:",
+            error
+        );
+
+
+        /* ----------------------------------
+           Safe local fallback
+        ---------------------------------- */
+
+        title.textContent =
+            t("building");
+
+
+        text.textContent =
+            detectPattern(history) ||
+            t("aiUnavailable");
+
+    }
+
+}
+
+
+/* ==========================================
+   RENDER INSIGHT
+========================================== */
+
+function renderInsight(
     data,
     history
 ) {
@@ -1970,9 +2186,11 @@ async function renderInsight(
             "insightText"
         );
 
+
     if (!title || !text) {
         return;
     }
+
 
     if (!data) {
 
@@ -1986,122 +2204,17 @@ async function renderInsight(
 
     }
 
+
     /*
-       Show AI loading state
+       First render a temporary local message.
+       Then call Gemini through circle-ai.
     */
 
     title.textContent =
-        t("aiInsight");
+        "Circle AI";
 
     text.textContent =
         t("aiLoading");
-
-
-    try {
-
-        /*
-           Send recent wellness
-           entries to Circle AI.
-        */
-
-        const {
-            data: aiData,
-            error
-        } =
-            await supabaseClient
-                .functions
-                .invoke(
-                    "circle-ai",
-                    {
-                        body: {
-                            language:
-                                language,
-
-                            checkins:
-                                history.slice(
-                                    0,
-                                    30
-                                )
-                        }
-                    }
-                );
-
-
-        if (error) {
-
-            throw error;
-
-        }
-
-
-        /*
-           Crisis response
-        */
-
-        if (
-            aiData &&
-            aiData.crisis === true
-        ) {
-
-            title.textContent =
-                t("aiInsight");
-
-            text.textContent =
-                aiData.insight ||
-                t("noAiInsight");
-
-            return;
-
-        }
-
-
-        /*
-           Normal AI response
-        */
-
-        if (
-            aiData &&
-            aiData.success &&
-            aiData.insight
-        ) {
-
-            title.textContent =
-                t("aiInsight");
-
-            text.textContent =
-                aiData.insight;
-
-            return;
-
-        }
-
-
-        throw new Error(
-            "Invalid AI response"
-        );
-
-    } catch (error) {
-
-        console.error(
-            "Circle AI error:",
-            error
-        );
-
-        /*
-           Fallback to local
-           pattern detection.
-        */
-
-        title.textContent =
-            t("insight");
-
-        text.textContent =
-            detectPattern(
-                history
-            ) ||
-            t("noAiInsight");
-
-    }
 
 }
 
@@ -2118,44 +2231,65 @@ function renderAll(
     todayCheckinExists =
         !!today;
 
+
     lastCheckinData =
         today;
+
 
     allCheckins =
         history || [];
 
+
     updateCheckinButton();
+
 
     renderSnapshot(
         today
     );
+
 
     renderUnderstanding(
         today,
         history
     );
 
+
     renderSleepDetails(
         today
     );
+
 
     renderHistory(
         history
     );
 
+
     renderProgress(
         history
     );
 
-    /*
-       AI runs after the dashboard
-       data has been rendered.
-    */
 
     renderInsight(
         today,
         history
     );
+
+
+    /*
+       AI runs separately so the dashboard
+       remains usable even if Gemini is slow.
+    */
+
+    if (
+        history &&
+        history.length > 0
+    ) {
+
+        generateAIInsight(
+            history
+        );
+
+    }
 
 }
 
@@ -2164,27 +2298,30 @@ function renderAll(
    ESCAPE HTML
 ========================================== */
 
-function escapeHtml(
-    value
-) {
+function escapeHtml(value) {
 
     return String(value)
+
         .replace(
             /&/g,
             "&amp;"
         )
+
         .replace(
             /</g,
             "&lt;"
         )
+
         .replace(
             />/g,
             "&gt;"
         )
+
         .replace(
             /"/g,
             "&quot;"
         )
+
         .replace(
             /'/g,
             "&#039;"
@@ -2194,13 +2331,14 @@ function escapeHtml(
 
 
 /* ==========================================
-   CHECK-IN BUTTON EVENT
+   CHECK-IN BUTTON
 ========================================== */
 
 const checkinButton =
     document.getElementById(
         "checkinBtn"
     );
+
 
 if (checkinButton) {
 
@@ -2226,6 +2364,7 @@ const languageButton =
         "languageBtn"
     );
 
+
 if (languageButton) {
 
     languageButton.addEventListener(
@@ -2237,12 +2376,30 @@ if (languageButton) {
                     ? "ar"
                     : "en";
 
+
             localStorage.setItem(
                 "circleLanguage",
                 language
             );
 
+
             applyLanguage();
+
+
+            /*
+               Re-run AI in the selected language
+            */
+
+            if (
+                allCheckins &&
+                allCheckins.length > 0
+            ) {
+
+                generateAIInsight(
+                    allCheckins
+                );
+
+            }
 
         }
     );
@@ -2259,6 +2416,7 @@ const logoutButton =
         "logoutBtn"
     );
 
+
 if (logoutButton) {
 
     logoutButton.addEventListener(
@@ -2268,8 +2426,10 @@ if (logoutButton) {
             logoutButton.disabled =
                 true;
 
+
             logoutButton.textContent =
                 t("signingOut");
+
 
             const {
                 error
@@ -2278,6 +2438,7 @@ if (logoutButton) {
                     .auth
                     .signOut();
 
+
             if (error) {
 
                 console.error(
@@ -2285,15 +2446,19 @@ if (logoutButton) {
                     error
                 );
 
+
                 logoutButton.disabled =
                     false;
+
 
                 logoutButton.textContent =
                     t("signOut");
 
+
                 return;
 
             }
+
 
             window.location.href =
                 "auth.html";
@@ -2314,10 +2479,13 @@ async function initialize() {
         "Circle Home: initializing..."
     );
 
+
     applyLanguage();
+
 
     const user =
         await getCurrentUser();
+
 
     if (!user) {
 
@@ -2325,10 +2493,12 @@ async function initialize() {
 
     }
 
+
     const history =
         await loadCheckins(
             user
         );
+
 
     const today =
         history.find(
@@ -2342,10 +2512,12 @@ async function initialize() {
             }
         ) || null;
 
+
     renderAll(
         today,
         history
     );
+
 
     console.log(
         "Circle Home: initialized successfully."
