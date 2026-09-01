@@ -1,8 +1,8 @@
 /* ==========================================
    CIRCLE
    HOME DASHBOARD
-   AI CONNECTED VERSION
-   ========================================== */
+   SAFE SESSION VERSION
+========================================== */
 
 
 /* ==========================================
@@ -13,7 +13,7 @@ const SUPABASE_URL =
     "https://nkgyoixxwweghklemtut.supabase.co";
 
 const SUPABASE_PUBLISHABLE_KEY =
-    "sb_publishable__HrEEczUnu83KyZYmovtOow_qINbm_fq";
+    "sb_publishable__HrEEcznU83KyZYmovtOow_qINbm_fq";
 
 const supabaseClient =
     window.supabase.createClient(
@@ -173,11 +173,8 @@ const translations = {
         loading:
             "Loading your data...",
 
-        aiLoading:
-            "Circle is analyzing your recent entries...",
-
-        aiUnavailable:
-            "Circle could not generate an AI insight right now. Your data is still saved safely.",
+        unavailable:
+            "Unable to load your data. Please try again.",
 
         today:
             "Today",
@@ -228,7 +225,13 @@ const translations = {
             "Higher stress may be affecting your energy. Continue tracking both before drawing conclusions.",
 
         patternGeneral:
-            "Circle is beginning to learn your personal patterns. Keep checking in consistently."
+            "Circle is beginning to learn your personal patterns. Keep checking in consistently.",
+
+        aiInsight:
+            "Circle AI",
+
+        noAiInsight:
+            "Circle will generate deeper personal insights as more data becomes available."
 
     },
 
@@ -370,11 +373,8 @@ const translations = {
         loading:
             "جارٍ تحميل بياناتك...",
 
-        aiLoading:
-            "يقوم Circle بتحليل تسجيلاتك الأخيرة...",
-
-        aiUnavailable:
-            "تعذر إنشاء تحليل Circle AI الآن، لكن بياناتك ما زالت محفوظة بأمان.",
+        unavailable:
+            "تعذر تحميل بياناتك. حاول مرة أخرى.",
 
         today:
             "اليوم",
@@ -425,7 +425,13 @@ const translations = {
             "قد يكون ارتفاع التوتر مؤثرًا في مستوى طاقتك. استمر في تسجيل الاثنين قبل استخلاص نتيجة.",
 
         patternGeneral:
-            "بدأ Circle في التعرف على أنماطك الشخصية. استمر في التسجيل بانتظام."
+            "بدأ Circle في التعرف على أنماطك الشخصية. استمر في التسجيل بانتظام.",
+
+        aiInsight:
+            "Circle AI",
+
+        noAiInsight:
+            "سيقدم Circle رؤى شخصية أعمق كلما توفرت بيانات أكثر."
 
     }
 
@@ -542,48 +548,77 @@ function formatDate(dateString) {
 
 /* ==========================================
    CURRENT USER
+   SAFE SESSION VERSION
 ========================================== */
 
 async function getCurrentUser() {
 
-    const {
-        data,
-        error
-    } =
-        await supabaseClient
-            .auth
-            .getUser();
+    try {
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+                .auth
+                .getSession();
 
 
-    if (
-        error ||
-        !data ||
-        !data.user
-    ) {
+        if (error) {
+
+            console.error(
+                "Session error:",
+                error
+            );
+
+            showMessage(
+                t("unavailable"),
+                "error"
+            );
+
+            return null;
+
+        }
+
+
+        const session =
+            data?.session;
+
+
+        if (
+            !session ||
+            !session.user
+        ) {
+
+            console.log(
+                "No active session."
+            );
+
+            window.location.href =
+                "auth.html";
+
+            return null;
+
+        }
+
+
+        return session.user;
+
+    } catch (error) {
+
+        console.error(
+            "Authentication check error:",
+            error
+        );
 
         showMessage(
-            t("loginRequired"),
+            t("unavailable"),
             "error"
         );
-
-
-        setTimeout(
-            function() {
-
-                window.location.href =
-                    "auth.html";
-
-            },
-            1000
-        );
-
 
         return null;
 
     }
-
-
-    return data.user;
 
 }
 
@@ -818,7 +853,7 @@ async function loadCheckins(user) {
 
 
         showMessage(
-            t("aiUnavailable"),
+            t("unavailable"),
             "error"
         );
 
@@ -909,7 +944,9 @@ function renderSnapshot(data) {
                 sleep !== undefined
                     ? `${sleep} ${t("hours")}`
                     : "—",
-                getSleepStatus(sleep)
+                getSleepStatus(
+                    sleep
+                )
             )}
 
             ${metricCard(
@@ -919,7 +956,9 @@ function renderSnapshot(data) {
                 quality !== undefined
                     ? `${quality}/10`
                     : "—",
-                getQualityStatus(quality)
+                getQualityStatus(
+                    quality
+                )
             )}
 
             ${metricCard(
@@ -929,7 +968,9 @@ function renderSnapshot(data) {
                 water !== undefined
                     ? `${water} ${t("ml")}`
                     : "—",
-                getWaterStatus(water)
+                getWaterStatus(
+                    water
+                )
             )}
 
             ${metricCard(
@@ -939,7 +980,9 @@ function renderSnapshot(data) {
                 energy !== undefined
                     ? `${energy}/10`
                     : "—",
-                getEnergyStatus(energy)
+                getEnergyStatus(
+                    energy
+                )
             )}
 
             ${metricCard(
@@ -949,7 +992,9 @@ function renderSnapshot(data) {
                 stress !== undefined
                     ? `${stress}/10`
                     : "—",
-                getStressStatus(stress)
+                getStressStatus(
+                    stress
+                )
             )}
 
         </div>
@@ -963,7 +1008,7 @@ function renderSnapshot(data) {
                 </div>
 
                 <div>
-                    ${escapeHtml(mood)}
+                    ${mood}
                 </div>
 
             </div>
@@ -995,7 +1040,9 @@ function metricCard(
             </div>
 
             <div class="metric-name">
-                ${escapeHtml(name)}
+                ${escapeHtml(
+                    String(name)
+                )}
             </div>
 
             <div class="metric-value">
@@ -1021,7 +1068,9 @@ function metricCard(
    STATUS HELPERS
 ========================================== */
 
-function getSleepStatus(value) {
+function getSleepStatus(
+    value
+) {
 
     if (
         value === null ||
@@ -1031,6 +1080,7 @@ function getSleepStatus(value) {
         return "—";
 
     }
+
 
     if (value < 5) {
 
@@ -1038,18 +1088,22 @@ function getSleepStatus(value) {
 
     }
 
+
     if (value < 7) {
 
         return t("sleepLow");
 
     }
 
+
     return t("sleepGood");
 
 }
 
 
-function getQualityStatus(value) {
+function getQualityStatus(
+    value
+) {
 
     if (
         value === null ||
@@ -1059,6 +1113,7 @@ function getQualityStatus(value) {
         return "—";
 
     }
+
 
     return value >= 7
         ? t("sleepQualityGood")
@@ -1067,7 +1122,9 @@ function getQualityStatus(value) {
 }
 
 
-function getWaterStatus(value) {
+function getWaterStatus(
+    value
+) {
 
     if (
         value === null ||
@@ -1077,6 +1134,7 @@ function getWaterStatus(value) {
         return "—";
 
     }
+
 
     return value >= 1500
         ? t("hydrationGood")
@@ -1085,7 +1143,9 @@ function getWaterStatus(value) {
 }
 
 
-function getEnergyStatus(value) {
+function getEnergyStatus(
+    value
+) {
 
     if (
         value === null ||
@@ -1095,6 +1155,7 @@ function getEnergyStatus(value) {
         return "—";
 
     }
+
 
     return value >= 7
         ? t("energyGood")
@@ -1103,7 +1164,9 @@ function getEnergyStatus(value) {
 }
 
 
-function getStressStatus(value) {
+function getStressStatus(
+    value
+) {
 
     if (
         value === null ||
@@ -1113,6 +1176,7 @@ function getStressStatus(value) {
         return "—";
 
     }
+
 
     return value <= 4
         ? t("stressLow")
@@ -1125,7 +1189,9 @@ function getStressStatus(value) {
    MOOD
 ========================================== */
 
-function getMoodLabel(mood) {
+function getMoodLabel(
+    mood
+) {
 
     const map = {
 
@@ -1143,16 +1209,201 @@ function getMoodLabel(mood) {
 
     };
 
+
     return map[mood] || "—";
 
 }
 
 
 /* ==========================================
-   LOCAL PATTERN DETECTION
+   TODAY'S UNDERSTANDING
 ========================================== */
 
-function detectPattern(history) {
+function renderUnderstanding(
+    data,
+    history
+) {
+
+    const container =
+        document.getElementById(
+            "analysisContent"
+        );
+
+
+    if (!container) {
+        return;
+    }
+
+
+    if (!data) {
+
+        container.innerHTML = `
+
+            <div class="analysis-item">
+
+                ${t("noDataText")}
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    const items = [];
+
+
+    if (
+        data.sleep_hours !== null &&
+        data.sleep_hours !== undefined
+    ) {
+
+        items.push(
+            `<div class="analysis-item">
+
+                <div class="analysis-label">
+                    ${t("sleep")}
+                </div>
+
+                ${escapeHtml(
+                    getSleepStatus(
+                        data.sleep_hours
+                    )
+                )}
+
+            </div>`
+        );
+
+    }
+
+
+    if (
+        data.sleep_quality !== null &&
+        data.sleep_quality !== undefined
+    ) {
+
+        items.push(
+            `<div class="analysis-item">
+
+                <div class="analysis-label">
+                    ${t("sleepQuality")}
+                </div>
+
+                ${escapeHtml(
+                    getQualityStatus(
+                        data.sleep_quality
+                    )
+                )}
+
+            </div>`
+        );
+
+    }
+
+
+    if (
+        data.energy_level !== null &&
+        data.energy_level !== undefined
+    ) {
+
+        items.push(
+            `<div class="analysis-item">
+
+                <div class="analysis-label">
+                    ${t("energy")}
+                </div>
+
+                ${escapeHtml(
+                    getEnergyStatus(
+                        data.energy_level
+                    )
+                )}
+
+            </div>`
+        );
+
+    }
+
+
+    if (
+        data.stress_level !== null &&
+        data.stress_level !== undefined
+    ) {
+
+        items.push(
+            `<div class="analysis-item">
+
+                <div class="analysis-label">
+                    ${t("stress")}
+                </div>
+
+                ${escapeHtml(
+                    getStressStatus(
+                        data.stress_level
+                    )
+                )}
+
+            </div>`
+        );
+
+    }
+
+
+    const pattern =
+        detectPattern(
+            history
+        );
+
+
+    if (pattern) {
+
+        items.push(
+            `<div class="analysis-item">
+
+                <div class="analysis-label">
+                    Circle
+                </div>
+
+                ${escapeHtml(
+                    pattern
+                )}
+
+            </div>`
+        );
+
+    }
+
+
+    if (
+        items.length === 0
+    ) {
+
+        items.push(
+            `<div class="analysis-item">
+
+                ${t("patternGeneral")}
+
+            </div>`
+        );
+
+    }
+
+
+    container.innerHTML =
+        items.join("");
+
+}
+
+
+/* ==========================================
+   PATTERN DETECTION
+========================================== */
+
+function detectPattern(
+    history
+) {
 
     if (
         !history ||
@@ -1165,7 +1416,10 @@ function detectPattern(history) {
 
 
     const recent =
-        history.slice(0, 7);
+        history.slice(
+            0,
+            7
+        );
 
 
     const withSleepStress =
@@ -1309,202 +1563,12 @@ function detectPattern(history) {
 
 
 /* ==========================================
-   TODAY'S UNDERSTANDING
-========================================== */
-
-function renderUnderstanding(
-    data,
-    history
-) {
-
-    const container =
-        document.getElementById(
-            "analysisContent"
-        );
-
-
-    if (!container) {
-        return;
-    }
-
-
-    if (!data) {
-
-        container.innerHTML = `
-
-            <div class="analysis-item">
-
-                ${t("noDataText")}
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    const items = [];
-
-
-    if (
-        data.sleep_hours !== null &&
-        data.sleep_hours !== undefined
-    ) {
-
-        items.push(
-
-            `<div class="analysis-item">
-
-                <div class="analysis-label">
-                    ${t("sleep")}
-                </div>
-
-                ${escapeHtml(
-                    getSleepStatus(
-                        data.sleep_hours
-                    )
-                )}
-
-            </div>`
-
-        );
-
-    }
-
-
-    if (
-        data.sleep_quality !== null &&
-        data.sleep_quality !== undefined
-    ) {
-
-        items.push(
-
-            `<div class="analysis-item">
-
-                <div class="analysis-label">
-                    ${t("sleepQuality")}
-                </div>
-
-                ${escapeHtml(
-                    getQualityStatus(
-                        data.sleep_quality
-                    )
-                )}
-
-            </div>`
-
-        );
-
-    }
-
-
-    if (
-        data.energy_level !== null &&
-        data.energy_level !== undefined
-    ) {
-
-        items.push(
-
-            `<div class="analysis-item">
-
-                <div class="analysis-label">
-                    ${t("energy")}
-                </div>
-
-                ${escapeHtml(
-                    getEnergyStatus(
-                        data.energy_level
-                    )
-                )}
-
-            </div>`
-
-        );
-
-    }
-
-
-    if (
-        data.stress_level !== null &&
-        data.stress_level !== undefined
-    ) {
-
-        items.push(
-
-            `<div class="analysis-item">
-
-                <div class="analysis-label">
-                    ${t("stress")}
-                </div>
-
-                ${escapeHtml(
-                    getStressStatus(
-                        data.stress_level
-                    )
-                )}
-
-            </div>`
-
-        );
-
-    }
-
-
-    const pattern =
-        detectPattern(
-            history
-        );
-
-
-    if (pattern) {
-
-        items.push(
-
-            `<div class="analysis-item">
-
-                <div class="analysis-label">
-                    Circle
-                </div>
-
-                ${escapeHtml(pattern)}
-
-            </div>`
-
-        );
-
-    }
-
-
-    if (
-        items.length === 0
-    ) {
-
-        items.push(
-
-            `<div class="analysis-item">
-
-                ${t("patternGeneral")}
-
-            </div>`
-
-        );
-
-    }
-
-
-    container.innerHTML =
-        items.join("");
-
-}
-
-
-/* ==========================================
    SLEEP DETAILS
 ========================================== */
 
-function renderSleepDetails(data) {
+function renderSleepDetails(
+    data
+) {
 
     const problemsContainer =
         document.getElementById(
@@ -1525,12 +1589,16 @@ function renderSleepDetails(data) {
     if (!data) {
 
         problemsContainer.innerHTML =
-            emptyTag(t("none"));
+            emptyTag(
+                t("none")
+            );
 
         if (reasonsContainer) {
 
             reasonsContainer.innerHTML =
-                emptyTag(t("none"));
+                emptyTag(
+                    t("none")
+                );
 
         }
 
@@ -1557,19 +1625,19 @@ function renderSleepDetails(data) {
 
     problemsContainer.innerHTML =
         problems.length
-
             ? problems
                 .map(
                     function(value) {
 
                         return tag(
-                            translateValue(value)
+                            translateValue(
+                                value
+                            )
                         );
 
                     }
                 )
                 .join("")
-
             : emptyTag(
                 t("noProblems")
             );
@@ -1579,19 +1647,19 @@ function renderSleepDetails(data) {
 
         reasonsContainer.innerHTML =
             reasons.length
-
                 ? reasons
                     .map(
                         function(value) {
 
                             return tag(
-                                translateValue(value)
+                                translateValue(
+                                    value
+                                )
                             );
 
                         }
                     )
                     .join("")
-
                 : emptyTag(
                     t("none")
                 );
@@ -1605,27 +1673,27 @@ function renderSleepDetails(data) {
    TAG
 ========================================== */
 
-function tag(text) {
+function tag(
+    text
+) {
 
     return `
-
         <span class="tag">
             ${escapeHtml(text)}
         </span>
-
     `;
 
 }
 
 
-function emptyTag(text) {
+function emptyTag(
+    text
+) {
 
     return `
-
         <span class="tag empty">
             ${escapeHtml(text)}
         </span>
-
     `;
 
 }
@@ -1635,7 +1703,9 @@ function emptyTag(text) {
    TRANSLATE DATABASE VALUES
 ========================================== */
 
-function translateValue(value) {
+function translateValue(
+    value
+) {
 
     const map = {
 
@@ -1751,7 +1821,9 @@ function translateValue(value) {
    HISTORY
 ========================================== */
 
-function renderHistory(history) {
+function renderHistory(
+    history
+) {
 
     const rows =
         document.getElementById(
@@ -1783,7 +1855,10 @@ function renderHistory(history) {
 
 
     const recent =
-        history.slice(0, 7);
+        history.slice(
+            0,
+            7
+        );
 
 
     rows.innerHTML =
@@ -1850,7 +1925,9 @@ function renderHistory(history) {
    MOOD EMOJI
 ========================================== */
 
-function moodEmoji(mood) {
+function moodEmoji(
+    mood
+) {
 
     const map = {
 
@@ -1878,15 +1955,15 @@ function moodEmoji(mood) {
    VALUE
 ========================================== */
 
-function valueOrDash(value) {
+function valueOrDash(
+    value
+) {
 
     return (
         value === null ||
         value === undefined
     )
-
         ? "—"
-
         : escapeHtml(
             String(value)
         );
@@ -1898,7 +1975,9 @@ function valueOrDash(value) {
    PROGRESS
 ========================================== */
 
-function renderProgress(history) {
+function renderProgress(
+    history
+) {
 
     const totalDays =
         document.getElementById(
@@ -1922,7 +2001,9 @@ function renderProgress(history) {
     if (streakDays) {
 
         streakDays.textContent =
-            calculateStreak(history);
+            calculateStreak(
+                history
+            );
 
     }
 
@@ -1933,7 +2014,9 @@ function renderProgress(history) {
    STREAK
 ========================================== */
 
-function calculateStreak(history) {
+function calculateStreak(
+    history
+) {
 
     if (
         !history ||
@@ -1967,17 +2050,21 @@ function calculateStreak(history) {
 
     while (true) {
 
-        const date =
-            current
-                .getFullYear() +
-            "-" +
+        const year =
+            current.getFullYear();
+
+        const month =
             String(
                 current.getMonth() + 1
-            ).padStart(2, "0") +
-            "-" +
+            ).padStart(2, "0");
+
+        const day =
             String(
                 current.getDate()
             ).padStart(2, "0");
+
+        const date =
+            `${year}-${month}-${day}`;
 
 
         if (
@@ -2005,170 +2092,7 @@ function calculateStreak(history) {
 
 
 /* ==========================================
-   CIRCLE AI
-========================================== */
-
-async function generateAIInsight(history) {
-
-    const title =
-        document.getElementById(
-            "insightTitle"
-        );
-
-    const text =
-        document.getElementById(
-            "insightText"
-        );
-
-
-    if (!title || !text) {
-
-        console.error(
-            "AI insight elements not found."
-        );
-
-        return;
-
-    }
-
-
-    /* Show loading state */
-
-    title.textContent =
-        t("aiLoading");
-
-    text.textContent =
-        t("aiLoading");
-
-
-    try {
-
-        /* ----------------------------------
-           Send latest 7 entries to Circle AI
-        ---------------------------------- */
-
-        const recent =
-            history.slice(
-                0,
-                7
-            );
-
-
-        const {
-            data,
-            error
-        } =
-            await supabaseClient.functions.invoke(
-                "circle-ai",
-                {
-                    body: {
-
-                        language:
-                            language,
-
-                        checkins:
-                            recent
-
-                    }
-
-                }
-            );
-
-
-        if (error) {
-
-            console.error(
-                "Circle AI invoke error:",
-                error
-            );
-
-            throw error;
-
-        }
-
-
-        if (
-            !data ||
-            !data.success
-        ) {
-
-            console.error(
-                "Circle AI returned invalid data:",
-                data
-            );
-
-            throw new Error(
-                "Invalid AI response"
-            );
-
-        }
-
-
-        /* ----------------------------------
-           Crisis response
-        ---------------------------------- */
-
-        if (
-            data.crisis === true
-        ) {
-
-            title.textContent =
-                "Circle AI";
-
-            text.textContent =
-                data.insight ||
-                t("aiUnavailable");
-
-            return;
-
-        }
-
-
-        /* ----------------------------------
-           Normal AI insight
-        ---------------------------------- */
-
-        title.textContent =
-            "Circle AI";
-
-
-        text.textContent =
-            data.insight ||
-            t("buildingText");
-
-
-        console.log(
-            "Circle AI success:",
-            data
-        );
-
-    } catch (error) {
-
-        console.error(
-            "Circle AI failed:",
-            error
-        );
-
-
-        /* ----------------------------------
-           Safe local fallback
-        ---------------------------------- */
-
-        title.textContent =
-            t("building");
-
-
-        text.textContent =
-            detectPattern(history) ||
-            t("aiUnavailable");
-
-    }
-
-}
-
-
-/* ==========================================
-   RENDER INSIGHT
+   CIRCLE INSIGHT
 ========================================== */
 
 function renderInsight(
@@ -2205,16 +2129,19 @@ function renderInsight(
     }
 
 
-    /*
-       First render a temporary local message.
-       Then call Gemini through circle-ai.
-    */
+    const pattern =
+        detectPattern(
+            history
+        );
+
 
     title.textContent =
-        "Circle AI";
+        t("building");
+
 
     text.textContent =
-        t("aiLoading");
+        pattern ||
+        t("buildingText");
 
 }
 
@@ -2274,23 +2201,6 @@ function renderAll(
         history
     );
 
-
-    /*
-       AI runs separately so the dashboard
-       remains usable even if Gemini is slow.
-    */
-
-    if (
-        history &&
-        history.length > 0
-    ) {
-
-        generateAIInsight(
-            history
-        );
-
-    }
-
 }
 
 
@@ -2298,30 +2208,27 @@ function renderAll(
    ESCAPE HTML
 ========================================== */
 
-function escapeHtml(value) {
+function escapeHtml(
+    value
+) {
 
     return String(value)
-
         .replace(
             /&/g,
             "&amp;"
         )
-
         .replace(
             /</g,
             "&lt;"
         )
-
         .replace(
             />/g,
             "&gt;"
         )
-
         .replace(
             /"/g,
             "&quot;"
         )
-
         .replace(
             /'/g,
             "&#039;"
@@ -2331,7 +2238,7 @@ function escapeHtml(value) {
 
 
 /* ==========================================
-   CHECK-IN BUTTON
+   CHECK-IN BUTTON EVENT
 ========================================== */
 
 const checkinButton =
@@ -2384,22 +2291,6 @@ if (languageButton) {
 
 
             applyLanguage();
-
-
-            /*
-               Re-run AI in the selected language
-            */
-
-            if (
-                allCheckins &&
-                allCheckins.length > 0
-            ) {
-
-                generateAIInsight(
-                    allCheckins
-                );
-
-            }
 
         }
     );
@@ -2470,58 +2361,106 @@ if (logoutButton) {
 
 
 /* ==========================================
+   INITIALIZATION LOCK
+========================================== */
+
+let appInitialized =
+    false;
+
+
+/* ==========================================
    INITIALIZE
 ========================================== */
 
 async function initialize() {
 
-    console.log(
-        "Circle Home: initializing..."
-    );
+    if (appInitialized) {
 
-
-    applyLanguage();
-
-
-    const user =
-        await getCurrentUser();
-
-
-    if (!user) {
+        console.log(
+            "Circle Home: already initialized."
+        );
 
         return;
 
     }
 
 
-    const history =
-        await loadCheckins(
-            user
-        );
-
-
-    const today =
-        history.find(
-            function(row) {
-
-                return (
-                    row.checkin_date ===
-                    getTodayDate()
-                );
-
-            }
-        ) || null;
-
-
-    renderAll(
-        today,
-        history
-    );
+    appInitialized =
+        true;
 
 
     console.log(
-        "Circle Home: initialized successfully."
+        "Circle Home: initializing..."
     );
+
+
+    try {
+
+        applyLanguage();
+
+
+        const user =
+            await getCurrentUser();
+
+
+        if (!user) {
+
+            appInitialized =
+                false;
+
+            return;
+
+        }
+
+
+        const history =
+            await loadCheckins(
+                user
+            );
+
+
+        const today =
+            history.find(
+                function(row) {
+
+                    return (
+                        row.checkin_date ===
+                        getTodayDate()
+                    );
+
+                }
+            ) || null;
+
+
+        renderAll(
+            today,
+            history
+        );
+
+
+        console.log(
+            "Circle Home: initialized successfully."
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Circle Home initialization error:",
+            error
+        );
+
+
+        showMessage(
+            t("unavailable"),
+            "error"
+        );
+
+
+        appInitialized =
+            false;
+
+    }
 
 }
 
