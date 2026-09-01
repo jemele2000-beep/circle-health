@@ -1,7 +1,7 @@
 /* ==========================================
    CIRCLE
    HOME DASHBOARD
-   FINAL VERSION
+   FINAL VERSION + CIRCLE AI
    ========================================== */
 
 
@@ -152,6 +152,15 @@ const translations = {
         insight:
             "CIRCLE INSIGHT",
 
+        aiInsight:
+            "Circle AI",
+
+        aiLoading:
+            "Circle AI is analyzing your recent entries...",
+
+        noAiInsight:
+            "Circle will generate deeper personal insights as more data becomes available.",
+
         building:
             "Your patterns are building.",
 
@@ -225,13 +234,7 @@ const translations = {
             "Higher stress may be affecting your energy. Continue tracking both before drawing conclusions.",
 
         patternGeneral:
-            "Circle is beginning to learn your personal patterns. Keep checking in consistently.",
-
-        aiInsight:
-            "Circle AI",
-
-        noAiInsight:
-            "Circle will generate deeper personal insights as more data becomes available."
+            "Circle is beginning to learn your personal patterns. Keep checking in consistently."
 
     },
 
@@ -352,6 +355,15 @@ const translations = {
         insight:
             "إشارة CIRCLE",
 
+        aiInsight:
+            "Circle AI",
+
+        aiLoading:
+            "يقوم Circle AI بتحليل تسجيلاتك الأخيرة...",
+
+        noAiInsight:
+            "سيقدم Circle رؤى شخصية أعمق كلما توفرت بيانات أكثر.",
+
         building:
             "أنماطك بدأت تتضح.",
 
@@ -425,13 +437,7 @@ const translations = {
             "قد يكون ارتفاع التوتر مؤثرًا في مستوى طاقتك. استمر في تسجيل الاثنين قبل استخلاص نتيجة.",
 
         patternGeneral:
-            "بدأ Circle في التعرف على أنماطك الشخصية. استمر في التسجيل بانتظام.",
-
-        aiInsight:
-            "Circle AI",
-
-        noAiInsight:
-            "سيقدم Circle رؤى شخصية أعمق كلما توفرت بيانات أكثر."
+            "بدأ Circle في التعرف على أنماطك الشخصية. استمر في التسجيل بانتظام."
 
     }
 
@@ -503,7 +509,6 @@ function formatDate(dateString) {
 
     }
 
-
     const yesterday =
         new Date();
 
@@ -511,12 +516,10 @@ function formatDate(dateString) {
         yesterday.getDate() - 1
     );
 
-
     const yesterdayString =
         yesterday
             .toISOString()
             .slice(0, 10);
-
 
     if (
         dateString ===
@@ -526,7 +529,6 @@ function formatDate(dateString) {
         return t("yesterday");
 
     }
-
 
     return date.toLocaleDateString(
         language === "ar"
@@ -555,7 +557,6 @@ async function getCurrentUser() {
             .auth
             .getUser();
 
-
     if (
         error ||
         !data ||
@@ -567,7 +568,6 @@ async function getCurrentUser() {
             "error"
         );
 
-
         setTimeout(
             function() {
 
@@ -578,11 +578,9 @@ async function getCurrentUser() {
             1000
         );
 
-
         return null;
 
     }
-
 
     return data.user;
 
@@ -603,15 +601,12 @@ function showMessage(
             "message"
         );
 
-
     if (!box) {
         return;
     }
 
-
     box.textContent =
         message;
-
 
     box.className =
         "message " + type;
@@ -632,7 +627,6 @@ function applyLanguage() {
         language === "ar"
             ? "rtl"
             : "ltr";
-
 
     const elements = {
 
@@ -695,7 +689,6 @@ function applyLanguage() {
 
     };
 
-
     Object.keys(elements)
         .forEach(
             function(id) {
@@ -713,15 +706,12 @@ function applyLanguage() {
             }
         );
 
-
     updateCheckinButton();
-
 
     const languageButton =
         document.getElementById(
             "languageBtn"
         );
-
 
     if (languageButton) {
 
@@ -731,7 +721,6 @@ function applyLanguage() {
                 : "العربية";
 
     }
-
 
     if (lastCheckinData) {
 
@@ -760,11 +749,9 @@ function updateCheckinButton() {
             "checkinBtn"
         );
 
-
     if (!button) {
         return;
     }
-
 
     button.textContent =
         todayCheckinExists
@@ -809,7 +796,6 @@ async function loadCheckins(user) {
                 }
             );
 
-
     if (error) {
 
         console.error(
@@ -817,17 +803,14 @@ async function loadCheckins(user) {
             error
         );
 
-
         showMessage(
             t("unavailable"),
             "error"
         );
 
-
         return [];
 
     }
-
 
     return data || [];
 
@@ -845,11 +828,9 @@ function renderSnapshot(data) {
             "snapshotContainer"
         );
 
-
     if (!container) {
         return;
     }
-
 
     if (!data) {
 
@@ -877,32 +858,25 @@ function renderSnapshot(data) {
 
     }
 
-
     const sleep =
         data.sleep_hours;
-
 
     const quality =
         data.sleep_quality;
 
-
     const water =
         data.water_ml;
-
 
     const energy =
         data.energy_level;
 
-
     const stress =
         data.stress_level;
-
 
     const mood =
         getMoodLabel(
             data.mood
         );
-
 
     container.innerHTML = `
 
@@ -1050,20 +1024,17 @@ function getSleepStatus(
 
     }
 
-
     if (value < 5) {
 
         return t("sleepVeryLow");
 
     }
 
-
     if (value < 7) {
 
         return t("sleepLow");
 
     }
-
 
     return t("sleepGood");
 
@@ -1082,7 +1053,6 @@ function getQualityStatus(
         return "—";
 
     }
-
 
     return value >= 7
         ? t("sleepQualityGood")
@@ -1104,7 +1074,6 @@ function getWaterStatus(
 
     }
 
-
     return value >= 1500
         ? t("hydrationGood")
         : t("hydrationLow");
@@ -1125,7 +1094,6 @@ function getEnergyStatus(
 
     }
 
-
     return value >= 7
         ? t("energyGood")
         : t("energyLow");
@@ -1145,7 +1113,6 @@ function getStressStatus(
         return "—";
 
     }
-
 
     return value <= 4
         ? t("stressLow")
@@ -1178,7 +1145,6 @@ function getMoodLabel(
 
     };
 
-
     return map[mood] || "—";
 
 }
@@ -1198,11 +1164,9 @@ function renderUnderstanding(
             "analysisContent"
         );
 
-
     if (!container) {
         return;
     }
-
 
     if (!data) {
 
@@ -1220,9 +1184,7 @@ function renderUnderstanding(
 
     }
 
-
     const items = [];
-
 
     if (
         data.sleep_hours !== null &&
@@ -1244,7 +1206,6 @@ function renderUnderstanding(
 
     }
 
-
     if (
         data.sleep_quality !== null &&
         data.sleep_quality !== undefined
@@ -1264,7 +1225,6 @@ function renderUnderstanding(
         );
 
     }
-
 
     if (
         data.energy_level !== null &&
@@ -1286,7 +1246,6 @@ function renderUnderstanding(
 
     }
 
-
     if (
         data.stress_level !== null &&
         data.stress_level !== undefined
@@ -1307,12 +1266,10 @@ function renderUnderstanding(
 
     }
 
-
     const pattern =
         detectPattern(
             history
         );
-
 
     if (pattern) {
 
@@ -1327,7 +1284,6 @@ function renderUnderstanding(
 
     }
 
-
     if (
         items.length === 0
     ) {
@@ -1339,7 +1295,6 @@ function renderUnderstanding(
         );
 
     }
-
 
     container.innerHTML =
         items.join("");
@@ -1364,13 +1319,11 @@ function detectPattern(
 
     }
 
-
     const recent =
         history.slice(
             0,
             7
         );
-
 
     const withSleepStress =
         recent.filter(
@@ -1383,7 +1336,6 @@ function detectPattern(
 
             }
         );
-
 
     if (
         withSleepStress.length >= 3
@@ -1401,7 +1353,6 @@ function detectPattern(
                 }
             ).length;
 
-
         if (
             lowSleepHighStress >= 2
         ) {
@@ -1414,7 +1365,6 @@ function detectPattern(
 
     }
 
-
     const withSleepEnergy =
         recent.filter(
             function(row) {
@@ -1426,7 +1376,6 @@ function detectPattern(
 
             }
         );
-
 
     if (
         withSleepEnergy.length >= 3
@@ -1444,7 +1393,6 @@ function detectPattern(
                 }
             ).length;
 
-
         if (
             lowSleepLowEnergy >= 2
         ) {
@@ -1457,7 +1405,6 @@ function detectPattern(
 
     }
 
-
     const stressEnergy =
         recent.filter(
             function(row) {
@@ -1469,7 +1416,6 @@ function detectPattern(
 
             }
         );
-
 
     if (
         stressEnergy.length >= 3
@@ -1487,7 +1433,6 @@ function detectPattern(
                 }
             ).length;
 
-
         if (
             highStressLowEnergy >= 2
         ) {
@@ -1499,7 +1444,6 @@ function detectPattern(
         }
 
     }
-
 
     return t("patternGeneral");
 
@@ -1524,11 +1468,9 @@ function renderSleepDetails(
             "sleepReasonsTags"
         );
 
-
     if (!problemsContainer) {
         return;
     }
-
 
     if (!data) {
 
@@ -1537,15 +1479,18 @@ function renderSleepDetails(
                 t("none")
             );
 
-        reasonsContainer.innerHTML =
-            emptyTag(
-                t("none")
-            );
+        if (reasonsContainer) {
+
+            reasonsContainer.innerHTML =
+                emptyTag(
+                    t("none")
+                );
+
+        }
 
         return;
 
     }
-
 
     const problems =
         Array.isArray(
@@ -1554,14 +1499,12 @@ function renderSleepDetails(
             ? data.sleep_problems
             : [];
 
-
     const reasons =
         Array.isArray(
             data.sleep_reasons
         )
             ? data.sleep_reasons
             : [];
-
 
     problemsContainer.innerHTML =
         problems.length
@@ -1582,25 +1525,28 @@ function renderSleepDetails(
                 t("noProblems")
             );
 
+    if (reasonsContainer) {
 
-    reasonsContainer.innerHTML =
-        reasons.length
-            ? reasons
-                .map(
-                    function(value) {
+        reasonsContainer.innerHTML =
+            reasons.length
+                ? reasons
+                    .map(
+                        function(value) {
 
-                        return tag(
-                            translateValue(
-                                value
-                            )
-                        );
+                            return tag(
+                                translateValue(
+                                    value
+                                )
+                            );
 
-                    }
-                )
-                .join("")
-            : emptyTag(
-                t("none")
-            );
+                        }
+                    )
+                    .join("")
+                : emptyTag(
+                    t("none")
+                );
+
+    }
 
 }
 
@@ -1747,7 +1693,6 @@ function translateValue(
 
     };
 
-
     return map[value] || value;
 
 }
@@ -1766,11 +1711,9 @@ function renderHistory(
             "historyRows"
         );
 
-
     if (!rows) {
         return;
     }
-
 
     if (
         !history ||
@@ -1789,13 +1732,11 @@ function renderHistory(
 
     }
 
-
     const recent =
         history.slice(
             0,
             7
         );
-
 
     rows.innerHTML =
         recent
@@ -1881,7 +1822,6 @@ function moodEmoji(
 
     };
 
-
     return map[mood] || "—";
 
 }
@@ -1925,14 +1865,12 @@ function renderProgress(
             "streakDays"
         );
 
-
     if (totalDays) {
 
         totalDays.textContent =
             history.length;
 
     }
-
 
     if (streakDays) {
 
@@ -1963,7 +1901,6 @@ function calculateStreak(
 
     }
 
-
     const dates =
         new Set(
             history.map(
@@ -1975,14 +1912,11 @@ function calculateStreak(
             )
         );
 
-
     let streak =
         0;
 
-
     let current =
         new Date();
-
 
     while (true) {
 
@@ -1993,7 +1927,6 @@ function calculateStreak(
                     0,
                     10
                 );
-
 
         if (
             dates.has(date)
@@ -2013,17 +1946,16 @@ function calculateStreak(
 
     }
 
-
     return streak;
 
 }
 
 
 /* ==========================================
-   CIRCLE INSIGHT
+   CIRCLE AI INSIGHT
 ========================================== */
 
-function renderInsight(
+async function renderInsight(
     data,
     history
 ) {
@@ -2038,11 +1970,9 @@ function renderInsight(
             "insightText"
         );
 
-
     if (!title || !text) {
         return;
     }
-
 
     if (!data) {
 
@@ -2056,20 +1986,122 @@ function renderInsight(
 
     }
 
-
-    const pattern =
-        detectPattern(
-            history
-        );
-
+    /*
+       Show AI loading state
+    */
 
     title.textContent =
-        t("building");
-
+        t("aiInsight");
 
     text.textContent =
-        pattern ||
-        t("buildingText");
+        t("aiLoading");
+
+
+    try {
+
+        /*
+           Send recent wellness
+           entries to Circle AI.
+        */
+
+        const {
+            data: aiData,
+            error
+        } =
+            await supabaseClient
+                .functions
+                .invoke(
+                    "circle-ai",
+                    {
+                        body: {
+                            language:
+                                language,
+
+                            checkins:
+                                history.slice(
+                                    0,
+                                    30
+                                )
+                        }
+                    }
+                );
+
+
+        if (error) {
+
+            throw error;
+
+        }
+
+
+        /*
+           Crisis response
+        */
+
+        if (
+            aiData &&
+            aiData.crisis === true
+        ) {
+
+            title.textContent =
+                t("aiInsight");
+
+            text.textContent =
+                aiData.insight ||
+                t("noAiInsight");
+
+            return;
+
+        }
+
+
+        /*
+           Normal AI response
+        */
+
+        if (
+            aiData &&
+            aiData.success &&
+            aiData.insight
+        ) {
+
+            title.textContent =
+                t("aiInsight");
+
+            text.textContent =
+                aiData.insight;
+
+            return;
+
+        }
+
+
+        throw new Error(
+            "Invalid AI response"
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Circle AI error:",
+            error
+        );
+
+        /*
+           Fallback to local
+           pattern detection.
+        */
+
+        title.textContent =
+            t("insight");
+
+        text.textContent =
+            detectPattern(
+                history
+            ) ||
+            t("noAiInsight");
+
+    }
 
 }
 
@@ -2086,43 +2118,39 @@ function renderAll(
     todayCheckinExists =
         !!today;
 
-
     lastCheckinData =
         today;
-
 
     allCheckins =
         history || [];
 
-
     updateCheckinButton();
-
 
     renderSnapshot(
         today
     );
-
 
     renderUnderstanding(
         today,
         history
     );
 
-
     renderSleepDetails(
         today
     );
-
 
     renderHistory(
         history
     );
 
-
     renderProgress(
         history
     );
 
+    /*
+       AI runs after the dashboard
+       data has been rendered.
+    */
 
     renderInsight(
         today,
@@ -2174,7 +2202,6 @@ const checkinButton =
         "checkinBtn"
     );
 
-
 if (checkinButton) {
 
     checkinButton.addEventListener(
@@ -2199,7 +2226,6 @@ const languageButton =
         "languageBtn"
     );
 
-
 if (languageButton) {
 
     languageButton.addEventListener(
@@ -2211,12 +2237,10 @@ if (languageButton) {
                     ? "ar"
                     : "en";
 
-
             localStorage.setItem(
                 "circleLanguage",
                 language
             );
-
 
             applyLanguage();
 
@@ -2235,7 +2259,6 @@ const logoutButton =
         "logoutBtn"
     );
 
-
 if (logoutButton) {
 
     logoutButton.addEventListener(
@@ -2245,10 +2268,8 @@ if (logoutButton) {
             logoutButton.disabled =
                 true;
 
-
             logoutButton.textContent =
                 t("signingOut");
-
 
             const {
                 error
@@ -2257,14 +2278,12 @@ if (logoutButton) {
                     .auth
                     .signOut();
 
-
             if (error) {
 
                 console.error(
                     "Logout error:",
                     error
                 );
-
 
                 logoutButton.disabled =
                     false;
@@ -2275,7 +2294,6 @@ if (logoutButton) {
                 return;
 
             }
-
 
             window.location.href =
                 "auth.html";
@@ -2296,13 +2314,10 @@ async function initialize() {
         "Circle Home: initializing..."
     );
 
-
     applyLanguage();
-
 
     const user =
         await getCurrentUser();
-
 
     if (!user) {
 
@@ -2310,12 +2325,10 @@ async function initialize() {
 
     }
 
-
     const history =
         await loadCheckins(
             user
         );
-
 
     const today =
         history.find(
@@ -2329,12 +2342,10 @@ async function initialize() {
             }
         ) || null;
 
-
     renderAll(
         today,
         history
     );
-
 
     console.log(
         "Circle Home: initialized successfully."
